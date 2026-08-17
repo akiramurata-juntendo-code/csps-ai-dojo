@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSPS AI Dojo — Two Schools, One Village</title>
+<style>
+  :root { --ink:#2b1d0e; --paper:#f5efe2; --card:#fbf7ec; --iga:#7a1f1f; --koga:#1f3d6b;
+          --gold:#b98a2e; --lock:#9a8f7d; --border:#6b3a1f; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, "Times New Roman", "Yu Mincho", serif;
+         background: var(--paper); color: var(--ink); line-height:1.55; }
+  header { background: linear-gradient(160deg,#2b1d0e,#4a2c15);
+           color:#f1e5c8; text-align:center; padding: 34px 16px 26px; }
+  header .kanji { font-family:"Yu Mincho","MS Mincho",serif; font-size: 40px; letter-spacing:.15em; }
+  header h1 { font-size: 21px; font-weight:normal; margin-top:6px; letter-spacing:.06em; }
+  header p { font-size: 13.5px; margin-top:8px; color:#d9c79e; }
+  .clans { display:flex; justify-content:center; gap:14px; margin-top:14px; flex-wrap:wrap; }
+  .clanchip { border:1px solid #d9c79e; border-radius:20px; padding:4px 14px; font-size:12.5px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 20px 14px 60px; }
+  .note { background:#efe6d0; border-left:4px solid var(--gold); padding:10px 14px;
+          font-size:13.5px; margin:18px 0; border-radius:0 6px 6px 0; }
+  h2.phase { font-size:17px; margin:30px 0 10px; color:#4a2c15;
+             border-bottom:2px solid var(--border); padding-bottom:5px; letter-spacing:.04em; }
+  .card { background:var(--card); border:1px solid #d8c9a8; border-radius:10px;
+          padding:14px 16px; margin:10px 0; display:flex; gap:14px; align-items:flex-start; }
+  .card.locked { opacity:.62; }
+  .badge { min-width:44px; height:44px; border-radius:8px; display:flex; align-items:center;
+           justify-content:center; font-family:"Yu Mincho",serif; font-size:19px; color:#fff; }
+  .b-open { background:var(--gold); } .b-lock { background:var(--lock); }
+  .b-iga { background:var(--iga); } .b-koga { background:var(--koga); }
+  .card h3 { font-size:15.5px; margin-bottom:3px; }
+  .card p { font-size:13px; color:#5a4a33; }
+  .card .when { font-size:12px; color:#8a7454; font-style:italic; margin-top:3px; }
+  .btn { display:inline-block; margin-top:8px; padding:7px 16px; border-radius:6px;
+         background:var(--border); color:#fff; text-decoration:none; font-size:13.5px; }
+  .btn.koga { background:var(--koga); } .btn.iga { background:var(--iga); }
+  .pending { display:inline-block; margin-top:8px; padding:7px 14px; border-radius:6px;
+             background:#e5dcc6; color:#7a6a50; font-size:13px; }
+  /* scrolls */
+  .scroll { background: linear-gradient(135deg,#f7efdc,#ead9b5); border:6px solid var(--border);
+            border-radius:6px; padding:16px 20px; margin:12px 0; }
+  .scroll.sealed { text-align:center; padding:26px; color:#6b5a40;
+                   background:repeating-linear-gradient(45deg,#efe6d0,#efe6d0 12px,#e8dcc0 12px,#e8dcc0 24px); }
+  .scroll .clanline { font-size:12.5px; letter-spacing:.15em; font-weight:bold; }
+  .scroll .clanline.iga { color:var(--iga); } .scroll .clanline.koga { color:var(--koga); }
+  .scroll .kanji { font-family:"Yu Mincho",serif; font-size:26px; margin:2px 0 2px; }
+  .scroll .sub { font-style:italic; font-size:13px; color:#5a3a20; margin-bottom:8px; }
+  .art { display:flex; gap:10px; padding:5px 0; border-bottom:1px dotted #b59a6d; font-size:13px; align-items:baseline;}
+  .art:last-child { border-bottom:none; }
+  .art .jp { font-family:"Yu Mincho",serif; font-weight:bold; min-width:110px; }
+  .art .nm { font-weight:bold; min-width:150px; }
+  .art .nm.iga { color:var(--iga);} .art .nm.koga { color:var(--koga);}
+  .motto { text-align:right; font-family:"Yu Mincho",serif; color:#7a1f1f; font-size:13px; margin-top:8px; }
+  .qa { background:#fff9ec; border:1px dashed var(--gold); border-radius:8px; padding:10px 14px; margin-top:8px; font-size:13px; }
+  .qa li { margin:6px 0 6px 18px; }
+  footer { text-align:center; font-size:12.5px; color:#7a6a50; padding:26px 12px 40px; }
+  footer .m { font-family:"Yu Mincho",serif; font-size:15px; color:#4a2c15; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="kanji">忍びの道場</div>
+  <h1>CSPS AI Dojo — Two Schools, One Village</h1>
+  <p>AI Training Workshop · Centre for Strategic and Policy Studies · 24–28 August 2026<br>
+     Facilitator: Dr. Akira Murata, Juntendo University</p>
+  <div class="clans">
+    <span class="clanchip">伊賀 IGA SCHOOL — Administrators (24 &amp; 26 Aug)</span>
+    <span class="clanchip">甲賀 KOGA SCHOOL — Researchers (27 &amp; 28 Aug)</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="note"><b>How this dojo works.</b> This one page is your companion for the whole
+  workshop and beyond. New challenges, scrolls, and recordings unlock automatically as the
+  training progresses — return here each day. Bookmark this page now.</div>
+
+  <div id="app"></div>
+</div>
+
+<footer>
+  <div class="m">AI drafts. You decide.　—　Terima kasih</div>
+  Questions: a.murata.hf@juntendo.ac.jp
+</footer>
+
+<script>
+/* ============================================================
+   FACILITATOR CONFIG — the ONLY part that ever needs editing.
+   Paste real URLs between the quotes. Empty '' shows "available
+   shortly" once its date arrives. Edit directly on GitHub
+   (pencil icon) and Commit — the page updates in ~1 minute.
+   ============================================================ */
+var URLS = {
+  presurvey : '',   // Pre-workshop survey (Google Forms)
+  postsurvey: '',   // Post-workshop survey
+  quizA     : '',   // Morning Scroll Challenge - Administrators
+  quizR     : '',   // Morning Scroll Challenge - Researchers
+  audioA1   : '',   // Recap audio, Mon 24 Aug
+  audioA2   : '',   // Recap audio, Wed 26 Aug
+  audioR1   : '',   // Recap audio, Thu 27 Aug
+  audioR2   : '',   // Recap audio, Fri 28 Aug
+  t3survey  : '',   // 3-minute check-in survey (late September)
+  setup     : ''    // Account setup guide (PDF), optional
+};
+
+/* Unlock times in Brunei time (UTC+8), expressed as UTC. */
+function bn(y,mo,d,h){ return Date.UTC(y, mo-1, d, h-8, 0, 0); }
+var T = {
+  now:      0,
+  a1eve:    bn(2026,8,24,19),
+  quizA:    bn(2026,8,26,6),
+  postA:    bn(2026,8,26,15),
+  a2eve:    bn(2026,8,26,19),
+  r1eve:    bn(2026,8,27,19),
+  quizR:    bn(2026,8,28,6),
+  r2eve:    bn(2026,8,28,19),
+  touch1:   bn(2026,9,4,9),
+  touch2:   bn(2026,9,25,9)
+};
+
+var PREVIEW = /[?&]preview/.test(location.search);
+function open_(t){ return PREVIEW || Date.now() >= t; }
+function when_(label){ return '<div class="when">Unlocks ' + label + ' (Brunei time)</div>'; }
+function link_(url, text, cls){
+  if (url) return '<a class="btn ' + (cls||'') + '" href="' + url + '" target="_blank" rel="noopener">' + text + '</a>';
+  return '<span class="pending">Available shortly — check back soon</span>';
+}
+
+function card(opts){
+  var isOpen = open_(opts.t);
+  var badge = isOpen ? (opts.clan==='iga'?'b-iga':opts.clan==='koga'?'b-koga':'b-open') : 'b-lock';
+  var mark  = isOpen ? (opts.mark||'開') : '封';
+  var body  = '<h3>' + opts.title + '</h3><p>' + opts.desc + '</p>';
+  if (isOpen) { body += opts.body || ''; }
+  else { body += when_(opts.whenLabel); }
+  return '<div class="card' + (isOpen?'':' locked') + '">' +
+         '<div class="badge ' + badge + '">' + mark + '</div><div>' + body + '</div></div>';
+}
+
+function scrollCard(clan, clanLabel, kanji, sub, arts, motto, t, whenLabel){
+  if (!open_(t)) {
+    return '<div class="scroll sealed">封 &nbsp;' + kanji + ' — sealed until ' + whenLabel + '</div>';
+  }
+  var rows = arts.map(function(a){
+    return '<div class="art"><span class="jp">' + a[0] + '</span>' +
+           '<span class="nm ' + clan + '">' + a[1] + '</span><span>' + a[2] + '</span></div>';
+  }).join('');
+  return '<div class="scroll"><div class="clanline ' + clan + '">' + clanLabel + '</div>' +
+         '<div class="kanji">' + kanji + '</div><div class="sub">' + sub + '</div>' +
+         rows + '<div class="motto">' + motto + '</div></div>';
+}
+
+var html = '';
+
+/* ---------- Phase 0: begin ---------- */
+html += '<h2 class="phase">Begin Your Training</h2>';
+html += card({ t: T.now, mark:'始',
+  title: 'Pre-Workshop Survey (about 10 minutes)',
+  desc : 'Every ninja is measured before training begins. Your answers also tune the sessions to where you are.',
+  body : link_(URLS.presurvey, 'Enter the survey') +
+         (URLS.setup ? ' ' + link_(URLS.setup, 'Account setup guide') : '')
+});
+
+/* ---------- Phase 1: Iga days ---------- */
+html += '<h2 class="phase">伊賀 IGA SCHOOL — Administrators</h2>';
+html += card({ t: T.quizA, clan:'iga', mark:'試', whenLabel:'Wednesday 26 August, 06:00',
+  title: 'Morning Scroll Challenge (Wed 26 Aug, 09:05 in the dojo)',
+  desc : 'Five questions on the arts of Monday. Answer from memory — the recalling is the training.',
+  body : link_(URLS.quizA, 'Take the challenge', 'iga')
+});
+html += scrollCard('iga','IGA SCHOOL · FIRST SCROLL','秘伝 言霊の巻',
+  'The Hidden Scroll of Words — earned Monday 24 August',
+  [['五節の術','Five-Part Instruction','Role · Task · Context · Constraints · Format.'],
+   ['三分の心得','Three-Way Discipline','Public — paste freely. Internal — anonymise. Confidential — never.'],
+   ['見抜の術','The Art of True Sight','Before accepting any output: find one thing to fix.'],
+   ['写し型の術','The Style Mirror','Paste a real example and command: match this style.'],
+   ['返し訳の術','Returning Translation','Back-translate, compare claims, numbers, names, dates.']],
+  'AI drafts. You decide.', T.a1eve, 'Monday evening');
+html += card({ t: T.a1eve, clan:'iga', mark:'聲', whenLabel:'Monday 24 August, evening',
+  title: 'Recap Audio — Day 1 (about 5 minutes)',
+  desc : 'The arts of Monday, retold. Made with the very tools you trained with today.',
+  body : link_(URLS.audioA1, 'Listen', 'iga') });
+html += scrollCard('iga','IGA SCHOOL · SECOND SCROLL','秘伝 算勘の巻',
+  'The Hidden Scroll of Numbers — earned Wednesday 26 August',
+  [['二道検算の術','Two-Path Verification','Reach every important number by two independent routes.'],
+   ['出典結びの術','Source-Binding','Every claim tied to its document; disagreements surfaced.'],
+   ['正直図の術','The Honest Chart','Every axis and window is a claim. Review the editorial choices.'],
+   ['署名の掟','The Signing Code','AI-assisted draft, verified by [name] — accountability stays human.'],
+   ['一気通貫の術','End-to-End Mastery','Blank page to checked draft — proven in the capstone.']],
+  'When drafts are cheap, judgement is the premium.', T.a2eve, 'Wednesday evening');
+html += card({ t: T.a2eve, clan:'iga', mark:'聲', whenLabel:'Wednesday 26 August, evening',
+  title: 'Recap Audio — Day 2',
+  desc : 'Numbers, reports, and honest charts — the second day retold.',
+  body : link_(URLS.audioA2, 'Listen', 'iga') });
+
+/* ---------- Phase 2: Koga days ---------- */
+html += '<h2 class="phase">甲賀 KOGA SCHOOL — Researchers</h2>';
+html += card({ t: T.quizR, clan:'koga', mark:'試', whenLabel:'Friday 28 August, 06:00',
+  title: 'Morning Scroll Challenge (Fri 28 Aug, 09:05 in the dojo)',
+  desc : 'Five questions on the arts of Thursday. Answer from memory — the recalling is the training.',
+  body : link_(URLS.quizR, 'Take the challenge', 'koga')
+});
+html += scrollCard('koga','KOGA SCHOOL · FIRST SCROLL','秘伝 探求の巻',
+  'The Hidden Scroll of Inquiry — earned Thursday 27 August',
+  [['三角探索の術','The Triangle Search','AI suggests → indexes confirm → the researcher reads.'],
+   ['三役の掟','The Three-Role Code','Assistant and sparring partner — never authority.'],
+   ['幻術破りの術','Illusion-Breaking','Source-shaped text is genjutsu. Verify externally, always.'],
+   ['推敲環の術','The Polishing Cycle','Reverse-outline → rewrite → critique → your final pass.'],
+   ['不確かの印','The Mark of Doubt','[CHECK] — uncertainty exposed is uncertainty tamed.']],
+  'Fluency is not evidence.', T.r1eve, 'Thursday evening');
+html += card({ t: T.r1eve, clan:'koga', mark:'聲', whenLabel:'Thursday 27 August, evening',
+  title: 'Recap Audio — Day 1',
+  desc : 'The arts of Thursday, retold by the tools themselves.',
+  body : link_(URLS.audioR1, 'Listen', 'koga') });
+html += scrollCard('koga','KOGA SCHOOL · SECOND SCROLL','秘伝 検証の巻',
+  'The Hidden Scroll of Proof — earned Friday 28 August',
+  [['二道検算の術','Two-Path Verification','Reasoning and executed code, independently — then compare.'],
+   ['直心の問い','The Straight-Mind Question','Ask neutrally. A leading question earns a compliant answer.'],
+   ['三判者の術','The Three Referees','Summon three sceptics against your own design first.'],
+   ['任せ極めの掟','The Delegation Code','Delegate production. Keep verification and judgement.'],
+   ['先読みの術','Pre-Mortem Foresight','Write the rejection letter first. Rehearse the failure.']],
+  'Verification is the craft.', T.r2eve, 'Friday evening');
+html += card({ t: T.r2eve, clan:'koga', mark:'聲', whenLabel:'Friday 28 August, evening',
+  title: 'Recap Audio — Day 2',
+  desc : 'Proof, critique, and the delegation code — the final day retold.',
+  body : link_(URLS.audioR2, 'Listen', 'koga') });
+
+/* ---------- Post-survey ---------- */
+html += '<h2 class="phase">The Measure of Training</h2>';
+html += card({ t: T.postA, mark:'測', whenLabel:'Wednesday 26 August, 15:00',
+  title: 'Post-Workshop Survey (in the dojo, final session of your track)',
+  desc : 'The same measures as before training — so the change can be seen. Completed in the room: Administrators Wed 26, Researchers Fri 28.',
+  body : link_(URLS.postsurvey, 'Enter the survey')
+});
+
+/* ---------- Path of mastery ---------- */
+html += '<h2 class="phase">The Path of Mastery — after the workshop</h2>';
+html += card({ t: T.touch1, mark:'一', whenLabel:'Friday 4 September',
+  title: 'First Trial of Memory (+1 week)',
+  desc : 'Three questions, from memory. Answers unlock with the second trial.',
+  body : '<div class="qa"><ol>' +
+    '<li>What are the three categories of the data-discipline sort — and which never enters a public AI tool?</li>' +
+    '<li>What is the one thing you do before accepting any AI output?</li>' +
+    '<li>What are the five parts of a good instruction to an AI tool?</li></ol>' +
+    '<b>This week&#39;s challenge:</b> use the personal template you built — once, on a real task. ' +
+    'If it needed fixing, fix it. That fix is the template becoming yours.</div>'
+});
+html += card({ t: T.touch2, mark:'二', whenLabel:'Friday 25 September',
+  title: 'Second Trial of Memory (+1 month)',
+  desc : 'Answers to the first trial, three new questions, and a three-minute check-in.',
+  body : '<div class="qa"><b>Answers to the First Trial:</b> (1) Public / Internal — anonymise first / ' +
+    'Confidential — never. (2) Verify — find one thing to fix. (3) Role, Task, Context, Constraints, Format.' +
+    '<ol><li>When AI drafts a chart, what do you check before it reaches a decision-maker?</li>' +
+    '<li>What does the sources-and-confidence footer contain?</li>' +
+    '<li>Koga: the three corners of the Triangle Search? Iga: your reusable template — used this month?</li></ol></div>' +
+    link_(URLS.t3survey, 'Three-minute check-in survey') +
+    '<p style="font-size:12.5px;margin-top:6px;">A 60-minute follow-up session is available at the ' +
+    'request of CSPS — the village decides which mechanism to build first.</p>'
+});
+
+document.getElementById('app').innerHTML = html;
+if (PREVIEW) {
+  document.querySelector('.note').innerHTML =
+    '<b>PREVIEW MODE</b> — all gates shown as unlocked. Remove ?preview from the URL to see the participant view.';
+}
+</script>
+</body>
+</html>
