@@ -24,11 +24,15 @@
   .clans { display:flex; justify-content:center; gap:14px; margin-top:14px; flex-wrap:wrap; }
   .clanchip { border:1px solid #d9c79e; border-radius:20px; padding:4px 14px; font-size:12.5px; }
   .clanchip .k { font-family:"Yu Mincho",serif; color:#b99f6c; margin-left:6px; font-size:11.5px; }
-  .scene { display:block; width:100%; max-width:880px; height:88px; margin:12px auto 0; }
+  .banner { display:block; width:min(100%, 860px); margin:16px auto 0;
+            border-radius:12px 12px 0 0; box-shadow:0 -2px 12px rgba(0,0,0,.35); }
   .wrap { max-width: 860px; margin: 0 auto; padding: 20px 14px 60px; }
+  /* Character portraits */
+  .chara { border:2px solid var(--gold); border-radius:10px; background:#fff;
+           box-shadow:0 2px 6px rgba(0,0,0,.18); }
   /* Master welcome */
   .master { display:flex; gap:14px; align-items:flex-end; margin:20px 0 24px; }
-  .sensei { width:98px; height:130px; flex:0 0 auto; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
+  .sensei { width:110px; flex:0 0 auto; }
   .note { background:#efe6d0; border:1px solid #dccfa8; padding:12px 16px;
           font-size:13.5px; border-radius:12px; position:relative; flex:1; }
   .master .note::before { content:''; position:absolute; left:-9px; bottom:30px;
@@ -36,7 +40,7 @@
   .note .sign { margin-top:6px; font-size:12px; color:#8a7454; font-style:italic; }
   /* Clan guides */
   .guide { display:flex; align-items:center; gap:12px; margin:12px 0 4px; }
-  .guide .mascot { width:82px; height:110px; flex:0 0 auto; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
+  .guide .mascot { width:92px; flex:0 0 auto; }
   .gsay { background:#fff9ec; border:1px dashed var(--gold); border-radius:10px;
           padding:8px 14px; font-size:13px; color:#5a4a33; }
   .gsay b.iga { color:var(--iga); } .gsay b.koga { color:var(--koga); }
@@ -102,7 +106,7 @@
   @media (max-width:620px) {
     .master { flex-direction:column; align-items:center; }
     .master .note::before { display:none; }
-    .guide .mascot { width:64px; height:86px; }
+    .guide .mascot { width:72px; }
     .art .nm { min-width:128px; } .art .jp { min-width:70px; }
     .acquired { display:none; }
   }
@@ -110,61 +114,13 @@
 </head>
 <body>
 
-<!-- Character art: original hand-drawn SVG, no external assets -->
+<!-- Sealed-scroll art (SVG); characters are AI-generated images in assets/ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="cgrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f4e8cd"/><stop offset=".5" stop-color="#e2cd9e"/><stop offset="1" stop-color="#c8ab74"/>
     </linearGradient>
   </defs>
-  <symbol id="sym-sensei" viewBox="0 0 120 160">
-    <path d="M34 96 Q60 80 86 96 L96 146 Q60 158 24 146 Z" fill="#8a7454"/>
-    <path d="M34 96 Q60 80 86 96 L88 104 Q60 92 32 104 Z" fill="#6b5a40"/>
-    <rect x="34" y="118" width="52" height="9" rx="4" fill="#b98a2e"/>
-    <rect x="38" y="128" width="44" height="12" rx="6" fill="#f1e5c8" stroke="#6b3a1f" stroke-width="2"/>
-    <circle cx="60" cy="56" r="30" fill="#f3d9bd"/>
-    <path d="M30 52 A30 30 0 0 1 90 52 L84 58 Q60 38 36 58 Z" fill="#efe9dd"/>
-    <circle cx="60" cy="20" r="9" fill="#efe9dd"/>
-    <rect x="55" y="24" width="10" height="8" fill="#efe9dd"/>
-    <rect x="40" y="52" width="14" height="4.5" rx="2" fill="#efe9dd" transform="rotate(-8 47 54)"/>
-    <rect x="66" y="52" width="14" height="4.5" rx="2" fill="#efe9dd" transform="rotate(8 73 54)"/>
-    <path d="M43 63 Q48 58 53 63" stroke="#2b1d0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M67 63 Q72 58 77 63" stroke="#2b1d0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M52 74 Q60 80 68 74" stroke="#2b1d0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="sym-hana" viewBox="0 0 120 160">
-    <path d="M88 38 Q112 48 104 84 Q100 100 88 108 Q96 82 84 60 Z" fill="#3a2a1a"/>
-    <circle cx="58" cy="54" r="32" fill="#7a1f1f"/>
-    <ellipse cx="58" cy="60" rx="22" ry="16" fill="#f3d9bd"/>
-    <path d="M38 56 Q42 44 52 46 L46 60 Z" fill="#3a2a1a"/>
-    <path d="M78 56 Q74 44 64 46 L70 60 Z" fill="#3a2a1a"/>
-    <ellipse cx="49" cy="60" rx="3.4" ry="5" fill="#2b1d0e"/>
-    <ellipse cx="67" cy="60" rx="3.4" ry="5" fill="#2b1d0e"/>
-    <path d="M44 54 L48 52" stroke="#2b1d0e" stroke-width="1.6" stroke-linecap="round"/>
-    <path d="M72 54 L68 52" stroke="#2b1d0e" stroke-width="1.6" stroke-linecap="round"/>
-    <ellipse cx="42" cy="66" rx="3.4" ry="2" fill="#e8a58a" opacity=".65"/>
-    <ellipse cx="74" cy="66" rx="3.4" ry="2" fill="#e8a58a" opacity=".65"/>
-    <path d="M52 70 Q58 74 64 70" stroke="#2b1d0e" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="42" y="30" width="32" height="13" rx="4" fill="#b98a2e"/>
-    <text x="58" y="41" font-size="11" text-anchor="middle" fill="#fff" font-family="serif">伊</text>
-    <path d="M36 92 Q58 78 80 92 L88 138 Q58 150 28 138 Z" fill="#7a1f1f"/>
-    <rect x="36" y="112" width="44" height="8" rx="4" fill="#b98a2e"/>
-    <rect x="14" y="104" width="28" height="11" rx="5.5" fill="#f1e5c8" stroke="#6b3a1f" stroke-width="2" transform="rotate(-12 28 109)"/>
-  </symbol>
-  <symbol id="sym-ren" viewBox="0 0 120 160">
-    <circle cx="60" cy="54" r="32" fill="#1f3d6b"/>
-    <ellipse cx="60" cy="60" rx="22" ry="16" fill="#eccfae"/>
-    <path d="M46 52 L56 55" stroke="#2b1d0e" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M74 52 L64 55" stroke="#2b1d0e" stroke-width="2.6" stroke-linecap="round"/>
-    <ellipse cx="51" cy="61" rx="3.4" ry="5" fill="#2b1d0e"/>
-    <ellipse cx="69" cy="61" rx="3.4" ry="5" fill="#2b1d0e"/>
-    <path d="M54 71 Q60 75 66 71" stroke="#2b1d0e" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="44" y="30" width="32" height="13" rx="4" fill="#b98a2e"/>
-    <text x="60" y="41" font-size="11" text-anchor="middle" fill="#fff" font-family="serif">甲</text>
-    <path d="M38 92 Q60 78 82 92 L90 138 Q60 150 30 138 Z" fill="#1f3d6b"/>
-    <rect x="38" y="112" width="44" height="8" rx="4" fill="#b98a2e"/>
-    <rect x="80" y="102" width="28" height="11" rx="5.5" fill="#f1e5c8" stroke="#6b3a1f" stroke-width="2" transform="rotate(12 94 107)"/>
-  </symbol>
   <symbol id="sym-closed" viewBox="0 0 150 46">
     <rect x="12" y="10" width="126" height="26" rx="13" fill="url(#cgrad)" stroke="#8a6a3a"/>
     <circle cx="12" cy="23" r="9" fill="#6b3a1f"/><circle cx="138" cy="23" r="9" fill="#6b3a1f"/>
@@ -185,27 +141,13 @@
     <span class="clanchip">KOGA SCHOOL — Researchers (27 &amp; 28 Aug)<span class="k">甲賀</span></span>
   </div>
   <div class="kanji-accent">忍びの道場 — Two Schools, One Village</div>
-  <svg class="scene" viewBox="0 0 800 88" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <circle cx="530" cy="28" r="24" fill="#e8d9ae" opacity=".14"/>
-    <circle cx="530" cy="28" r="16" fill="#e8d9ae" opacity=".85"/>
-    <path d="M440 36 q5 -5 10 0 q5 -5 10 0" stroke="#d9c79e" stroke-width="1.6" fill="none" opacity=".7"/>
-    <path d="M468 22 q4 -4 8 0 q4 -4 8 0" stroke="#d9c79e" stroke-width="1.4" fill="none" opacity=".55"/>
-    <path d="M0 88 L0 60 Q90 32 190 58 Q300 82 420 54 Q560 28 680 60 Q740 72 800 58 L800 88 Z" fill="#3a2413"/>
-    <g fill="#1a0f05">
-      <rect x="286" y="68" width="28" height="20"/>
-      <path d="M270 68 L330 68 L322 58 L278 58 Z"/>
-      <rect x="290" y="46" width="20" height="12"/>
-      <path d="M274 46 L326 46 L318 37 L282 37 Z"/>
-      <rect x="294" y="28" width="12" height="9"/>
-      <path d="M280 28 L320 28 L300 16 Z"/>
-      <rect x="298" y="7" width="4" height="9"/>
-    </g>
-  </svg>
+  <img class="banner" src="assets/group.webp"
+       alt="The five dojo characters — the Master, Hattori, Hana, Minobe, and the ninja cat Kagenyan — under a full moon">
 </header>
 
 <div class="wrap">
   <div class="master">
-    <svg class="sensei"><use href="#sym-sensei"/></svg>
+    <img class="sensei chara" src="assets/master.webp" alt="The Master of the Dojo">
     <div class="note"><b>How this dojo works.</b> In the ninja tradition of Japan, skills are
     earned step by step and recorded on hidden scrolls. This one page is your companion for the
     whole workshop and beyond: new challenges, scrolls, and recordings unlock automatically as
@@ -276,8 +218,8 @@ function card(opts){
          '<div class="badge ' + badge + '">' + mark + '</div><div>' + body + '</div></div>';
 }
 
-function guide(clan, sym, name, line){
-  return '<div class="guide"><svg class="mascot"><use href="' + sym + '"/></svg>' +
+function guide(clan, img, name, line){
+  return '<div class="guide"><img class="mascot chara" src="assets/' + img + '.webp" alt="' + name + '">' +
          '<div class="gsay"><b class="' + clan + '">' + name + '</b><br>' + line + '</div></div>';
 }
 
@@ -304,6 +246,8 @@ var html = '';
 
 /* ---------- Phase 0: begin ---------- */
 html += '<h2 class="phase">Begin Your Training</h2>';
+html += guide('iga', 'hattori', 'Hattori of the Iga School',
+  'Your first mission, recruit! Enter the survey below — every ninja is measured before training begins. No skipping the measuring!');
 html += card({ t: T.now, mark:'&#128221;',
   title: 'Pre-Workshop Survey (about 10 minutes)',
   desc : 'Every ninja is measured before training begins. Your answers also tune the sessions to where you are.',
@@ -313,7 +257,7 @@ html += card({ t: T.now, mark:'&#128221;',
 
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
-html += guide('iga', '#sym-hana', 'Hana of the Iga School',
+html += guide('iga', 'hana', 'Hana of the Iga School',
   'Welcome, Administrators! Two hidden scrolls and a morning challenge await you here. Train well — I will keep your scrolls safe until each day is done.');
 html += card({ t: T.quizA, clan:'iga', mark:'Q', whenLabel:'Wednesday 26 August, 06:00',
   title: 'Morning Scroll Challenge (Wed 26 Aug, 09:05 in the dojo)',
@@ -347,7 +291,7 @@ html += card({ t: T.a2eve, clan:'iga', mark:'&#127911;', whenLabel:'Wednesday 26
 
 /* ---------- Phase 2: Koga days ---------- */
 html += '<h2 class="phase">KOGA SCHOOL — Researchers<span class="k">甲賀流</span></h2>';
-html += guide('koga', '#sym-ren', 'Ren of the Koga School',
+html += guide('koga', 'minobe', 'Minobe of the Koga School',
   'Researchers — our path is proof. Fluency is not evidence, and every claim must earn its place. Two scrolls of our school await you.');
 html += card({ t: T.quizR, clan:'koga', mark:'Q', whenLabel:'Friday 28 August, 06:00',
   title: 'Morning Scroll Challenge (Fri 28 Aug, 09:05 in the dojo)',
@@ -389,6 +333,8 @@ html += card({ t: T.postA, mark:'&#128202;', whenLabel:'Wednesday 26 August, 15:
 
 /* ---------- Path of mastery ---------- */
 html += '<h2 class="phase">The Path of Mastery — after the workshop</h2>';
+html += guide('koga', 'kagenyan', 'Kagenyan, Guardian of the Path',
+  'The ninja cat of the Koga school guards what comes after the workshop. Real mastery is decided in the weeks that follow — return when each trial opens. Meow.');
 html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
   title: 'First Trial of Memory (+1 week)',
   desc : 'Three questions, from memory. Answers unlock with the second trial.',
