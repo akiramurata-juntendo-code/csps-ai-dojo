@@ -202,7 +202,7 @@ var URLS = {
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : '',   // Account setup guide (PDF), optional
-  librarian : ''    // NotebookLM notebook with all handouts (the Librarian)
+  librarian : 'https://notebook.google.com/notebook/8a1a69b3-b6d7-4510-9a0f-af1ec742b9da/preview'    // NotebookLM chat view - the Librarian
 };
 
 /* Unlock times in Brunei time (UTC+8), expressed as UTC. */
@@ -400,7 +400,8 @@ html += LIB.map(function(b){
 html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b-lock') + '">&#129417;</div><div>' +
   '<h3>Ask the Librarian</h3>' +
   '<p>A NotebookLM notebook holding every handout. Ask it anything about the materials — every answer comes with a citation to the exact passage. Made with one of the very tools you are learning.</p>' +
-  (URLS.librarian ? '<a class="btn koga" href="' + URLS.librarian + '" target="_blank" rel="noopener">Ask the Librarian</a>'
+  (URLS.librarian ? '<a class="btn koga" href="' + URLS.librarian + '" target="_blank" rel="noopener">Ask the Librarian</a>' +
+                    '<p style="font-size:11.5px;margin-top:5px;color:#8a7454;">Sign in with any Google account to enter the library.</p>'
                   : '<span class="pending">The Librarian takes up post shortly — check back soon</span>') +
   '<p style="font-size:12px;margin-top:6px;color:#8a7454;">For questions beyond the documents, email the dojo: a.murata.hf@juntendo.ac.jp</p>' +
   '</div></div>';
