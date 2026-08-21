@@ -121,6 +121,14 @@
   .motto { text-align:right; font-style:italic; color:#7a1f1f; font-size:13px; margin-top:8px; }
   .qa { background:#fff9ec; border:1px dashed var(--gold); border-radius:8px; padding:10px 14px; margin-top:8px; font-size:13px; }
   .qa li { margin:6px 0 6px 18px; }
+  /* Library notice board */
+  .qaitem { background:#fff; border:1px solid #d8c9a8; border-radius:10px; padding:12px 16px; margin:10px 0; }
+  .qaitem .q { font-size:13.5px; font-weight:bold; color:#3a2410; }
+  .qaitem .q::before { content:"F64B "; }
+  .qaitem .a { font-size:13px; color:#5a4a33; margin-top:7px; padding:8px 12px; background:#f4eede;
+               border-left:3px solid var(--koga); border-radius:0 6px 6px 0; line-height:1.55; }
+  .qaitem .a::before { content:"F989 "; }
+  .qaitem .meta { font-size:11px; color:#9a8a70; margin-top:6px; font-style:italic; }
   footer { text-align:center; font-size:12.5px; color:#7a6a50; padding:26px 12px 40px; }
   footer .m { font-size:15px; color:#4a2c15; margin-bottom:6px; }
   @media (max-width:620px) {
@@ -203,6 +211,7 @@ var URLS = {
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : '',   // Account setup guide (PDF), optional
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
+  ,qaform   : ''    // Question submission form for the notice board
 };
 
 /* Unlock times in Brunei time (UTC+8), expressed as UTC. */
@@ -405,6 +414,31 @@ html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b
                   : '<span class="pending">The Librarian takes up post shortly — check back soon</span>') +
   '<p style="font-size:12px;margin-top:6px;color:#8a7454;">For questions beyond the documents, email the dojo: a.murata.hf@juntendo.ac.jp</p>' +
   '</div></div>';
+
+/* ---------- Library Notice Board ---------- */
+var BOARD = [
+  { q:'Is it safe to paste our internal documents into these AI tools?',
+    a:'The dojo teaches a three-way sort, and it applies to every tool on the shelf: Public material — paste freely. Internal material — anonymise first (remove names, figures that identify people or unpublished data). Confidential material — never enters a public AI tool at all. When in doubt, treat it as the more careful category. This exact discipline is practised hands-on on Day 1 of each track.',
+    d:'From the pre-workshop survey' },
+  { q:'If I use AI in my research or reports, is that cheating?',
+    a:'Using a tool is not the sin — hiding behind one is. The dojo standard is the Signing Code: AI drafts, you verify, and accountability stays with the human who signs. A report that says “AI-assisted draft, verified by [name]” is more honest than most unaided work, because the verification is declared. What would be misconduct is submitting unverified AI output as your own judgement.',
+    d:'From the pre-workshop survey' },
+  { q:'Which tool should I use to work through a long PDF report?',
+    a:'For reading and questioning one long document, the strongest choices on our shelf are Claude (long-form reading and careful summaries) and Gemini Notebook (answers only from the documents you upload, with citations). See the AI Tool Landscape sheet above — and remember the fourth rule: pick by task, not by loyalty.',
+    d:'From the pre-workshop survey' }
+];
+html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1">' +
+  '<h3>Library Notice Board</h3>' +
+  '<p>Questions from fellow participants, answered by the Librarian and posted each evening — ' +
+  'every question asked here teaches the whole village.</p>' +
+  (URLS.qaform ? '<a class="btn koga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit a question</a>'
+               : '<span class="pending">Question box opens on Day 1</span>') +
+  '</div></div>';
+html += BOARD.map(function(x){
+  return '<div class="qaitem"><div class="q">' + x.q + '</div>' +
+         '<div class="a">' + x.a + ' <i>&mdash; The Librarian</i></div>' +
+         '<div class="meta">' + x.d + '</div></div>';
+}).join('');
 
 document.getElementById('app').innerHTML = html;
 if (PREVIEW) {
