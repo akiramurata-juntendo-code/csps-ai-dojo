@@ -201,7 +201,8 @@ var URLS = {
   audioR1   : '',   // Recap audio, Thu 27 Aug
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
-  setup     : ''    // Account setup guide (PDF), optional
+  setup     : '',   // Account setup guide (PDF), optional
+  librarian : ''    // NotebookLM notebook with all handouts (the Librarian)
 };
 
 /* Unlock times in Brunei time (UTC+8), expressed as UTC. */
@@ -383,6 +384,26 @@ html += card({ t: T.touch2, mark:'II', whenLabel:'Friday 25 September',
     '<p style="font-size:12.5px;margin-top:6px;">A 60-minute follow-up session is available at the ' +
     'request of CSPS — the village decides which mechanism to build first.</p>'
 });
+
+/* ---------- Dojo Library ---------- */
+html += '<h2 class="phase">The Dojo Library<span class="k">蔵書院</span></h2>';
+html += guide('koga', 'minobe', 'Minobe, Keeper of the Library',
+  'Every handout from the training is kept here — new scrolls join the shelves as the week unfolds. Questions about any of them? Ask the Librarian below: it answers ONLY from these documents, with citations. The way of the library is the way of proof.');
+var LIB = [
+  { t:'The AI Tool Landscape — Beyond ChatGPT', d:'Six major AI tools compared: what each is, everyday uses, research uses — plus the four rules that never change.', u:'assets/library/ai-tool-landscape.pdf' }
+];
+html += LIB.map(function(b){
+  return '<div class="card"><div class="badge b-koga">&#128218;</div><div>' +
+    '<h3>' + b.t + '</h3><p>' + b.d + '</p>' +
+    '<a class="btn koga" href="' + b.u + '" target="_blank" rel="noopener">Open (PDF)</a></div></div>';
+}).join('');
+html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b-lock') + '">&#129417;</div><div>' +
+  '<h3>Ask the Librarian</h3>' +
+  '<p>A NotebookLM notebook holding every handout. Ask it anything about the materials — every answer comes with a citation to the exact passage. Made with one of the very tools you are learning.</p>' +
+  (URLS.librarian ? '<a class="btn koga" href="' + URLS.librarian + '" target="_blank" rel="noopener">Ask the Librarian</a>'
+                  : '<span class="pending">The Librarian takes up post shortly — check back soon</span>') +
+  '<p style="font-size:12px;margin-top:6px;color:#8a7454;">For questions beyond the documents, email the dojo: a.murata.hf@juntendo.ac.jp</p>' +
+  '</div></div>';
 
 document.getElementById('app').innerHTML = html;
 if (PREVIEW) {
