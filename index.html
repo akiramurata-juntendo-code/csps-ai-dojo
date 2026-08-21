@@ -180,7 +180,7 @@
     earned step by step and recorded on hidden scrolls. This one page is your companion for the
     whole workshop and beyond: new challenges, scrolls, and recordings unlock automatically as
     the training progresses — return here each day. Bookmark this page now.
-    <div class="sign">— The Master of the Dojo</div></div>
+    <div id="nextstep" style="margin-top:8px;"></div><div class="sign">— The Master of the Dojo</div></div>
   </div>
 
   <div id="app"></div>
@@ -276,20 +276,20 @@ var html = '';
 
 /* ---------- Phase 0: begin ---------- */
 html += '<h2 class="phase">Begin Your Training</h2>';
-html += '<div class="mission">' +
+html += '<div class="mission" id="mission">' +
   '<span class="ribbon">&#9888; FIRST MISSION &middot; REQUIRED</span>' +
   '<img class="hattori chara" src="assets/hattori.webp" alt="Hattori">' +
   '<div><h3>Pre-Workshop Survey &mdash; about 10 minutes</h3>' +
   '<p><b>Hattori:</b> First mission, recruit! Every ninja is measured before training begins &mdash; ' +
   'and your answers decide what the dojo emphasises. No skipping the measuring!</p>' +
-  '<div class="deadline">&#9203; Complete by <b>Friday 21 August</b> &mdash; before Day 1</div><br>' +
+  (Date.now() < bn(2026,8,21,18) ? '<div class="deadline">&#9203; Complete by <b>Friday 21 August</b> &mdash; before Day 1</div><br>' : '<div class="deadline">&#127774; Not done yet? No problem &mdash; time is set aside at the start of your first session to complete it in the room.</div><br>') +
   (URLS.presurvey ? '<a class="btn-mission" href="' + URLS.presurvey + '" target="_blank" rel="noopener">Enter the survey &#9654;</a>'
                   : '<span class="pending">Available shortly</span>') +
   (URLS.setup ? ' ' + link_(URLS.setup, 'Account setup guide') : '') +
   '</div></div>';
 
 /* ---------- Phase 1: Iga days ---------- */
-html += '<h2 class="phase">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
+html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
 html += guide('iga', 'hana', 'Hana of the Iga School',
   'Welcome, Administrators! Two hidden scrolls and a morning challenge await you here. Train well — I will keep your scrolls safe until each day is done.');
 html += card({ t: T.quizA, clan:'iga', mark:'Q', whenLabel:'Wednesday 26 August, 06:00',
@@ -323,7 +323,7 @@ html += card({ t: T.a2eve, clan:'iga', mark:'&#127911;', whenLabel:'Wednesday 26
   body : link_(URLS.audioA2, 'Listen', 'iga') });
 
 /* ---------- Phase 2: Koga days ---------- */
-html += '<h2 class="phase">KOGA SCHOOL — Researchers<span class="k">甲賀流</span></h2>';
+html += '<h2 class="phase" id="sec-koga">KOGA SCHOOL — Researchers<span class="k">甲賀流</span></h2>';
 html += guide('koga', 'minobe', 'Minobe of the Koga School',
   'Researchers — our path is proof. Fluency is not evidence, and every claim must earn its place. Two scrolls of our school await you.');
 html += card({ t: T.quizR, clan:'koga', mark:'Q', whenLabel:'Friday 28 August, 06:00',
@@ -365,7 +365,7 @@ html += card({ t: T.postA, mark:'&#128202;', whenLabel:'Wednesday 26 August, 15:
 });
 
 /* ---------- Path of mastery ---------- */
-html += '<h2 class="phase">The Path of Mastery — after the workshop</h2>';
+html += '<h2 class="phase" id="sec-path">The Path of Mastery — after the workshop</h2>';
 html += guide('koga', 'kagenyan', 'Kagenyan, Guardian of the Path',
   'The ninja cat of the Koga school guards what comes after the workshop. Real mastery is decided in the weeks that follow — return when each trial opens. Meow.');
 html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
@@ -441,6 +441,17 @@ html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b
   '</div></div>';
 
 document.getElementById('app').innerHTML = html;
+var nsEl = document.getElementById('nextstep');
+if (nsEl) {
+  var nowMs = Date.now();
+  var step = nowMs < bn(2026,8,24,6)  ? ['Complete the pre-workshop survey', 'mission']
+           : nowMs < bn(2026,8,27,6)  ? ['The Iga days are here &mdash; the challenges and scrolls of today are below', 'sec-iga']
+           : nowMs < bn(2026,8,29,6)  ? ['The Koga days are here &mdash; the challenges and scrolls of today are below', 'sec-koga']
+           : ['The workshop is complete &mdash; your path continues with the Trials', 'sec-path'];
+  nsEl.innerHTML = '<b>Your next step:</b> ' + step[0] + ' &nbsp;' +
+    '<a class="btn" style="padding:4px 12px;font-size:12.5px;margin-top:0" href="#" ' +
+    'onclick="document.getElementById(&#39;' + step[1] + '&#39;).scrollIntoView({behavior:&#39;smooth&#39;});return false;">Take me there &#9660;</a>';
+}
 if (PREVIEW) {
   document.querySelector('.note').innerHTML =
     '<b>PREVIEW MODE</b> — all gates shown as unlocked. Remove ?preview from the URL to see the participant view.';
