@@ -359,7 +359,15 @@ html += '<div class="mission" id="mission">' +
 /* ---------- The Village's Wishes ---------- */
 html += '<h2 class="phase" id="sec-wishes">The Village&#39;s Wishes<span class="k">願いの巻</span></h2>';
 html += guide('iga', 'hana', 'Hana, Keeper of Wishes',
-  'On the first morning of each school, every table names one task it would love to hand to an AI assistant. Those wishes are written here the same evening, without names, and each is tied to the session or scroll that answers it. In September the Master will ask: how far did your wish come true?');
+  'Half of each school comes from UBD, half from CSPS — so the village begins by meeting itself. On the first morning we hold the <b>Wish Round</b>: it is both the introduction and the first act of training. Wishes are written here the same evening, without names, and in September the Master will ask: how far did your wish come true?');
+html += '<div class="card"><div class="badge b-iga">&#129309;</div><div style="flex:1">' +
+  '<h3>The Wish Round &mdash; how the village meets itself (first morning, ~15 min)</h3>' +
+  '<p style="margin-top:4px">At your table, one minute each, three things and no more:</p>' +
+  '<div class="wish"><span class="tag">1</span><span><b>Your name</b> &mdash; as you like to be called today.</span></div>' +
+  '<div class="wish"><span class="tag">2</span><span><b>Where you work</b> &mdash; UBD or CSPS, and what you actually do there. No ranks, no titles &mdash; in the dojo everyone wears the same belt.</span></div>' +
+  '<div class="wish"><span class="tag">3</span><span><b>One wish</b> &mdash; a task from your real week you would love to hand to an AI assistant.</span></div>' +
+  '<p style="font-size:12.5px;margin-top:8px;color:#5a4a33">Each table then tells the room its most common wish; the Master maps every wish to the session that answers it. The wishes go on the flipchart, and onto this page by evening &mdash; anonymously.</p>' +
+  '</div></div>';
 if (WISHES.length === 0) {
   html += '<div class="card"><div class="badge b-lock">&#128203;</div><div><h3>The wishes of the village</h3>' +
           '<p>They will appear here on the evening of the first training day, after the Wish Round.</p></div></div>';
