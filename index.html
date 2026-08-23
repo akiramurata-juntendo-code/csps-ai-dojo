@@ -121,6 +121,23 @@
   .motto { text-align:right; font-style:italic; color:#7a1f1f; font-size:13px; margin-top:8px; }
   .qa { background:#fff9ec; border:1px dashed var(--gold); border-radius:8px; padding:10px 14px; margin-top:8px; font-size:13px; }
   .qa li { margin:6px 0 6px 18px; }
+  /* Belt ladder (header) */
+  .belts { display:flex; justify-content:center; gap:6px; margin:12px auto 0; flex-wrap:wrap; max-width:860px; }
+  .belt { font-size:11.5px; padding:3px 10px; border-radius:12px; border:1px solid #7a6a50; color:#b9ab8c; }
+  .belt.on { background:#f1e5c8; color:#2b1d0e; border-color:#f1e5c8; font-weight:bold; }
+  .beltnote { font-size:11.5px; color:#d9c79e; margin-top:6px; }
+  .beltbanner { background:linear-gradient(135deg,#fff,#f4eede); border:2px solid var(--gold); border-radius:10px;
+                padding:10px 14px; margin:14px 0 0; font-size:13px; color:#3a2410; }
+  .beltbanner b { color:#7a4a12; }
+  /* Village wishes & book of failures */
+  .wish { display:flex; gap:10px; align-items:flex-start; padding:7px 0; border-bottom:1px dotted #b59a6d; font-size:13px; }
+  .wish:last-child { border-bottom:none; }
+  .wish .tag { flex:0 0 auto; font-size:10.5px; letter-spacing:.06em; padding:2px 8px; border-radius:10px;
+               background:#efe6d0; color:#5a4a33; border:1px solid #d8c9a8; white-space:nowrap; }
+  .wish .tag.done { background:var(--iga); color:#fff; border-color:var(--iga); }
+  .wish .tag.koga { background:var(--koga); color:#fff; border-color:var(--koga); }
+  .fail { background:#fff; border:1px solid #d8c9a8; border-left:4px solid #a03123; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
+  .fail b { color:#7a1f1f; }
   /* Library notice board */
   .qaitem { background:#fff; border:1px solid #d8c9a8; border-radius:10px; padding:12px 16px; margin:10px 0; }
   .qaitem .q { font-size:13.5px; font-weight:bold; color:#3a2410; }
@@ -169,6 +186,14 @@
     <span class="clanchip">KOGA SCHOOL — Researchers (27 &amp; 28 Aug)<span class="k">甲賀</span></span>
   </div>
   <div class="kanji-accent">忍びの道場 — Two Schools, One Village</div>
+  <div class="belts" id="belts">
+    <span class="belt" data-b="white">White — entered the dojo</span>
+    <span class="belt" data-b="yellow">Yellow — scrolls + morning challenge</span>
+    <span class="belt" data-b="green">Green — capstone signed</span>
+    <span class="belt" data-b="brown">Brown — Trial I (+1 week)</span>
+    <span class="belt" data-b="black">Black — Trial II (+1 month)</span>
+  </div>
+  <div class="beltnote">Belts are earned by what you do after the room, not by the calendar.</div>
   <img class="banner" src="assets/group.webp"
        alt="The five dojo characters — the Master, Hattori, Hana, Minobe, and the ninja cat Kagenyan — under a full moon">
 </header>
@@ -210,9 +235,23 @@ var URLS = {
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : '',   // Account setup guide (PDF), optional
+  scaffoldA : '',   // Wednesday training aids (fill-in template + blank page), Administrators
+  scaffoldR : '',   // Friday training aids, Researchers
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
   ,qaform   : 'https://forms.gle/ZHfFKSSiMKtevFG8A'    // Question submission form for the notice board
 };
+
+/* ---- The Village's Wishes (filled each evening from the Wish Round; no names) ----
+   tag: 'done' = covered in the session named, 'next' = coming later this week,
+   'koga' = belongs to the Researchers' days, 'scroll' = see the named scroll. */
+var WISHES = [
+  // { w:'Turn a messy scheduling thread into a table of who owes what', tag:'done', where:'Day 1 · Session 4' },
+];
+/* ---- The Village Book of Failures (anonymous posts, reviewed each evening) ----
+   Each entry: task / expected / actual / why. Five entries open the Red Team scroll. */
+var FAILS = [
+  // { task:'Draft a reminder to a Pengiran', expected:'Honorifics kept in full', actual:'Dropped the title', why:'Titles look optional to a model - name them in Constraints' },
+];
 
 /* Unlock times in Brunei time (UTC+8), expressed as UTC. */
 function bn(y,mo,d,h){ return Date.UTC(y, mo-1, d, h-8, 0, 0); }
@@ -288,13 +327,28 @@ html += '<div class="mission" id="mission">' +
   (URLS.setup ? ' ' + link_(URLS.setup, 'Account setup guide') : '') +
   '</div></div>';
 
+/* ---------- The Village's Wishes ---------- */
+html += '<h2 class="phase" id="sec-wishes">The Village&#39;s Wishes<span class="k">願いの巻</span></h2>';
+html += guide('iga', 'hana', 'Hana, Keeper of Wishes',
+  'On the first morning of each school, every table names one task it would love to hand to an AI assistant. Those wishes are written here the same evening, without names, and each is tied to the session or scroll that answers it. In September the Master will ask: how far did your wish come true?');
+if (WISHES.length === 0) {
+  html += '<div class="card"><div class="badge b-lock">&#128203;</div><div><h3>The wishes of the village</h3>' +
+          '<p>They will appear here on the evening of the first training day, after the Wish Round.</p></div></div>';
+} else {
+  var tagLabel = { done:'COVERED', next:'THIS WEEK', koga:'KOGA DAYS', scroll:'SEE SCROLL' };
+  html += '<div class="card"><div class="badge b-iga">&#128203;</div><div style="flex:1"><h3>The wishes of the village (' + WISHES.length + ')</h3>' +
+    WISHES.map(function(x){ return '<div class="wish"><span class="tag ' + (x.tag==='done'?'done':x.tag==='koga'?'koga':'') + '">' +
+      (tagLabel[x.tag]||x.tag) + (x.where ? ' &middot; ' + x.where : '') + '</span><span>' + x.w + '</span></div>'; }).join('') +
+    '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Written from the Wish Round, no names. Missing yours? Tell the question box.</p></div></div>';
+}
+
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
 html += guide('iga', 'hana', 'Hana of the Iga School',
   'Welcome, Administrators! Two hidden scrolls and a morning challenge await you here. Train well — I will keep your scrolls safe until each day is done.');
 html += card({ t: T.quizA, clan:'iga', mark:'Q', whenLabel:'Wednesday 26 August, 06:00',
   title: 'Morning Scroll Challenge (Wed 26 Aug, at the start of Day 2)',
-  desc : 'Five questions on the arts of Monday. Answer from memory — the recalling is the training.',
+  desc : 'Five questions on the arts of Monday. Answer from memory — the recalling is the training. The one the village finds hardest returns in the First Trial, word for word: the same enemy, easier the second time.',
   body : link_(URLS.quizA, 'Take the challenge', 'iga')
 });
 html += scrollCard('iga','IGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Words','秘伝 言霊の巻',
@@ -307,8 +361,12 @@ html += scrollCard('iga','IGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Word
   'AI drafts. You decide.', T.a1eve, 'Monday evening');
 html += card({ t: T.a1eve, clan:'iga', mark:'&#127911;', whenLabel:'Monday 24 August, evening',
   title: 'Recap Audio — Day 1 (about 5 minutes)',
-  desc : 'The arts of Monday, retold. Made with the very tools you trained with today.',
+  desc : 'The arts of Monday, retold as a five-minute debate between the Master and Hattori — made with the very tools you trained with today. Car-length on purpose.',
   body : link_(URLS.audioA1, 'Listen', 'iga') });
+html += card({ t: T.quizA, clan:'iga', mark:'&#129513;', whenLabel:'Wednesday 26 August, 06:00',
+  title: 'Training aids for Wednesday — choose your starting point',
+  desc : 'Two sheets, the same for every table: a fill-in template (start from 30 points) and a blank page (start from zero). Pick the one that fits you today; nobody is assigned. The quiz and the capstone are the same for everyone — only the starting point is yours to choose.',
+  body : link_(URLS.scaffoldA, 'Open the training aids', 'iga') });
 html += scrollCard('iga','IGA SCHOOL · SECOND SCROLL','The Hidden Scroll of Numbers','秘伝 算勘の巻',
   'earned Wednesday 26 August',
   [['Two-Path Verification','二道検算の術','Reach every important number by two independent routes.'],
@@ -319,7 +377,7 @@ html += scrollCard('iga','IGA SCHOOL · SECOND SCROLL','The Hidden Scroll of Num
   'When drafts are cheap, judgement is the premium.', T.a2eve, 'Wednesday evening');
 html += card({ t: T.a2eve, clan:'iga', mark:'&#127911;', whenLabel:'Wednesday 26 August, evening',
   title: 'Recap Audio — Day 2',
-  desc : 'Numbers, reports, and honest charts — the second day retold.',
+  desc : 'Numbers, reports, and honest charts — the second day retold as a debate.',
   body : link_(URLS.audioA2, 'Listen', 'iga') });
 
 /* ---------- Phase 2: Koga days ---------- */
@@ -328,7 +386,7 @@ html += guide('koga', 'minobe', 'Minobe of the Koga School',
   'Researchers — our path is proof. Fluency is not evidence, and every claim must earn its place. Two scrolls of our school await you.');
 html += card({ t: T.quizR, clan:'koga', mark:'Q', whenLabel:'Friday 28 August, 06:00',
   title: 'Morning Scroll Challenge (Fri 28 Aug, at the start of Day 2)',
-  desc : 'Five questions on the arts of Thursday. Answer from memory — the recalling is the training.',
+  desc : 'Five questions on the arts of Thursday. Answer from memory — the recalling is the training. The one the village finds hardest returns in the First Trial, word for word: the same enemy, easier the second time.',
   body : link_(URLS.quizR, 'Take the challenge', 'koga')
 });
 html += scrollCard('koga','KOGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Inquiry','秘伝 探求の巻',
@@ -343,6 +401,14 @@ html += card({ t: T.r1eve, clan:'koga', mark:'&#127911;', whenLabel:'Thursday 27
   title: 'Recap Audio — Day 1',
   desc : 'The arts of Thursday, retold by the tools themselves.',
   body : link_(URLS.audioR1, 'Listen', 'koga') });
+html += card({ t: T.quizR, clan:'koga', mark:'&#129513;', whenLabel:'Friday 28 August, 06:00',
+  title: 'Training aids for Friday — choose your starting point',
+  desc : 'Two sheets, the same for every table: a fill-in template and a blank page. Pick the one that fits you today; the quiz and the capstone are the same for everyone.',
+  body : link_(URLS.scaffoldR, 'Open the training aids', 'koga') });
+html += card({ t: T.quizR, clan:'koga', mark:'&#9878;', whenLabel:'Friday 28 August, 06:00',
+  title: 'The Meeting of the Schools — Friday afternoon',
+  desc : 'Iga built reusable templates on Monday; Koga builds indicator cards on Thursday. On Friday each school referees the other, anonymised: researchers judge a template with the preconditions questions, administrators test whether an indicator card can be read by a busy director. Not a contest — a mutual audit. Those who trained in both schools carry the scrolls across.',
+  body : '' });
 html += scrollCard('koga','KOGA SCHOOL · SECOND SCROLL','The Hidden Scroll of Proof','秘伝 検証の巻',
   'earned Friday 28 August',
   [['Two-Path Verification','二道検算の術','Reasoning and executed code, independently — then compare.'],
@@ -370,7 +436,7 @@ html += guide('koga', 'kagenyan', 'Kagenyan, Guardian of the Path',
   'The ninja cat of the Koga school guards what comes after the workshop. Real mastery is decided in the weeks that follow — return when each trial opens. Meow.');
 html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
   title: 'First Trial of Memory (+1 week)',
-  desc : 'Three questions, from memory. Answers unlock with the second trial.',
+  desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial.',
   body : '<div class="qa"><ol>' +
     '<li>What are the three categories of the data-discipline sort — and which never enters a public AI tool?</li>' +
     '<li>What is the one thing you do before accepting any AI output?</li>' +
@@ -453,6 +519,32 @@ html += BOARD.map(function(x){
          '<div class="meta">' + x.d + '</div></div>';
 }).join('');
 
+/* ---------- The Village Book of Failures (red-team scroll) ---------- */
+html += '<div class="card"><div class="badge b-iga">&#128214;</div><div style="flex:1">' +
+  '<h3>The Village Book of Failures</h3>' +
+  '<p>Every ninja keeps a record of the traps that caught them. When an AI tool fails you — a dropped honorific, a Malay date turned round, a regulation number that does not exist — post it here in four lines: ' +
+  '<i>task · what you expected · what it did · why you think it happened</i>. Anonymous. Five entries open the <b>Red Team Scroll</b>; the book itself becomes the village&#39;s own field guide.</p>' +
+  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Record a failure (start your message with FAIL:)</a>' : '') +
+  '</div></div>';
+html += FAILS.map(function(f){
+  return '<div class="fail"><b>Task:</b> ' + f.task + ' &nbsp;<b>Expected:</b> ' + f.expected +
+         '<br><b>It did:</b> ' + f.actual + ' &nbsp;<b>Why:</b> ' + f.why + '</div>';
+}).join('');
+if (FAILS.length >= 5 || PREVIEW) {
+  html += scrollCard('iga','THE VILLAGE · RED TEAM SCROLL','The Scroll of Honest Failure','秘伝 失敗帳の巻',
+    'opened by the village itself',
+    [['The Honorific Trap','敬称の罠','Titles, bin/binti and Hj/Hjh are optional words to a model. Name them in Constraints; check them first.'],
+     ['The Confident Number','自信の数字','A figure with no source in your material is a guess dressed as a fact. Ask where it came from.'],
+     ['The Vanished Commitment','消えた約束','Shortened drafts lose dates and duties. Count the commitments before and after.'],
+     ['The Turned Date','裏返しの日付','Day and month swap across languages. Back-translate what matters.'],
+     ['The Invented Reference','架空の典拠','A regulation, circular or paper that does not exist. Open it before you cite it.']],
+    'The village that records its failures stops repeating them.', 0, 'now');
+} else {
+  html += '<div class="scroll sealed"><svg class="closedscroll"><use href="#sym-closed"/></svg>' +
+          '<div>&#128274; <b>Sealed — The Scroll of Honest Failure</b> &middot; opens when the village has recorded five failures (' + FAILS.length + '/5 so far)' +
+          '<br><span class="k">秘伝 失敗帳の巻</span></div></div>';
+}
+
 html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b-lock') + '">&#129417;</div><div>' +
   '<h3>Ask the Librarian &mdash; instant answers, any hour</h3>' +
   '<p>Cannot wait for the evening board, or prefer to ask privately? This Gemini Notebook (formerly NotebookLM) holds every handout and answers instantly, 24/7, with a citation to the exact passage — a live demonstration of the grounded-briefing technique taught in the dojo.</p>' +
@@ -474,6 +566,22 @@ if (nsEl) {
     '<a class="btn" style="padding:4px 12px;font-size:12.5px;margin-top:0" href="#" ' +
     'onclick="document.getElementById(&#39;' + step[1] + '&#39;).scrollIntoView({behavior:&#39;smooth&#39;});return false;">Take me there &#9660;</a>';
 }
+/* ---- Belts: White is earned by entering the dojo (first-five-minutes rule). Stored only on this device. ---- */
+(function(){
+  var KEY='dojo_white_belt', first=false, since=null;
+  try { since = localStorage.getItem(KEY); if (!since) { since = new Date().toISOString().slice(0,10); localStorage.setItem(KEY, since); first=true; } } catch(e){}
+  var belts = document.querySelectorAll('#belts .belt');
+  for (var i=0;i<belts.length;i++){ if (belts[i].getAttribute('data-b')==='white') belts[i].classList.add('on'); }
+  var app = document.getElementById('app');
+  if (app) {
+    var b = document.createElement('div'); b.className='beltbanner';
+    b.innerHTML = first
+      ? '&#9898; <b>WHITE BELT ACQUIRED</b> — you entered the dojo. Every ninja begins here. Your next belt, Yellow, is earned by opening both scrolls and taking the morning challenge.'
+      : '&#9898; <b>White Belt</b> since ' + since + '. Yellow waits for the scrolls and the morning challenge; Brown and Black are decided in the weeks after the room.';
+    app.insertBefore(b, app.firstChild);
+  }
+})();
+
 if (PREVIEW) {
   document.querySelector('.note').innerHTML =
     '<b>PREVIEW MODE</b> — all gates shown as unlocked. Remove ?preview from the URL to see the participant view.';
