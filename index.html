@@ -369,7 +369,7 @@ html += guide('koga', 'kagenyan', 'Kagenyan, Keeper of Words',
   'The Master speaks English and a little Japanese; the village speaks Bahasa Melayu. So the village writes this dictionary itself: when a table agrees on the Malay for one of the dojo&#39;s arts, it goes on the wall and then here. Back-translating into Malay is a verification skill the Master cannot do — and you can.');
 html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1"><h3>Kamus Kampung (' + GLOSS.length + ' words)</h3>' +
   '<div class="gloss">' + GLOSS.map(function(g){ return '<div><span class="bm">' + g.bm + '</span> — ' + g.en + ' <span class="src">' + g.by + '</span></div>'; }).join('') + '</div>' +
-  '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Add a word: write it on the flipchart in the room, or send it to the question box starting with <b>KAMUS:</b>. Words are checked by the village before they are posted.</p></div></div>';
+  '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Add a word: write it on the flipchart in the room, or open the question box and choose <b>A Malay word for Kamus Kampung</b>. Words are checked by the village before they are posted.</p></div></div>';
 
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
@@ -548,8 +548,8 @@ var BOARD = [
 html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1">' +
   '<h3>Library Notice Board</h3>' +
   '<p>The main hall of the library: questions from fellow participants, answered by the Librarian ' +
-  'and posted each evening. Every question asked here teaches the whole village &mdash; ask freely, anonymously if you wish.</p>' +
-  (URLS.qaform ? '<a class="btn koga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit a question</a>'
+  'and posted each evening. One box, three uses: a question, a failure for the Book of Failures, or a Malay word for Kamus Kampung &mdash; choose on the first screen. Anonymous unless you add your name.</p>' +
+  (URLS.qaform ? '<a class="btn koga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Open the question box</a>'
                : '<span class="pending">Question box opens on Day 1</span>') +
   '</div></div>';
 html += BOARD.map(function(x){
@@ -561,9 +561,9 @@ html += BOARD.map(function(x){
 /* ---------- The Village Book of Failures (red-team scroll) ---------- */
 html += '<div class="card"><div class="badge b-iga">&#128214;</div><div style="flex:1">' +
   '<h3>The Village Book of Failures</h3>' +
-  '<p>Every ninja keeps a record of the traps that caught them. When an AI tool fails you — a dropped honorific, a Malay date turned round, a regulation number that does not exist — post it here in four lines: ' +
-  '<i>task · what you expected · what it did · why you think it happened</i>. Anonymous. Five entries open the <b>Red Team Scroll</b>; the book itself becomes the village&#39;s own field guide.</p>' +
-  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Record a failure (start your message with FAIL:)</a>' : '') +
+  '<p>Every ninja keeps a record of the traps that caught them. When an AI tool fails you — a dropped honorific, a Malay date turned round, a regulation number that does not exist — open the question box, choose <i>A failure</i>, and answer four short prompts: ' +
+  '<i>what you asked · what you expected · what it did · why you think it happened</i>. Anonymous; no names of people or divisions. Five entries open the <b>Red Team Scroll</b>; the book itself becomes the village&#39;s own field guide.</p>' +
+  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Record a failure &mdash; four short lines</a>' : '') +
   '</div></div>';
 html += FAILS.map(function(f){
   return '<div class="fail"><b>Task:</b> ' + f.task + ' &nbsp;<b>Expected:</b> ' + f.expected +
