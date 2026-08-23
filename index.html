@@ -265,9 +265,17 @@ var FAILS = [
 
 /* ---- Kamus Kampung: the village's Malay glossary (participants supply the words; verified in the room) ---- */
 var GLOSS = [
-  { en:'Welcome', bm:'Selamat datang', by:'dojo' },
-  { en:'Thank you', bm:'Terima kasih', by:'dojo' },
-  // { en:'Find one thing to fix', bm:'...', by:'Day 1 table 3' },
+  { en:'Welcome', bm:'Selamat datang', by:'confirmed' },
+  { en:'Thank you', bm:'Terima kasih', by:'confirmed' },
+  // The Master's drafts - the village confirms or corrects them (by:'draft' shows a ? mark)
+  { en:'Morning Scroll Challenge', bm:'Cabaran Pagi', by:'draft' },
+  { en:'The Hidden Scroll', bm:'Gulungan Rahsia', by:'draft' },
+  { en:'The Dojo Library', bm:'Perpustakaan Dojo', by:'draft' },
+  { en:'Ask the Librarian', bm:'Tanya Pustakawan', by:'draft' },
+  { en:'Find one thing to fix', bm:'', by:'wanted' },
+  { en:'AI drafts, you decide', bm:'', by:'wanted' },
+  { en:'Sort before you paste', bm:'', by:'wanted' },
+  // confirmed words from the room: { en:'...', bm:'...', by:'Day 1 · table 3' },
 ];
 /* ---- The Village Template Shelf: reusable prompts built in the room, anonymised and shared with the author's consent ---- */
 var TEMPLATES = [
@@ -367,9 +375,12 @@ if (WISHES.length === 0) {
 html += '<h2 class="phase" id="sec-kamus">Kamus Kampung — the village&#39;s own words<span class="k">村の言葉</span></h2>';
 html += guide('koga', 'kagenyan', 'Kagenyan, Keeper of Words',
   'The Master speaks English and a little Japanese; the village speaks Bahasa Melayu. So the village writes this dictionary itself: when a table agrees on the Malay for one of the dojo&#39;s arts, it goes on the wall and then here. Back-translating into Malay is a verification skill the Master cannot do — and you can.');
-html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1"><h3>Kamus Kampung (' + GLOSS.length + ' words)</h3>' +
-  '<div class="gloss">' + GLOSS.map(function(g){ return '<div><span class="bm">' + g.bm + '</span> — ' + g.en + ' <span class="src">' + g.by + '</span></div>'; }).join('') + '</div>' +
-  '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Add a word: write it on the flipchart in the room, or open the question box and choose <b>A Malay word for Kamus Kampung</b>. Words are checked by the village before they are posted.</p></div></div>';
+html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1"><h3>Kamus Kampung (' + GLOSS.filter(function(g){return g.by!=='wanted'&&g.by!=='draft';}).length + ' confirmed &middot; ' + GLOSS.filter(function(g){return g.by==='draft'||g.by==='wanted';}).length + ' waiting for the village)</h3>' +
+  '<div class="gloss">' + GLOSS.map(function(g){
+      if (g.by==='wanted') return '<div><span class="bm" style="color:#a03123">&#10067; ______</span> — ' + g.en + ' <span class="src">wanted: the village&#39;s Malay</span></div>';
+      if (g.by==='draft')  return '<div><span class="bm" style="color:#8a7454">' + g.bm + ' ?</span> — ' + g.en + ' <span class="src">the Master&#39;s guess — confirm or correct</span></div>';
+      return '<div><span class="bm">' + g.bm + '</span> — ' + g.en + ' <span class="src">' + g.by + '</span></div>'; }).join('') + '</div>' +
+  '<p style="font-size:12px;margin-top:8px;color:#8a7454;"><b>First task for every table:</b> confirm or correct one word with a <i>?</i>, or fill one <i>______</i>. Write it on the flipchart, or open the question box and choose <b>A Malay word for Kamus Kampung</b>. The village decides what is right — not the Master.</p></div></div>';
 
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
