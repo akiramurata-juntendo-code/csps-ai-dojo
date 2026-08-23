@@ -380,7 +380,9 @@ html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="
       if (g.by==='wanted') return '<div><span class="bm" style="color:#a03123">&#10067; ______</span> — ' + g.en + ' <span class="src">wanted: the village&#39;s Malay</span></div>';
       if (g.by==='draft')  return '<div><span class="bm" style="color:#8a7454">' + g.bm + ' ?</span> — ' + g.en + ' <span class="src">the Master&#39;s guess — confirm or correct</span></div>';
       return '<div><span class="bm">' + g.bm + '</span> — ' + g.en + ' <span class="src">' + g.by + '</span></div>'; }).join('') + '</div>' +
-  '<p style="font-size:12px;margin-top:8px;color:#8a7454;"><b>First task for every table:</b> confirm or correct one word with a <i>?</i>, or fill one <i>______</i>. Write it on the flipchart, or open the question box and choose <b>A Malay word for Kamus Kampung</b>. The village decides what is right — not the Master.</p></div></div>';
+  '<p style="font-size:12px;margin-top:8px;color:#8a7454;"><b>First task for every table:</b> confirm or correct one word with a <i>?</i>, or fill one <i>______</i>. Write it on the flipchart, or open the question box and choose <b>A Malay word for Kamus Kampung</b>. The village decides what is right — not the Master.</p>' +
+  (URLS.qaform ? '<a class="btn koga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Add or correct a word &#9654;</a>' : '') +
+  '</div></div>';
 
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
