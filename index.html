@@ -366,11 +366,12 @@ html += '<div class="card"><div class="badge b-iga">&#129309;</div><div style="f
   '<div class="wish"><span class="tag">1</span><span><b>Your name</b> &mdash; as you like to be called today.</span></div>' +
   '<div class="wish"><span class="tag">2</span><span><b>Where you work</b> &mdash; UBD or CSPS, and what you actually do there. No ranks, no titles &mdash; in the dojo everyone wears the same belt.</span></div>' +
   '<div class="wish"><span class="tag">3</span><span><b>One wish</b> &mdash; a task from your real week you would love to hand to an AI assistant.</span></div>' +
-  '<p style="font-size:12.5px;margin-top:8px;color:#5a4a33">Each table then tells the room its most common wish; the Master maps every wish to the session that answers it. The wishes go on the flipchart, and onto this page by evening &mdash; anonymously.</p>' +
+  '<p style="font-size:12.5px;margin-top:8px;color:#5a4a33">Each table then tells the room its most common wish; the Master maps every wish to the session that answers it. Send as many wishes as you like &mdash; they are posted here, anonymously, <b>from 13:00 today</b>.</p>' +
+  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Send your wish &#9654;</a>' : '') +
   '</div></div>';
 if (WISHES.length === 0) {
   html += '<div class="card"><div class="badge b-lock">&#128203;</div><div><h3>The wishes of the village</h3>' +
-          '<p>They will appear here on the evening of the first training day, after the Wish Round.</p></div></div>';
+          '<p>They appear here from <b>13:00 on the first training day</b>, after the Wish Round &mdash; anonymously, each tied to the session that answers it.</p></div></div>';
 } else {
   var tagLabel = { done:'COVERED', next:'THIS WEEK', koga:'KOGA DAYS', scroll:'SEE SCROLL' };
   html += '<div class="card"><div class="badge b-iga">&#128203;</div><div style="flex:1"><h3>The wishes of the village (' + WISHES.length + ')</h3>' +
