@@ -138,6 +138,16 @@
   .wish .tag.koga { background:var(--koga); color:#fff; border-color:var(--koga); }
   .fail { background:#fff; border:1px solid #d8c9a8; border-left:4px solid #a03123; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
   .fail b { color:#7a1f1f; }
+  /* Kamus Kampung (village glossary) & template shelf */
+  .gloss { display:grid; grid-template-columns: 1fr 1fr; gap:4px 14px; font-size:13px; margin-top:6px; }
+  .gloss div { padding:4px 0; border-bottom:1px dotted #d8c9a8; }
+  .gloss .bm { color:var(--koga); font-weight:bold; }
+  .gloss .src { font-size:10.5px; color:#9a8a70; font-style:italic; }
+  @media (max-width:520px) { .gloss { grid-template-columns:1fr; } }
+  .tpl { background:#fff; border:1px solid #d8c9a8; border-left:4px solid var(--gold); border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
+  .tpl .ttl { font-weight:bold; color:#3a2410; }
+  .tpl pre { white-space:pre-wrap; font-family:Georgia,serif; font-size:12.5px; background:#f9f5ea; padding:8px 10px; border-radius:6px; margin-top:6px; }
+  .tpl .meta { font-size:11px; color:#9a8a70; font-style:italic; margin-top:4px; }
   /* Library notice board */
   .qaitem { background:#fff; border:1px solid #d8c9a8; border-radius:10px; padding:12px 16px; margin:10px 0; }
   .qaitem .q { font-size:13.5px; font-weight:bold; color:#3a2410; }
@@ -253,6 +263,17 @@ var FAILS = [
   // { task:'Draft a reminder to a Pengiran', expected:'Honorifics kept in full', actual:'Dropped the title', why:'Titles look optional to a model - name them in Constraints' },
 ];
 
+/* ---- Kamus Kampung: the village's Malay glossary (participants supply the words; verified in the room) ---- */
+var GLOSS = [
+  { en:'Welcome', bm:'Selamat datang', by:'dojo' },
+  { en:'Thank you', bm:'Terima kasih', by:'dojo' },
+  // { en:'Find one thing to fix', bm:'...', by:'Day 1 table 3' },
+];
+/* ---- The Village Template Shelf: reusable prompts built in the room, anonymised and shared with the author's consent ---- */
+var TEMPLATES = [
+  // { ttl:'Reminder to divisions for annual-report inputs', school:'iga', text:'You are an officer of the Centre. Draft a reminder email to [division] about [item], due [date]. Formal but warm. One short email with a subject line.', meta:'Day 1 · Session 4 · shared by a participant' },
+];
+
 /* Unlock times in Brunei time (UTC+8), expressed as UTC. */
 function bn(y,mo,d,h){ return Date.UTC(y, mo-1, d, h-8, 0, 0); }
 var T = {
@@ -341,6 +362,14 @@ if (WISHES.length === 0) {
       (tagLabel[x.tag]||x.tag) + (x.where ? ' &middot; ' + x.where : '') + '</span><span>' + x.w + '</span></div>'; }).join('') +
     '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Written from the Wish Round, no names. Missing yours? Tell the question box.</p></div></div>';
 }
+
+/* ---------- Kamus Kampung ---------- */
+html += '<h2 class="phase" id="sec-kamus">Kamus Kampung — the village&#39;s own words<span class="k">村の言葉</span></h2>';
+html += guide('koga', 'kagenyan', 'Kagenyan, Keeper of Words',
+  'The Master speaks English and a little Japanese; the village speaks Bahasa Melayu. So the village writes this dictionary itself: when a table agrees on the Malay for one of the dojo&#39;s arts, it goes on the wall and then here. Back-translating into Malay is a verification skill the Master cannot do — and you can.');
+html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="flex:1"><h3>Kamus Kampung (' + GLOSS.length + ' words)</h3>' +
+  '<div class="gloss">' + GLOSS.map(function(g){ return '<div><span class="bm">' + g.bm + '</span> — ' + g.en + ' <span class="src">' + g.by + '</span></div>'; }).join('') + '</div>' +
+  '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Add a word: write it on the flipchart in the room, or send it to the question box starting with <b>KAMUS:</b>. Words are checked by the village before they are posted.</p></div></div>';
 
 /* ---------- Phase 1: Iga days ---------- */
 html += '<h2 class="phase" id="sec-iga">IGA SCHOOL — Administrators<span class="k">伊賀流</span></h2>';
@@ -473,6 +502,16 @@ html += LIB.map(function(b){
     '<h3>' + b.t + '</h3><p>' + b.d + '</p>' +
     '<a class="btn koga" href="' + b.u + '" target="_blank" rel="noopener">Open (PDF)</a></div></div>';
 }).join('');
+/* ---------- The Village Template Shelf ---------- */
+html += '<div class="card"><div class="badge b-open">&#128218;</div><div style="flex:1">' +
+  '<h3>The Village Template Shelf</h3>' +
+  '<p>Reusable prompts built in this room, for this country&#39;s paperwork: a reminder to divisions, a query to a ministry, a notice from Corporate Services, a letter that must address a Yang Berhormat correctly. Shared only with the author&#39;s consent, names removed. Nothing here exists in any other workshop in the world.</p>' +
+  (TEMPLATES.length ? '' : '<span class="pending">The shelf fills from Wednesday — bring your template from Session 4</span>') +
+  '</div></div>';
+html += TEMPLATES.map(function(t){
+  return '<div class="tpl"><div class="ttl">' + t.ttl + '</div><pre>' + t.text + '</pre><div class="meta">' + t.meta + '</div></div>';
+}).join('');
+
 /* ---------- Library Notice Board ---------- */
 var BOARD = [
   { q:'Is it safe to paste our internal documents into these AI tools?',
