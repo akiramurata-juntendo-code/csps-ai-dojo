@@ -144,6 +144,14 @@
   .gloss .bm { color:var(--koga); font-weight:bold; }
   .gloss .src { font-size:10.5px; color:#9a8a70; font-style:italic; }
   @media (max-width:520px) { .gloss { grid-template-columns:1fr; } }
+  .plib { background:#fff; border:1px solid #d8c9a8; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
+  .plib .task { font-weight:bold; color:#3a2410; }
+  .plib .verdict { float:right; font-size:15px; }
+  .plib pre { white-space:pre-wrap; font-family:Georgia,serif; font-size:12.3px; background:#f9f5ea; padding:7px 10px; border-radius:6px; margin-top:5px; border-left:3px solid #d8c9a8; }
+  .plib pre.better { background:#f2f6f2; border-left-color:#4a7a4a; }
+  .plib .advice { margin-top:6px; padding:7px 10px; background:#fff9ec; border:1px dashed var(--gold); border-radius:6px; font-size:12.3px; color:#5a4a33; }
+  .plib .advice::before { content:"\1F989 "; }
+  .plib .meta { font-size:11px; color:#9a8a70; font-style:italic; margin-top:5px; }
   .tpl { background:#fff; border:1px solid #d8c9a8; border-left:4px solid var(--gold); border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
   .tpl .ttl { font-weight:bold; color:#3a2410; }
   .tpl pre { white-space:pre-wrap; font-family:Georgia,serif; font-size:12.5px; background:#f9f5ea; padding:8px 10px; border-radius:6px; margin-top:6px; }
@@ -308,6 +316,11 @@ var GLOSS = [
   { en:'AI drafts, you decide', bm:'', by:'wanted' },
   { en:'Sort before you paste', bm:'', by:'wanted' },
   // confirmed words from the room: { en:'...', bm:'...', by:'Day 1 · table 3' },
+];
+/* ---- The Prompt Dojo: prompts submitted for sparring; the Librarian reviews each evening ----
+   verdict: '&#9678;' excellent / '&#9675;' works / '&#9651;' needs one fix. 'better' optional. */
+var PROMPTS = [
+  // { task:'Reminder to divisions', tool:'ChatGPT', prompt:'...', verdict:'&#9651;', advice:'...', better:'...' },
 ];
 /* ---- The Village Template Shelf: reusable prompts built in the room, anonymised and shared with the author's consent ---- */
 var TEMPLATES = [
@@ -557,6 +570,24 @@ html += LIB.map(function(b){
     '<h3>' + b.t + '</h3><p>' + b.d + '</p>' +
     '<a class="btn koga" href="' + b.u + '" target="_blank" rel="noopener">Open (PDF)</a></div></div>';
 }).join('');
+/* ---------- The Prompt Dojo (sparring) ---------- */
+html += '<div class="card"><div class="badge b-iga">&#129354;</div><div style="flex:1">' +
+  '<h3>The Prompt Dojo &mdash; bring your prompt for sparring</h3>' +
+  '<p>Send a prompt you actually use &mdash; good or struggling. Each evening the Librarian spars with every submission: a verdict (&#9678; excellent &middot; &#9675; works &middot; &#9651; needs one fix), <b>one thing to fix</b>, and where it helps, an improved version. Anonymous; the best graduate to the Village Template Shelf.</p>' +
+  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit a prompt for sparring &#9654;</a>' : '') +
+  '</div></div>';
+html += PROMPTS.map(function(x){
+  return '<div class="plib"><span class="verdict">' + x.verdict + '</span><span class="task">' + x.task + '</span>' +
+         ' <span class="meta">' + (x.tool||'') + '</span>' +
+         '<pre>' + x.prompt + '</pre>' +
+         '<div class="advice">' + x.advice + '</div>' +
+         (x.better ? '<pre class="better">' + x.better + '</pre>' : '') + '</div>';
+}).join('');
+if (PROMPTS.length === 0) {
+  html += '<div class="plib"><span class="task">The sparring floor is empty</span>' +
+          '<div class="advice">Send the first prompt &mdash; the Librarian bows to every challenger, and no verdict ever names a ninja.</div></div>';
+}
+
 /* ---------- The Village Template Shelf ---------- */
 html += '<div class="card"><div class="badge b-open">&#128218;</div><div style="flex:1">' +
   '<h3>The Village Template Shelf</h3>' +
