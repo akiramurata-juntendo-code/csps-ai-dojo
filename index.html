@@ -118,6 +118,19 @@
   .art .nm { font-weight:bold; min-width:170px; }
   .art .nm.iga { color:var(--iga);} .art .nm.koga { color:var(--koga);}
   .art .jp { font-family:"Yu Mincho",serif; color:#8a7454; min-width:92px; font-size:12px; }
+  .art.click { cursor:pointer; }
+  .art.click .nm::after { content:" \25BE"; color:#b98a2e; font-size:11px; }
+  .art.click.openart .nm::after { content:" \25B4"; }
+  .artdetail { display:none; background:#fffdf6; border:1px solid #d8c9a8; border-left:4px solid var(--gold);
+               border-radius:8px; padding:10px 14px; margin:6px 0 10px; font-size:12.8px; color:#3a2a18; }
+  .artdetail.show { display:block; }
+  .artdetail .why { color:#5a4a33; }
+  .artdetail .eg { margin-top:7px; }
+  .artdetail .eg b { color:#7a1f1f; font-size:11.5px; letter-spacing:.06em; }
+  .artdetail pre { white-space:pre-wrap; font-family:Georgia,serif; font-size:12px; background:#f9f5ea;
+                   padding:6px 9px; border-radius:6px; margin-top:3px; border-left:3px solid #d8c9a8; }
+  .artdetail pre.after { background:#f2f6f2; border-left-color:#4a7a4a; }
+  .artdetail .tip { margin-top:6px; font-size:11.8px; color:#7a4a12; }
   .motto { text-align:right; font-style:italic; color:#7a1f1f; font-size:13px; margin-top:8px; }
   .qa { background:#fff9ec; border:1px dashed var(--gold); border-radius:8px; padding:10px 14px; margin-top:8px; font-size:13px; }
   .qa li { margin:6px 0 6px 18px; }
@@ -438,6 +451,39 @@ function guide(clan, img, name, line){
          '<div class="gsay"><b class="' + clan + '">' + name + '</b><br>' + line + '</div></div>';
 }
 
+/* Click-to-open beginner explanations for the arts (keyed by art name). */
+var ART_PAGES = {
+ 'Five-Part Instruction':
+  '<div class="why">A model cannot see your desk, your office or your deadline — it only knows what you type. The five parts hand it exactly that: <b>Role</b> (who is writing), <b>Task</b> (one verb, one deliverable), <b>Context</b> (the facts it cannot guess), <b>Constraints</b> (tone, deadline, what must survive), <b>Format</b> (what the output looks like). You rarely need all five — start small, add one part when the answer disappoints.</div>' +
+  '<div class="eg"><b>BEFORE</b><pre>Draft a reminder email to head of units who has not submitted the budget request</pre><b>AFTER</b><pre class="after">#role Admin officer of the Centre\n#task draft a reminder email to heads of units who have not submitted their FY2027/28 budget request\n#context due [DATE]; several have already submitted\n#constraints formal but warm; thank those who submitted\n#format one short email with a subject line</pre></div>' +
+  '<div class="eg"><b>ANOTHER (real &#9678; from the room)</b><pre class="after">#role HR officer\n#task issue interview invitation emails to shortlisted candidates\n#constraints change the candidate&#39;s name in each opening; reply by 26 Aug, 2pm\n#format one structured formal email with [DATE] [TIME] [VENUE]</pre></div>' +
+  '<div class="tip">Rule of thumb: missing parts get invented. Name them and the guessing stops.</div>',
+ 'Three-Way Discipline':
+  '<div class="why">Sort <i>before</i> you paste, not after. <b>Public</b> — already published: paste freely. <b>Internal</b> — anonymise first: names become [Officer], [Division]; in a small country, Division + role can identify a person, so mask the role too. <b>Confidential / personal</b> — never enters a public AI tool, in any form. One confidential line makes the whole paste confidential.</div>' +
+  '<div class="eg"><b>EXAMPLE — a minute with names</b><pre>Meeting notes: Hjh A (Finance) disagreed with B&#39;s costing of B$42,300&hellip;</pre><b>ANONYMISED IN 60 SECONDS</b><pre class="after">Meeting notes: [Officer 1, Finance] disagreed with [Officer 2]&#39;s costing of about B$42k&hellip;</pre></div>' +
+  '<div class="eg"><b>EXAMPLE — what never goes in</b><pre>Staff appraisal forms &middot; citizens&#39; IC numbers &middot; unpublished cabinet material — no exceptions, no shortcuts.</pre></div>' +
+  '<div class="tip">&quot;Not used for training&quot; is a vendor setting — it is not your organisation&#39;s permission.</div>',
+ 'The Art of True Sight':
+  '<div class="why">AI writes fluently whether or not it knows the fact — a plausible lie is the mechanism, not a malfunction. So before any output leaves your desk: read it hunting for <b>one</b> thing to fix. There is usually one. Then reach the key fact by a second route — the source document, a quick calculation, a colleague.</div>' +
+  '<div class="eg"><b>WHERE TO LOOK FIRST (today&#39;s catch list)</b><pre>Names and titles (Hj/Hjh, bin/binti, Pengiran — models drop them)\nDates and deadlines (&quot;this Friday&quot; — whose Friday?)\nAny number it did not get from your document\nCommitments that vanished when you asked for &quot;shorter&quot;</pre></div>' +
+  '<div class="eg"><b>THE TEN-SECOND CHECK</b><pre class="after">Extracted figure: B$1.24m &rarr; open the original, Ctrl+F &quot;1.24&quot; &rarr; present? sign it. Absent? the draft just became a draft again.</pre></div>' +
+  '<div class="tip">Then sign: <i>AI-assisted draft, verified by [your name]</i>. Signed work needs no detector.</div>',
+ 'The Style Mirror':
+  '<div class="why">Describing a style (&quot;formal, institutional&quot;) gives the model adjectives; showing a style gives it evidence. Paste one real example — a past letter, minute or memo from your office (public or anonymised) — and command: <b>match this style</b>. Your office&#39;s voice, not the internet&#39;s average.</div>' +
+  '<div class="eg"><b>BEFORE</b><pre>Write it formally, in our institutional tone.</pre><b>AFTER</b><pre class="after">Here is a letter we sent last month: [PASTE — public or anonymised example]\nDraft a reply to the attached request, matching this style, in English and Malay.</pre></div>' +
+  '<div class="eg"><b>WORKS FOR ANYTHING WITH A HOUSE FORMAT</b><pre class="after">Minutes: &quot;Prepare a minute from these bullets — match the format of the example above.&quot;\nPress release: &quot;Match the structure and length of this past release.&quot;</pre></div>' +
+  '<div class="tip">Data discipline still applies: the example you paste must be public or anonymised — never a confidential one.</div>',
+ 'Returning Translation':
+  '<div class="why">Malay&ndash;English drafting works well; the risk hides in the details. After translating, ask for a <b>back-translation</b> into the original language and compare only what matters: names and titles, numbers, dates, the deadline. This check takes one extra line — and it is a check you can do better than the Master.</div>' +
+  '<div class="eg"><b>THE TWO-LINE PATTERN</b><pre class="after">1) Translate this notice into formal Bahasa Melayu.\n2) Now translate your Malay version back into English. List anything whose meaning moved — names, dates, obligations.</pre></div>' +
+  '<div class="eg"><b>WHAT IT CATCHES</b><pre>Day&ndash;month order flipped &middot; &quot;must&quot; softened to &quot;may&quot; &middot; an honorific dropped &middot; the deadline moved a day</pre></div>' +
+  '<div class="tip">Names first, dates second — the two places where a beautiful translation quietly changes the facts.</div>'
+};
+function toggleArt(id, row){
+  var el = document.getElementById(id);
+  if (el) { el.classList.toggle('show'); row.classList.toggle('openart'); }
+}
+
 function scrollCard(clan, clanLabel, titleEn, kanji, sub, arts, motto, t, whenLabel){
   if (!open_(t)) {
     return '<div class="scroll sealed">' +
@@ -446,8 +492,13 @@ function scrollCard(clan, clanLabel, titleEn, kanji, sub, arts, motto, t, whenLa
            '<br><span class="k">' + kanji + '</span></div></div>';
   }
   var rows = arts.map(function(a){
-    return '<div class="art"><span class="nm ' + clan + '">' + a[0] + '</span>' +
+    var det = ART_PAGES[a[0]];
+    if (!det) return '<div class="art"><span class="nm ' + clan + '">' + a[0] + '</span>' +
            '<span class="jp">' + a[1] + '</span><span>' + a[2] + '</span></div>';
+    var id = 'art-' + a[0].replace(/[^A-Za-z]/g,'');
+    return '<div class="art click" onclick="toggleArt(&#39;' + id + '&#39;, this)"><span class="nm ' + clan + '">' + a[0] + '</span>' +
+           '<span class="jp">' + a[1] + '</span><span>' + a[2] + ' <span style="color:#b98a2e;font-size:11px">tap to learn</span></span></div>' +
+           '<div class="artdetail" id="' + id + '">' + det + '</div>';
   }).join('');
   return '<div class="scroll"><div class="sheen"></div><div class="hanko">&#31192;</div>' +
          '<div class="clanline ' + clan + '">' + clanLabel +
