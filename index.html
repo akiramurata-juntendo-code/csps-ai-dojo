@@ -823,8 +823,11 @@ function tgChips(){
     return '<span class="chip' + (tgArt===a[0]?' on':'') + '" onclick="tgSetArt(\'' + a[0] + '\')">' + a[2] + ' ' + a[1] + '</span>';
   }).join('');
 }
-function tgSetRole(r){ tgRole = r; try { localStorage.setItem('dojoRole', r); } catch(e){} tgChips(); drawTrain(); }
-function tgSetArt(a){ tgArt = a; tgChips(); drawTrain(); }
+function tgSetRole(r){
+  if (tgRole === r) { tgRole = null; try { localStorage.removeItem('dojoRole'); } catch(e){} }
+  else { tgRole = r; try { localStorage.setItem('dojoRole', r); } catch(e){} }
+  tgChips(); drawTrain(); }
+function tgSetArt(a){ tgArt = (tgArt === a) ? null : a; tgChips(); drawTrain(); }
 function drawTrain(){
   var box = document.getElementById('trainlist');
   if (!box) return;
