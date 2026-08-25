@@ -266,7 +266,7 @@ var URLS = {
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : '',   // Account setup guide (PDF), optional
-  scaffoldA : '',   // Wednesday training aids (fill-in template + blank page), Administrators
+  scaffoldA : 'assets/library/scaffold_fill_in.pdf',   // Wednesday training aids; blank version at assets/library/scaffold_blank.pdf
   scaffoldR : '',   // Friday training aids, Researchers
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
   ,qaform   : 'https://forms.gle/ZHfFKSSiMKtevFG8A'    // Question submission form for the notice board
@@ -585,7 +585,7 @@ html += card({ t: T.a1eve, clan:'iga', mark:'&#127911;', whenLabel:'Monday 24 Au
 html += card({ t: T.quizA, clan:'iga', mark:'&#129513;', whenLabel:'Wednesday 26 August, 06:00',
   title: 'Training aids for Wednesday — choose your starting point',
   desc : 'Two sheets, the same for every table: a fill-in template (start from 30 points) and a blank page (start from zero). Pick the one that fits you today; nobody is assigned. The quiz and the capstone are the same for everyone — only the starting point is yours to choose.',
-  body : link_(URLS.scaffoldA, 'Open the training aids', 'iga') });
+  body : link_(URLS.scaffoldA, 'Fill-in template (30 points)', 'iga') + ' ' + link_('assets/library/scaffold_blank.pdf', 'Blank page (0 points)', 'iga') });
 html += scrollCard('iga','IGA SCHOOL · SECOND SCROLL','The Hidden Scroll of Numbers','秘伝 算勘の巻',
   'earned Wednesday 26 August',
   [['Two-Path Verification','二道検算の術','Reach every important number by two independent routes.'],
