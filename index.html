@@ -631,7 +631,12 @@ html += scrollCard('iga','IGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Word
 html += card({ t: T.a1eve, clan:'iga', mark:'&#127911;', whenLabel:'Monday 24 August, evening',
   title: 'Recap Audio — Day 1 (about 5 minutes)',
   desc : 'The arts of Monday, retold as a five-minute debate between the Master and Hattori — made with the very tools you trained with today. Car-length on purpose.',
-  body : link_(URLS.audioA1, 'Listen', 'iga') });
+  body : link_(URLS.audioA1, 'Listen', 'iga') +
+    ' <a class="btn" style="cursor:pointer" onclick="toggleArt(&#39;audioprompt-a1&#39;, this)">Prompt &#9662;</a>' +
+    '<div class="artdetail" id="audioprompt-a1">' +
+    '<div class="why">The exact prompt given to Gemini Notebook&#39;s Audio Overview (<b>Debate</b> format), with the Day-1 handouts as sources. Take it, swap the topics, and make your own recap of anything.</div>' +
+    '<div class="eg"><b>THE PROMPT</b><pre class="after">Two voices: the Master (wise, calm) and Hattori (energetic,\ntempted by shortcuts). They debate today&#39;s four habits from\nDay 1 for administrators: the five-part instruction, the\nthree-way data sort before pasting, &quot;find one thing to fix&quot;\nbefore trusting any output, and matching house style by\nexample. Hattori argues &quot;if the AI sounds right, just send\nit&quot; - the Master wins each round with one concrete example.\nEnd with: &quot;AI drafts. You decide. See you Wednesday at 8:30.&quot;</pre></div>' +
+    '<div class="tip">Why it works: two named characters with a conflict, a fixed list of topics, a rule for who wins and how (&quot;one concrete example&quot;), and a scripted last line. Structure in, structure out.</div></div>' });
 html += card({ t: T.quizA, clan:'iga', mark:'&#129513;', whenLabel:'Wednesday 26 August, 06:00',
   title: 'Training aids for Wednesday — choose your starting point',
   desc : 'Two sheets, the same for every table: a fill-in template (start from 30 points) and a blank page (start from zero). Pick the one that fits you today; nobody is assigned. The quiz and the capstone are the same for everyone — only the starting point is yours to choose.',
