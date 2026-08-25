@@ -990,6 +990,12 @@ html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b
   '</div></div>';
 
 document.getElementById('app').innerHTML = html;
+try {
+  var bv = document.createElement('div');
+  bv.style.cssText = 'text-align:center;font-size:10.5px;color:#b8ab8f;margin:18px 0 6px';
+  bv.textContent = 'page version: ' + document.lastModified + ' (if features look missing, refresh once after 10 minutes)';
+  document.getElementById('app').appendChild(bv);
+} catch(e){}
 tgChips(); drawTrain();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
