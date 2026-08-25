@@ -1,0 +1,13 @@
+FICTIONAL SCENARIO - TRAINING ONLY
+Task: the FY2027/28 budget request, due Friday 18 September 2026, 12:00.
+
+Status list as of Monday 14 September:
+  D1 Corporate Services   - submitted 10 Sep
+  D2 Research             - NOT yet submitted
+  D3 Economics            - submitted 11 Sep
+  D4 Programmes           - submitted 8 Sep (revision promised, not yet received)
+  D5 ICT                  - NOT yet submitted
+  D6 Outreach             - submitted 12 Sep
+
+Your job: one reminder email to the divisions still outstanding,
+warm to those who submitted, firm about the Friday noon deadline.
