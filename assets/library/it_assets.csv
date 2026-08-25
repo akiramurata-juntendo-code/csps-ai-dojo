@@ -1,0 +1,61 @@
+asset_id,item,division,purchase_year,cost_bnd,condition,warranty_until
+AST-001,Desktop,D2 Research,2021,1370,Needs repair,2024
+AST-002,Server,D5 ICT,2024,6740,Needs repair,2029
+AST-003,Network switch,D1 Corporate,2020,830,Fair,2024
+AST-004,Network switch,D2 Research,2018,1100,Good,2022
+AST-005,Server,D5 ICT,2020,8900,Needs repair,2025
+AST-006,Desktop,D3 Economics,2023,760,Fair,2027
+AST-007,Network switch,D3 Economics,2019,860,Needs repair,2022
+AST-008,Tablet,D1 Corporate,2021,450,Fair,2026
+AST-009,Server,D4 Programmes,2022,7750,Fair,2027
+AST-010,Projector,D5 ICT,2024,1330,Fair,2027
+AST-011,Printer,D5 ICT,2023,2100,Needs repair,2026
+AST-012,Server,D4 Programmes,2022,6410,Good,2025
+AST-013,Network switch,D5 ICT,2023,1160,Fair,2027
+AST-014,Server,D4 Programmes,2023,5540,Needs repair,2028
+AST-015,Server,D2 Research,2020,8160,Fair,2023
+AST-016,Network switch,D3 Economics,2024,1130,Good,2027
+AST-017,Network switch,D5 ICT,2021,980,Fair,2026
+AST-018,Laptop,D5 ICT,2024,1180,Good,2029
+AST-019,Projector,D1 Corporate,2021,1850,Fair,2026
+AST-020,Projector,D2 Research,2025,1080,Good,2030
+AST-021,Network switch,D5 ICT,2025,340,Fair,2028
+AST-022,Printer,D2 Research,2020,1670,Needs repair,2024
+AST-023,Laptop,D5 ICT,2021,1420,Fair,2024
+AST-024,Printer,D1 Corporate,2022,590,Fair,2026
+AST-025,Server,D5 ICT,2023,8680,Fair,2027
+AST-026,Server,D1 Corporate,2021,4740,Good,2026
+AST-027,Desktop,D1 Corporate,2021,750,Good,2025
+AST-028,Laptop,D3 Economics,2022,1190,Good,2027
+AST-029,Desktop,D2 Research,2022,1030,Fair,2025
+AST-030,Printer,D1 Corporate,2021,1040,Fair,2024
+AST-031,Server,D5 ICT,2018,7240,Fair,2021
+AST-032,Laptop,D1 Corporate,2021,1580,Good,2026
+AST-033,Monitor,D2 Research,2023,200,Fair,2026
+AST-034,Monitor,D4 Programmes,2021,260,Fair,2024
+AST-035,Projector,D4 Programmes,2020,830,Good,2025
+AST-036,Projector,D1 Corporate,2022,1020,Fair,2027
+AST-037,Projector,D1 Corporate,2024,1700,Good,2027
+AST-038,Network switch,D1 Corporate,2023,640,Needs repair,2026
+AST-039,Tablet,D1 Corporate,2024,580,Needs repair,2027
+AST-040,Projector,D5 ICT,2022,1340,Good,2026
+AST-041,Projector,D4 Programmes,2023,770,Good,2026
+AST-042,Monitor,D1 Corporate,2019,170,Needs repair,2022
+AST-043,Tablet,D2 Research,2020,820,Needs repair,2024
+AST-044,Projector,D1 Corporate,2020,620,Needs repair,2025
+AST-045,Laptop,D5 ICT,2019,920,Fair,2022
+AST-046,Tablet,D4 Programmes,2021,630,Needs repair,2024
+AST-047,Tablet,D3 Economics,2022,700,Fair,2025
+AST-048,Projector,D4 Programmes,2021,1830,Good,2024
+AST-049,Laptop,D4 Programmes,2020,1200,Fair,2024
+AST-050,Tablet,D5 ICT,2022,410,Good,2025
+AST-051,Laptop,D1 Corporate,2023,1000,Fair,2026
+AST-052,Laptop,D4 Programmes,2019,1220,Needs repair,2022
+AST-053,Monitor,D2 Research,2021,250,Good,2026
+AST-054,Monitor,D2 Research,2020,160,Good,2024
+AST-055,Printer,D3 Economics,2018,910,Good,2023
+AST-056,Tablet,D5 ICT,2019,710,Fair,2022
+AST-057,Laptop,D3 Economics,2023,1770,Fair,2027
+AST-058,Tablet,D1 Corporate,2018,820,Fair,2023
+AST-059,Printer,D3 Economics,2023,2200,Needs repair,2028
+AST-060,Printer,D3 Economics,2022,910,Good,2026

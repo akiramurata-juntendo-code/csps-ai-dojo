@@ -679,6 +679,130 @@ html += card({ t: T.touch2, mark:'II', whenLabel:'Friday 25 September',
     'request of CSPS — the village decides which mechanism to build first.</p>'
 });
 
+
+/* ---------- The Training Grounds: self-study drills, filterable by role & art ----------
+   Added Wed 26 Aug evening. Filter state remembered per device (localStorage dojoRole).
+   To add a drill: append to TRAIN below; roles from TG_ROLES keys; art from TG_ARTS keys. */
+var TG_ROLES = [ ['all','Any role'], ['it','IT support'], ['log','Logistics &amp; events'], ['fin','Finance &amp; accounts'], ['adm','Clerical &amp; secretariat'], ['trn','Staff training'], ['enu','Surveys &amp; fieldwork'] ];
+var TG_ARTS  = [ ['all','Any art'], ['template','Templates'], ['tables','Tables &amp; numbers'], ['report','Reports from papers'], ['chart','Honest charts'], ['voice','Voice'], ['verify','Verification'] ];
+var TRAIN = [
+ { id:'onestory', ttl:'One table, one story', roles:['it','fin','adm'], art:'tables', belt:'White',
+   desc:'The Wednesday drill, repeatable with any register: four moves on one spreadsheet, ending in a signed half-page note.',
+   det:'<div class="why"><b>Goal:</b> turn a raw register into a half-page note a director can trust. <b>File:</b> <a href="assets/library/it_assets.csv" download>it_assets.csv</a> (fictional).</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Say aloud what each column means - the AI cannot do this step.\n2) Paste the table: "Summarise this register for a director: 3 bullets, then 3 risks."\n3) Ask two questions ("Which division holds the oldest assets?" "What share is out of warranty?") - check each with one manual count.\n4) One chart - caption must carry total, units, source.\n5) Half-page note ending in one recommendation. Sign it.</pre></div>'+
+       '<div class="tip">Now yours: make a <b>fictional twin</b> of your own register (change names and numbers), then run the same five steps. The real one never enters a public tool.</div>' },
+ { id:'replace', ttl:'The replacement plan', roles:['it','fin'], art:'tables', belt:'Yellow',
+   desc:'From asset register to budget memo: what needs replacing next year, and the one-page justification.',
+   det:'<div class="why"><b>Goal:</b> a memo with three parts - why now &middot; cost band &middot; option rejected. <b>File:</b> <a href="assets/library/it_assets.csv" download>it_assets.csv</a>.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Count the out-of-warranty items yourself once (ten-second check per column).\n2) Ask the AI for the same count - do they match?\n3) "Which items are BOTH out of warranty and needing repair? Sum their original cost."\n4) "Draft a one-page replacement memo: why now, cost band, the option we rejected."</pre></div>'+
+       '<div class="tip">The real version becomes next year&#39;s budget bid - with your own data anonymised first (Internal &rarr; anonymise; Confidential &rarr; never).</div>' },
+ { id:'dashboard', ttl:'The monthly dashboard', roles:['trn'], art:'tables', belt:'Yellow',
+   desc:'One table, one chart, five lines to management - and a saved prompt that regenerates it next month.',
+   det:'<div class="why"><b>Goal:</b> the recurring report that used to take an afternoon takes ten minutes. <b>File:</b> <a href="assets/library/training_register.csv" download>training_register.csv</a> (fictional).</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) "Table of registered vs attended by programme, with attendance rate."\n2) Check one rate by hand.\n3) One chart with an honest caption.\n4) "Five-line memo to management: what went well, what needs attention."\n5) Save the whole prompt with [MONTH] as a slot.</pre></div>'+
+       '<div class="tip">Next month: change [MONTH], paste the new table, done. That is what a template is for.</div>' },
+ { id:'onepage', ttl:'Many papers, one page', roles:['adm','log'], art:'report', belt:'White',
+   desc:'Three messy minutes and an email thread become one project update - every date traced to its source.',
+   det:'<div class="why"><b>Goal:</b> a grounded one-pager where every line can answer &quot;which document says so?&quot;. <b>File:</b> <a href="assets/library/messy_minutes_pack.txt" download>messy_minutes_pack.txt</a> (fictional).</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Paste all three minutes and the email thread.\n2) "Three lists - decisions, open items, who owes what - with the source of each line."\n3) "Now a one-page project update."\n4) Trace every date back: which minute? which email?</pre></div>'+
+       '<div class="tip">Watch for the corrected budget and the venue still awaiting written confirmation - <b>the latest document wins</b>. Your real minutes: anonymise names first.</div>' },
+ { id:'chase', ttl:'The polite chase-up', roles:['fin','adm'], art:'template', belt:'White',
+   desc:'The email everyone sends monthly: a reminder that is firm, warm, and reusable forever.',
+   det:'<div class="why"><b>Goal:</b> one chase-up template with slots, in your office&#39;s own voice.</div>'+
+       '<div class="eg"><b>THE PROMPT</b><pre class="after">#role officer of [UNIT]\n#task draft a reminder email to [DIVISION] about [ITEM], due [DATE]\n#context several divisions have already submitted\n#constraints formal but warm; thank those who submitted; one short email\n#format subject line + body, English</pre></div>'+
+       '<div class="eg"><b>THEN</b><pre>Ask for a second, politer version - keep the one you could actually send. Verify names and titles letter by letter (Hj/Hjh, bin/binti, Pengiran).</pre></div>'+
+       '<div class="tip">Test it once on a fictional case, find one thing to fix, sign it - then submit it for sparring below.</div>' },
+ { id:'corridor', ttl:'The corridor prompt', roles:['log','adm','trn'], art:'voice', belt:'White',
+   desc:'No desk, phone in hand: 30 seconds of messy talking becomes a task list with owners and deadlines.',
+   det:'<div class="why"><b>Goal:</b> capture a task the moment it lands - speak messy, let the AI structure. The mic on your keyboard works in any app; ChatGPT and Gemini also listen directly.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Stand up. Talk to your phone for 30 seconds about a (fictional) task:\n   "Thursday, six visitors, meeting room, projector, halal lunch, transport..."\n2) "Turn this into a task list with owner and deadline columns."\n3) Verify one item. Try it once in Malay, asking for the English version.</pre></div>'+
+       '<div class="tip">A corridor is a public place: <b>no names, no IC numbers out loud</b> - people can hear you, and the cloud is listening too.</div>' },
+ { id:'trick', ttl:'Spot the trick', roles:['fin','trn','adm'], art:'chart', belt:'White',
+   desc:'Two charts that mislead on purpose, and their honest twins. Find the trick before you trust any chart again.',
+   det:'<div class="why"><b>Goal:</b> read any chart asking &quot;what choice was made here?&quot;. <b>Files:</b> <a href="assets/library/chart_misleading_1_truncated_axis.png" target="_blank" rel="noopener">chart 1</a> &middot; <a href="assets/library/chart_misleading_2_window.png" target="_blank" rel="noopener">chart 2</a> &middot; honest twins: <a href="assets/library/chart_honest_1.png" target="_blank" rel="noopener">1</a> &middot; <a href="assets/library/chart_honest_2.png" target="_blank" rel="noopener">2</a>.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Find the trick in each (axis? window?).\n2) Compare with the honest twin: what changed, what did not?\n3) Ask an AI to redraw one honestly - same totals, units, source in the caption.\n4) The line to keep: "Every axis and window is a claim."</pre></div>'+
+       '<div class="tip">Same numbers, different story - which is why the caption test exists.</div>' },
+ { id:'upgrade', ttl:'Your template, upgraded', roles:['it','log','fin','adm','trn','enu'], art:'template', belt:'White',
+   desc:'Take one prompt you actually use, give it five parts and slots, test it, sign it.',
+   det:'<div class="why"><b>Goal:</b> your most-used prompt becomes a tested, reusable template - the single highest-return habit of the whole workshop.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Pick a prompt you used this month.\n2) Upgrade to five parts: Role / Task / Context / Constraints / Format (only the parts you need).\n3) Replace changing facts with [SLOTS]: [DATE] [DIVISION] [ITEM].\n4) Test once on a fictional case. Find one thing to fix.\n5) Sign it - then send it for sparring below; &#9678; templates join the Village Shelf.</pre></div>'+
+       '<div class="tip">Start small: 70% of an expert&#39;s prompts are one-liners. Five parts is a ceiling, not a floor.</div>' },
+ { id:'names', ttl:'The name-check habit', roles:['trn','adm'], art:'verify', belt:'White',
+   desc:'Certificates, invitations, rosters: let the AI cross-check two lists, then verify three rows yourself.',
+   det:'<div class="why"><b>Goal:</b> zero misspelt names on anything that leaves your desk. Names are where models fail quietly - and where offence is permanent.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Make two fictional lists: a roster and a certificate list, with 3 planted differences.\n2) "Compare these two lists. Report every difference in spelling, titles and order."\n3) Verify three rows with your own eyes - did it catch all three?\n4) Honorifics first: Hj/Hjh, bin/binti, Dk, Pengiran - models drop them.</pre></div>'+
+       '<div class="tip">Real rosters are personal data: fictional twins for practice; the real check runs in your own office tools.</div>' },
+ { id:'rate', ttl:'The collection-rate one-pager', roles:['enu'], art:'tables', belt:'Yellow',
+   desc:'Fieldwork returns by district and week: the honest progress chart and the five-line note.',
+   det:'<div class="why"><b>Goal:</b> a weekly survey-progress report that flags the lagging district without blaming a person.</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Build a fictional returns table: district x week, targets and completed.\n2) "Completion rate by district, as a table, then one chart" - axis from zero, full window.\n3) Check one rate by hand.\n4) "Five-line note: overall progress, the district needing support, one action."</pre></div>'+
+       '<div class="tip">Small-country rule: report groups, never individuals - a district number is fine; an enumerator&#39;s name is not.</div>' },
+ { id:'mirror', ttl:'Names first, dates second', roles:['adm','enu'], art:'verify', belt:'White',
+   desc:'The back-translation check for anything bilingual: two lines that catch what a beautiful translation quietly changed.',
+   det:'<div class="why"><b>Goal:</b> trust your Malay&ndash;English drafts by checking only what matters.</div>'+
+       '<div class="eg"><b>THE TWO-LINE PATTERN</b><pre class="after">1) "Translate this notice into formal Bahasa Melayu."\n2) "Now translate your Malay back into English. List anything whose meaning moved - names, dates, obligations."</pre></div>'+
+       '<div class="tip">It catches: day-month flips, "must" softened to "may", a dropped honorific, a moved deadline.</div>' },
+ { id:'clauddraw', ttl:'Draw it in Claude', roles:['it','fin','trn'], art:'chart', belt:'Yellow',
+   desc:'The fourth tool&#39;s party trick: paste a table, watch it draw the chart - then check one bar.',
+   det:'<div class="why"><b>Goal:</b> a presentable chart in two minutes, verified in ten seconds. <b>Tool:</b> claude.ai (free plan, &quot;Continue with Google&quot;).</div>'+
+       '<div class="eg"><b>THE DRILL</b><pre class="after">1) Paste a table from any drill above.\n2) "Draw a bar chart of [X] by [Y], with an honest caption: total, units, source."\n3) Check one bar against the table by hand.\n4) Ask for the misleading version on purpose - seeing both is the lesson.</pre></div>'+
+       '<div class="tip">Fictional data only, as in every tool - old or new.</div>' }
+];
+
+html += '<style>.chip{display:inline-block;padding:4px 11px;margin:4px 5px 0 0;border:1px solid #b98a2e;border-radius:14px;font-size:12.5px;cursor:pointer;color:#5a4a20;background:#fff8ec;user-select:none}.chip.on{background:#b98a2e;color:#fff}#trainq{margin-top:9px;padding:6px 10px;border:1px solid #cbb;border-radius:8px;width:min(340px,100%);font-size:13px}.tbelt{font-size:11px;color:#b98a2e;margin-left:8px;font-weight:normal}.tgcount{font-size:12px;color:#8a7a55;margin-top:6px}</style>';
+html += '<h2 class="phase" id="sec-grounds">The Training Grounds &mdash; self-study for your own desk<span class="k">&#20462;&#34892;&#12398;&#38291;</span></h2>';
+html += guide('iga', 'master', 'The Master of the Dojo',
+  'The room closes; the grounds stay open. Each drill below is ten to thirty minutes, built from this village&#39;s own wishes and this country&#39;s own paperwork &mdash; all files fictional. Choose your role once and the grounds will remember you. Finish a drill? Send the result for sparring &mdash; the Librarian answers each evening.');
+html += '<div class="card"><div class="badge b-iga">&#127919;</div><div style="flex:1">' +
+  '<h3>Choose your path</h3><p style="margin-top:4px">Tap your role &mdash; the grounds reorder for you (remembered on this device). Narrow further by art, or search.</p>' +
+  '<div id="rolechips"></div><div id="artchips"></div>' +
+  '<input id="trainq" type="search" placeholder="Search the grounds&hellip;" oninput="tgQ=this.value;drawTrain()">' +
+  '<div class="tgcount" id="tgcount"></div></div></div>';
+html += '<div id="trainlist"></div>';
+html += '<div class="card"><div class="badge b-open">&#128220;</div><div style="flex:1">' +
+  '<h3>Request a scroll</h3><p>Your task is not on the grounds? Describe it in the question box &mdash; a new drill appears within a day or two, built for that need. This is how the grounds grow: one real task at a time.</p>' +
+  (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Request a scroll &#9654;</a>' : '') +
+  '</div></div>';
+
+var tgRole = 'all', tgArt = 'all', tgQ = '';
+try { tgRole = localStorage.getItem('dojoRole') || 'all'; } catch(e){}
+function tgChips(){
+  var rc = document.getElementById('rolechips'), ac = document.getElementById('artchips');
+  if (!rc) return;
+  rc.innerHTML = TG_ROLES.map(function(r){
+    return '<span class="chip' + (tgRole===r[0]?' on':'') + '" onclick="tgSetRole(\'' + r[0] + '\')">' + r[1] + '</span>';
+  }).join('');
+  ac.innerHTML = TG_ARTS.map(function(a){
+    return '<span class="chip' + (tgArt===a[0]?' on':'') + '" onclick="tgSetArt(\'' + a[0] + '\')">' + a[1] + '</span>';
+  }).join('');
+}
+function tgSetRole(r){ tgRole = r; try { localStorage.setItem('dojoRole', r); } catch(e){} tgChips(); drawTrain(); }
+function tgSetArt(a){ tgArt = a; tgChips(); drawTrain(); }
+function drawTrain(){
+  var box = document.getElementById('trainlist');
+  if (!box) return;
+  var q = tgQ.toLowerCase();
+  var hits = TRAIN.filter(function(d){
+    if (tgRole !== 'all' && d.roles.indexOf(tgRole) === -1) return false;
+    if (tgArt !== 'all' && d.art !== tgArt) return false;
+    if (q && (d.ttl + ' ' + d.desc).toLowerCase().indexOf(q) === -1) return false;
+    return true;
+  });
+  var roleName = {}; TG_ROLES.forEach(function(r){ roleName[r[0]] = r[1]; });
+  box.innerHTML = hits.map(function(d){
+    return '<div class="card"><div class="badge b-iga">&#129355;</div><div style="flex:1">' +
+      '<div class="art click" style="border:none;padding:0" onclick="toggleArt(\'tg-' + d.id + '\', this)">' +
+      '<h3 style="margin:0">' + d.ttl + '<span class="tbelt">' + d.belt + ' belt &middot; tap to open</span></h3></div>' +
+      '<p style="margin-top:4px">' + d.desc + '</p>' +
+      '<p style="font-size:11.5px;color:#8a7a55;margin-top:2px">' + d.roles.map(function(r){ return roleName[r]; }).join(' &middot; ') + '</p>' +
+      '<div class="artdetail" id="tg-' + d.id + '">' + d.det +
+      (URLS.qaform ? '<a class="btn iga" style="margin-top:8px" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit your result for sparring &#9654;</a>' : '') +
+      '</div></div></div>';
+  }).join('') || '<div class="plib"><span class="task">No drill matches</span><div class="advice">Widen the filters &mdash; or request a scroll below: the grounds grow one real task at a time.</div></div>';
+  var c = document.getElementById('tgcount');
+  if (c) c.innerHTML = hits.length + ' of ' + TRAIN.length + ' drills shown';
+}
+
 /* ---------- Dojo Library ---------- */
 html += '<h2 class="phase">The Dojo Library<span class="k">蔵書院</span></h2>';
 html += guide('koga', 'minobe', 'Minobe, Keeper of the Library',
@@ -809,6 +933,7 @@ html += '<div class="card"><div class="badge ' + (URLS.librarian ? 'b-koga' : 'b
   '</div></div>';
 
 document.getElementById('app').innerHTML = html;
+tgChips(); drawTrain();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
   var nowMs = Date.now();
