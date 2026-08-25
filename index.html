@@ -683,8 +683,8 @@ html += card({ t: T.touch2, mark:'II', whenLabel:'Friday 25 September',
 /* ---------- The Training Grounds: self-study drills, filterable by role & art ----------
    Added Wed 26 Aug evening. Filter state remembered per device (localStorage dojoRole).
    To add a drill: append to TRAIN below; roles from TG_ROLES keys; art from TG_ARTS keys. */
-var TG_ROLES = [ ['all','Any role'], ['it','IT support'], ['log','Logistics &amp; events'], ['fin','Finance &amp; accounts'], ['adm','Clerical &amp; secretariat'], ['trn','Staff training'], ['enu','Surveys &amp; fieldwork'] ];
-var TG_ARTS  = [ ['all','Any art'], ['template','Templates'], ['tables','Tables &amp; numbers'], ['report','Reports from papers'], ['chart','Honest charts'], ['voice','Voice'], ['verify','Verification'] ];
+var TG_ROLES = [ ['all','All roles','&#127760;'], ['it','IT support','&#128187;'], ['log','Logistics &amp; events','&#128230;'], ['fin','Finance &amp; accounts','&#128176;'], ['adm','Clerical &amp; secretariat','&#128194;'], ['trn','Staff training','&#127891;'], ['enu','Surveys &amp; fieldwork','&#128203;'] ];
+var TG_ARTS  = [ ['all','Everything','&#10024;'], ['template','Emails &amp; templates','&#9993;&#65039;'], ['tables','Tables &amp; numbers','&#128202;'], ['report','Reports from documents','&#128196;'], ['chart','Charts','&#128200;'], ['voice','Talking to your phone','&#127908;'], ['verify','Checking &amp; verifying','&#9989;'] ];
 var TRAIN = [
  { id:'onestory', ttl:'One table, one story', roles:['it','fin','adm'], art:'tables', belt:'White',
    desc:'The Wednesday drill, repeatable with any register: four moves on one spreadsheet, ending in a signed half-page note.',
@@ -765,9 +765,11 @@ html += '<h2 class="phase" id="sec-grounds">The Training Grounds &mdash; self-st
 html += guide('iga', 'master', 'The Master of the Dojo',
   'The room closes; the grounds stay open. Each drill below is ten to thirty minutes, built from this village&#39;s own wishes and this country&#39;s own paperwork &mdash; all files fictional. Choose your role once and the grounds will remember you. Finish a drill? Send the result for sparring &mdash; the Librarian answers each evening.');
 html += '<div class="card"><div class="badge b-iga">&#127919;</div><div style="flex:1">' +
-  '<h3>Choose your path</h3><p style="margin-top:4px">Tap your role &mdash; the grounds reorder for you (remembered on this device). Narrow further by art, or search.</p>' +
-  '<div id="rolechips"></div><div id="artchips"></div>' +
-  '<input id="trainq" type="search" placeholder="Search the grounds&hellip;" oninput="tgQ=this.value;drawTrain()">' +
+  '<h3>Choose your path</h3><p style="margin-top:4px">Two taps, and the shelf below becomes yours. (Your choice is remembered on this device.)</p>' +
+  '<div style="font-size:12.5px;color:#8a7a55;margin-top:8px"><b>1 &middot; What is your work?</b></div><div id="rolechips"></div>' +
+  '<div style="font-size:12.5px;color:#8a7a55;margin-top:10px"><b>2 &middot; What would you like to practise?</b></div><div id="artchips"></div>' +
+  '<div style="font-size:12.5px;color:#8a7a55;margin-top:10px"><b>3 &middot; Or just type a word</b></div>' +
+  '<input id="trainq" type="search" placeholder="e.g. email, chart, minutes, names&hellip;" oninput="tgQ=this.value;drawTrain()">' +
   '<div class="tgcount" id="tgcount"></div></div></div>';
 html += '<div id="trainlist"></div>';
 html += '<div class="card"><div class="badge b-open">&#128220;</div><div style="flex:1">' +
@@ -782,10 +784,10 @@ function tgChips(){
   var rc = document.getElementById('rolechips'), ac = document.getElementById('artchips');
   if (!rc) return;
   rc.innerHTML = TG_ROLES.map(function(r){
-    return '<span class="chip' + (tgRole===r[0]?' on':'') + '" onclick="tgSetRole(\'' + r[0] + '\')">' + r[1] + '</span>';
+    return '<span class="chip' + (tgRole===r[0]?' on':'') + '" onclick="tgSetRole(\'' + r[0] + '\')">' + r[2] + ' ' + r[1] + '</span>';
   }).join('');
   ac.innerHTML = TG_ARTS.map(function(a){
-    return '<span class="chip' + (tgArt===a[0]?' on':'') + '" onclick="tgSetArt(\'' + a[0] + '\')">' + a[1] + '</span>';
+    return '<span class="chip' + (tgArt===a[0]?' on':'') + '" onclick="tgSetArt(\'' + a[0] + '\')">' + a[2] + ' ' + a[1] + '</span>';
   }).join('');
 }
 function tgSetRole(r){ tgRole = r; try { localStorage.setItem('dojoRole', r); } catch(e){} tgChips(); drawTrain(); }
@@ -813,7 +815,7 @@ function drawTrain(){
       '</div></div></div>';
   }).join('') || '<div class="plib"><span class="task">No drill matches</span><div class="advice">Widen the filters &mdash; or request a scroll below: the grounds grow one real task at a time.</div></div>';
   var c = document.getElementById('tgcount');
-  if (c) c.innerHTML = hits.length + ' of ' + TRAIN.length + ' drills shown';
+  if (c) c.innerHTML = 'Showing <b>' + hits.length + '</b> of ' + TRAIN.length + ' drills &mdash; your shelf is below &#11015;';
 }
 
 /* ---------- Dojo Library ---------- */
