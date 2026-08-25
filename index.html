@@ -275,6 +275,31 @@ var URLS = {
 /* ---- The Village's Wishes (filled each evening from the Wish Round; no names) ----
    tag: 'done' = covered in the session named, 'next' = coming later this week,
    'koga' = belongs to the Researchers' days, 'scroll' = see the named scroll. */
+/* ---- Morning Scroll Challenge results (filled at lunch; aggregate only - never individuals) ----
+   Example: QUIZA_RESULTS = { n:27, avg:8.2, hardest:'Q5',
+     per:[ {q:'Q1',label:'Five-part instruction',pct:93}, {q:'Q2',label:'Three-way data sort',pct:89},
+           {q:'Q3',label:'Verify before accepting',pct:96}, {q:'Q4',label:'The Style Mirror',pct:74},
+           {q:'Q5',label:'What GPT means',pct:48} ] };  */
+var QUIZA_RESULTS = null;
+function quizaChart(){
+  var R = QUIZA_RESULTS;
+  if (!R) return '';
+  var rows = R.per.map(function(p){
+    var hard = (p.q === R.hardest);
+    return '<div style="display:flex;align-items:center;gap:8px;margin-top:7px">' +
+      '<span style="flex:0 0 175px;font-size:12.5px;color:#5a4a33">' + p.q + ' &middot; ' + p.label + '</span>' +
+      '<span style="flex:1;background:#efe7d6;border-radius:6px;overflow:hidden;height:16px;position:relative">' +
+      '<span style="display:block;height:100%;width:' + p.pct + '%;background:' + (hard ? '#a03123' : '#b98a2e') + '"></span></span>' +
+      '<span style="flex:0 0 118px;font-size:12px;color:' + (hard ? '#a03123' : '#8a7454') + '">' + p.pct + '%' +
+      (hard ? ' &larr; hardest' : '') + '</span></div>';
+  }).join('');
+  return '<div style="margin-top:12px;padding:12px 14px;background:#fbf6ea;border:1px solid #e6d9bd;border-radius:10px">' +
+    '<div style="font-weight:bold;font-size:13.5px;color:#5a4a33">The village&#39;s morning &mdash; ' + R.n +
+    ' ninjas &middot; average ' + R.avg + ' / 10</div>' + rows +
+    '<div style="font-size:12px;color:#a03123;margin-top:8px">The hardest question returns in the First Trial on 4 September &mdash; word for word. The same enemy, easier the second time.</div>' +
+    '<div style="font-size:11px;color:#8a7454;margin-top:4px">Aggregate results only &mdash; no individual scores exist on this page.</div></div>';
+}
+
 var WISHES = [
   { cat:'write', w:'Automate templates for my reports and documents', tag:'done', where:'Day 1 · Session 4' },
   { cat:'organize', w:'An AI for the mundane office and administrative tasks', tag:'done', where:'Day 1 · all sessions' },
@@ -567,7 +592,7 @@ html += guide('iga', 'hana', 'Hana of the Iga School',
 html += card({ t: T.quizA, clan:'iga', mark:'Q', whenLabel:'Wednesday 26 August, 06:00',
   title: 'Morning Scroll Challenge (Wed 26 Aug, at the start of Day 2)',
   desc : 'Five questions on the arts of Monday. Answer from memory — the recalling is the training. The one the village finds hardest returns in the First Trial, word for word: the same enemy, easier the second time.',
-  body : link_(URLS.quizA, 'Take the challenge', 'iga')
+  body : link_(URLS.quizA, 'Take the challenge', 'iga') + quizaChart()
 });
 html += scrollCard('iga','IGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Words','秘伝 言霊の巻',
   'earned Monday 24 August',
