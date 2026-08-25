@@ -276,40 +276,40 @@ var URLS = {
    tag: 'done' = covered in the session named, 'next' = coming later this week,
    'koga' = belongs to the Researchers' days, 'scroll' = see the named scroll. */
 var WISHES = [
-  { w:'Automate templates for my reports and documents', tag:'done', where:'Day 1 · Session 4' },
-  { w:'An AI for the mundane office and administrative tasks', tag:'done', where:'Day 1 · all sessions' },
-  { w:'Summarise my meetings, emails and messages; extract and track action items, deadlines and owners; send follow-up reminders; arrange meetings and spot conflicts', tag:'done', where:'Day 1 · Sessions 2 & 4' },
-  { w:'Draft emails, reports and presentations', tag:'done', where:'Day 1 · Session 2' },
-  { w:'Simple but clear letter writing, minutes, emails and documents', tag:'done', where:'Day 1 · Session 2' },
-  { w:'Track pending actions and deadlines at work', tag:'done', where:'Day 1 · Session 4' },
-  { w:'Improve the workflow of administrative work, with a daily reminder of tasks', tag:'done', where:'Day 1 · Session 4' },
-  { w:'Spot the urgent things first and turn my messy week into an organised one', tag:'done', where:'Day 1 · Session 4' },
-  { w:'A booking system to organise meetings with colleagues', tag:'done', where:'Day 1 · Session 4' },
-  { w:'Perform repetitive tasks accurately — more productive and efficient', tag:'done', where:'Day 1 · Session 4' },
-  { w:'Organise my tasks and schedule: drafting letters, keeping track of deadlines', tag:'done', where:'Day 1 · Sessions 2 & 4' },
-  { w:'Meeting schedules; presentation skills; minute and report writing', tag:'done', where:'Day 1 + Wednesday' },
-  { w:'Admin work handled so I have time for what I love — writing, travelling, the gym', tag:'done', where:'Day 1 · the whole point' },
-  { w:'Create content and posters without it being detected as AI-made', tag:'done', where:'Day 1 · the Signing Code: disclose, don&#39;t hide — signed work needs no detector' },
-  { w:'Design PowerPoints quickly', tag:'next', where:'Wednesday · charts & slides' },
-  { w:'Help analyse data', tag:'next', where:'Wednesday · numbers' },
-  { w:'Analyse my data', tag:'next', where:'Wednesday · numbers' },
-  { w:'Organise big data', tag:'next', where:'Wednesday · spreadsheets' },
-  { w:'Generate an IT assets report', tag:'next', where:'Wednesday · reports from data' },
-  { w:'Forecast IT expenses for next year&#39;s budget', tag:'next', where:'Wednesday · numbers (with verification!)' },
-  { w:'Interactive charts and presentations that are not boring and not overloaded', tag:'next', where:'Wednesday · visuals' },
-  { w:'Automate data entry from paper/PDF forms; approval flows across a hierarchy', tag:'next', where:'Wednesday + The Path (agents)' },
-  { w:'Create complicated automation flows', tag:'scroll', where:'The Path of Mastery (agents)' },
-  { w:'Proficiency with AI image, music and video tools', tag:'scroll', where:'The Path of Mastery' },
-  { w:'Edit video with a mere prompt', tag:'scroll', where:'The Path of Mastery' },
-  { w:'Create an audio cartoon book for kids', tag:'scroll', where:'The Path of Mastery' },
-  { w:'Publish books on Amazon KDP as passive income', tag:'scroll', where:'The Path of Mastery' },
-  { w:'A digital business that makes money while I sleep', tag:'scroll', where:'The Path of Mastery' },
-  { w:'An AI agent that makes me money', tag:'scroll', where:'The Path of Mastery' },
-  { w:'Generate income without capital', tag:'scroll', where:'The Path of Mastery' },
-  { w:'An AI that keeps me healthy — tracks meals and daily exercise', tag:'scroll', where:'The Path of Mastery (personal)' },
-  { w:'Freedom', tag:'scroll', where:'The Path of Mastery &#128522;' },
-  { w:'How to create a research paper effectively', tag:'koga', where:'Koga days · Thursday &amp; Friday' },
-  { w:'Laundry', tag:'scroll', where:'beyond even the Master&#39;s arts — for now' },
+  { cat:'write', w:'Automate templates for my reports and documents', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'An AI for the mundane office and administrative tasks', tag:'done', where:'Day 1 · all sessions' },
+  { cat:'organize', w:'Summarise my meetings, emails and messages; extract and track action items, deadlines and owners; send follow-up reminders; arrange meetings and spot conflicts', tag:'done', where:'Day 1 · Sessions 2 & 4' },
+  { cat:'write', w:'Draft emails, reports and presentations', tag:'done', where:'Day 1 · Session 2' },
+  { cat:'write', w:'Simple but clear letter writing, minutes, emails and documents', tag:'done', where:'Day 1 · Session 2' },
+  { cat:'organize', w:'Track pending actions and deadlines at work', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'Improve the workflow of administrative work, with a daily reminder of tasks', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'Spot the urgent things first and turn my messy week into an organised one', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'A booking system to organise meetings with colleagues', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'Perform repetitive tasks accurately — more productive and efficient', tag:'done', where:'Day 1 · Session 4' },
+  { cat:'organize', w:'Organise my tasks and schedule: drafting letters, keeping track of deadlines', tag:'done', where:'Day 1 · Sessions 2 & 4' },
+  { cat:'write', w:'Meeting schedules; presentation skills; minute and report writing', tag:'done', where:'Day 1 + Wednesday' },
+  { cat:'personal', w:'Admin work handled so I have time for what I love — writing, travelling, the gym', tag:'done', where:'Day 1 · the whole point' },
+  { cat:'creative', w:'Create content and posters without it being detected as AI-made', tag:'done', where:'Day 1 · the Signing Code: disclose, don&#39;t hide — signed work needs no detector' },
+  { cat:'data', w:'Design PowerPoints quickly', tag:'next', where:'Wednesday · charts & slides' },
+  { cat:'data', w:'Help analyse data', tag:'next', where:'Wednesday · numbers' },
+  { cat:'data', w:'Analyse my data', tag:'next', where:'Wednesday · numbers' },
+  { cat:'data', w:'Organise big data', tag:'next', where:'Wednesday · spreadsheets' },
+  { cat:'data', w:'Generate an IT assets report', tag:'next', where:'Wednesday · reports from data' },
+  { cat:'data', w:'Forecast IT expenses for next year&#39;s budget', tag:'next', where:'Wednesday · numbers (with verification!)' },
+  { cat:'data', w:'Interactive charts and presentations that are not boring and not overloaded', tag:'next', where:'Wednesday · visuals' },
+  { cat:'auto', w:'Automate data entry from paper/PDF forms; approval flows across a hierarchy', tag:'next', where:'Wednesday + The Path (agents)' },
+  { cat:'auto', w:'Create complicated automation flows', tag:'scroll', where:'The Path of Mastery (agents)' },
+  { cat:'creative', w:'Proficiency with AI image, music and video tools', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'Edit video with a mere prompt', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'Create an audio cartoon book for kids', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'Publish books on Amazon KDP as passive income', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'A digital business that makes money while I sleep', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'An AI agent that makes me money', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'creative', w:'Generate income without capital', tag:'scroll', where:'The Path of Mastery' },
+  { cat:'personal', w:'An AI that keeps me healthy — tracks meals and daily exercise', tag:'scroll', where:'The Path of Mastery (personal)' },
+  { cat:'personal', w:'Freedom', tag:'scroll', where:'The Path of Mastery &#128522;' },
+  { cat:'research', w:'How to create a research paper effectively', tag:'koga', where:'Koga days · Thursday &amp; Friday' },
+  { cat:'personal', w:'Laundry', tag:'scroll', where:'beyond even the Master&#39;s arts — for now' },
 ];
 /* ---- The Village Book of Failures (anonymous posts, reviewed each evening) ----
    Each entry: task / expected / actual / why. Five entries open the Red Team scroll. */
@@ -541,10 +541,9 @@ if (WISHES.length === 0) {
   html += '<div class="card"><div class="badge b-lock">&#128203;</div><div><h3>The wishes of the village</h3>' +
           '<p>They appear here from <b>13:00 on the first training day</b>, after the Wish Round &mdash; anonymously, each tied to the session that answers it.</p></div></div>';
 } else {
-  var tagLabel = { done:'COVERED', next:'THIS WEEK', koga:'KOGA DAYS', scroll:'SEE SCROLL' };
   html += '<div class="card"><div class="badge b-iga">&#128203;</div><div style="flex:1"><h3>The wishes of the village (' + WISHES.length + ')</h3>' +
-    WISHES.map(function(x){ return '<div class="wish"><span class="tag ' + (x.tag==='done'?'done':x.tag==='koga'?'koga':'') + '">' +
-      (tagLabel[x.tag]||x.tag) + (x.where ? ' &middot; ' + x.where : '') + '</span><span>' + x.w + '</span></div>'; }).join('') +
+    '<p style="margin-top:4px;font-size:13px">Sorted into baskets. Tap a basket to open it; tap again to close.</p>' +
+    '<div id="wishchips"></div><div id="wishlist"></div>' +
     '<p style="font-size:12px;margin-top:8px;color:#8a7454;">Written from the Wish Round, no names. Missing yours? Tell the question box.</p></div></div>';
 }
 
@@ -811,6 +810,23 @@ html += '<div class="card"><div class="badge b-open">&#128220;</div><div style="
   '</div></div>';
 html += '<div id="trainlist"></div>';
 
+
+var WCATS = [ ['all','&#127760; All'], ['organize','&#128197; Tasks &amp; organising'], ['write','&#9997;&#65039; Writing &amp; documents'], ['data','&#128202; Data, charts &amp; slides'], ['auto','&#9881;&#65039; Automation &amp; agents'], ['creative','&#127912; Creative &amp; side projects'], ['personal','&#127793; Life &amp; personal'], ['research','&#128300; Research'] ];
+var wCat = null;
+function wCount(c){ return c==='all' ? WISHES.length : WISHES.filter(function(x){ return (x.cat||'organize')===c; }).length; }
+function wSet(c){ wCat = (wCat===c) ? null : c; drawWishes(); }
+function drawWishes(){
+  var ch=document.getElementById('wishchips'), ls=document.getElementById('wishlist');
+  if(!ch) return;
+  var tagLabel = { done:'COVERED', next:'THIS WEEK', koga:'KOGA DAYS', scroll:'SEE SCROLL' };
+  ch.innerHTML = WCATS.map(function(c){ return '<span class="chip'+(wCat===c[0]?' on':'')+'" onclick="wSet(\''+c[0]+'\')">'+c[1]+' ('+wCount(c[0])+')</span>'; }).join('');
+  if(wCat===null){
+    ls.innerHTML='<div class="plib"><span class="task">'+WISHES.length+' wishes, seven baskets</span><div class="advice">Tap a basket above to read the wishes inside - each tied to the session that answers it.</div></div>';
+    return;
+  }
+  var hits = WISHES.filter(function(x){ return wCat==='all' || (x.cat||'organize')===wCat; });
+  ls.innerHTML = hits.map(function(x){ return '<div class="wish"><span class="tag ' + (x.tag==='done'?'done':x.tag==='koga'?'koga':'') + '">' + (tagLabel[x.tag]||x.tag) + (x.where ? ' &middot; ' + x.where : '') + '</span><span>' + x.w + '</span></div>'; }).join('');
+}
 var tgRole = null, tgArt = null, tgQ = '';
 try { tgRole = localStorage.getItem('dojoRole'); } catch(e){}
 function tgChips(){
@@ -997,6 +1013,7 @@ try {
   document.getElementById('app').appendChild(bv);
 } catch(e){}
 tgChips(); drawTrain();
+drawWishes();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
   var nowMs = Date.now();
