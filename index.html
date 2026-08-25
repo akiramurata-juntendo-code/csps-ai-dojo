@@ -834,7 +834,7 @@ function drawTrain(){
   var q = tgQ.toLowerCase();
   if (tgRole === null && tgArt === null && !q) {
     box.innerHTML = '<div class="plib"><span class="task">Your shelf is waiting</span>'+
-      '<div class="advice">Tap your role above and the drills for your work appear here - or tap an art, or type a word. ('+TRAIN.length+' drills on the shelf.)</div></div>';
+      '<div class="advice">Tap your role under <b>1</b> and your drills appear here. Narrow down with <b>2</b>, or search with <b>3</b>. '+TRAIN.length+' drills wait on the shelf &mdash; each with its own practice file, step-by-step instructions, and a hidden model answer.</div></div>';
     var c0 = document.getElementById('tgcount'); if (c0) c0.innerHTML = '';
     return;
   }
