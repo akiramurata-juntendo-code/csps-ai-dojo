@@ -1,0 +1,12 @@
+event,item,qty,unit_cost_bnd,total_bnd
+Roadshow A,Venue hire,1,450,450
+Roadshow A,Catering (per head),40,12,480
+Roadshow A,Transport,2,120,240
+Roadshow A,Printing,200,1.5,300
+Workshop B,Venue hire,2,450,900
+Workshop B,Catering (per head),60,12,810
+Workshop B,Transport,1,120,120
+Workshop B,Printing,100,1.5,150
+Briefing C,Venue hire,1,0,0
+Briefing C,Catering (per head),25,8,200
+Briefing C,Printing,50,1.5,75

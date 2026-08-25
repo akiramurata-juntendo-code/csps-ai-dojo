@@ -1,0 +1,19 @@
+ticket_id,week_day,division,category,status,minutes_spent
+T-001,Fri,D2,Password reset,resolved,30
+T-002,Thu,D5,Shared drive access,resolved,20
+T-003,Thu,D5,Email quota,resolved,60
+T-004,Mon,D4,Shared drive access,open,45
+T-005,Thu,D3,Projector,open,20
+T-006,Wed,D5,Shared drive access,open,20
+T-007,Wed,D2,Shared drive access,resolved,10
+T-008,Thu,D5,Printer,resolved,20
+T-009,Wed,D4,Password reset,resolved,60
+T-010,Fri,D5,Laptop slow,resolved,15
+T-011,Mon,D4,Printer,resolved,20
+T-012,Wed,D4,Password reset,open,60
+T-013,Wed,D2,Password reset,resolved,30
+T-014,Fri,D2,Email quota,open,45
+T-015,Mon,D5,Laptop slow,resolved,45
+T-016,Mon,D5,Password reset,resolved,20
+T-017,Wed,D1,Password reset,resolved,60
+T-018,Thu,D2,Printer,open,10

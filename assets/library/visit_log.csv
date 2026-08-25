@@ -1,0 +1,58 @@
+district,household_id,attempt_no,outcome
+Brunei-Muara,HH-001,1,reschedule
+Brunei-Muara,HH-002,1,reschedule
+Brunei-Muara,HH-002,2,completed
+Brunei-Muara,HH-003,1,completed
+Brunei-Muara,HH-004,1,no answer
+Brunei-Muara,HH-005,1,refused
+Brunei-Muara,HH-006,1,completed
+Brunei-Muara,HH-007,1,no answer
+Brunei-Muara,HH-008,1,completed
+Brunei-Muara,HH-009,1,completed
+Brunei-Muara,HH-010,1,no answer
+Brunei-Muara,HH-010,2,reschedule
+Brunei-Muara,HH-011,1,no answer
+Brunei-Muara,HH-012,1,completed
+Brunei-Muara,HH-013,1,no answer
+Brunei-Muara,HH-013,2,no answer
+Brunei-Muara,HH-013,3,completed
+Brunei-Muara,HH-014,1,completed
+Brunei-Muara,HH-015,1,completed
+Brunei-Muara,HH-016,1,no answer
+Belait,HH-017,1,completed
+Belait,HH-018,1,completed
+Belait,HH-019,1,no answer
+Belait,HH-019,2,reschedule
+Belait,HH-019,3,reschedule
+Belait,HH-020,1,completed
+Belait,HH-021,1,no answer
+Belait,HH-021,2,completed
+Belait,HH-022,1,reschedule
+Belait,HH-023,1,no answer
+Belait,HH-024,1,refused
+Belait,HH-025,1,reschedule
+Belait,HH-026,1,no answer
+Belait,HH-026,2,completed
+Tutong,HH-027,1,reschedule
+Tutong,HH-027,2,reschedule
+Tutong,HH-027,3,completed
+Tutong,HH-028,1,no answer
+Tutong,HH-029,1,completed
+Tutong,HH-030,1,no answer
+Tutong,HH-030,2,completed
+Tutong,HH-031,1,no answer
+Tutong,HH-031,2,no answer
+Tutong,HH-032,1,completed
+Tutong,HH-033,1,no answer
+Tutong,HH-033,2,no answer
+Tutong,HH-033,3,completed
+Tutong,HH-034,1,reschedule
+Tutong,HH-034,2,completed
+Temburong,HH-035,1,completed
+Temburong,HH-036,1,no answer
+Temburong,HH-036,2,completed
+Temburong,HH-037,1,reschedule
+Temburong,HH-037,2,no answer
+Temburong,HH-038,1,completed
+Temburong,HH-039,1,completed
+Temburong,HH-040,1,completed

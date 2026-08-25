@@ -1,0 +1,19 @@
+room,month,days_available,days_booked
+Main Training Room,2026-01,20,16
+Main Training Room,2026-02,20,16
+Main Training Room,2026-03,20,14
+Main Training Room,2026-04,20,17
+Main Training Room,2026-05,20,15
+Main Training Room,2026-06,20,17
+Meeting Room 2,2026-01,20,9
+Meeting Room 2,2026-02,20,10
+Meeting Room 2,2026-03,20,13
+Meeting Room 2,2026-04,20,15
+Meeting Room 2,2026-05,20,15
+Meeting Room 2,2026-06,20,17
+Auditorium,2026-01,20,10
+Auditorium,2026-02,20,11
+Auditorium,2026-03,20,12
+Auditorium,2026-04,8,3
+Auditorium,2026-05,20,9
+Auditorium,2026-06,20,7
