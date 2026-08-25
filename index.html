@@ -359,76 +359,76 @@ var GLOSS = [
 /* ---- The Prompt Dojo: prompts submitted for sparring; the Librarian reviews each evening ----
    verdict: '&#9678;' excellent / '&#9675;' works / '&#9651;' needs one fix. 'better' optional. */
 var PROMPTS = [
-  { task:'Issue interview invitations to shortlisted candidates', tool:'Gemini', verdict:'&#9678;',
+  { cat:'letters', task:'Issue interview invitations to shortlisted candidates', tool:'Gemini', verdict:'&#9678;',
     prompt:'#role HR officer  #task issue interview invitation email to shortlisted candidates  #context only shortlisted candidates will be emailed  #constraints change the candidate&#39;s name in every opening; reply by 26 August 2pm  #format one structured formal email with where and when the interview is held',
     advice:'Excellent — role, per-candidate name rule, a deadline and a fixed format. One polish: write [DATE], [TIME], [VENUE] as slots and this becomes a reusable template. The shelf awaits, with your consent.' },
-  { task:'Two formal invitation letters to visiting professors', tool:'ChatGPT', verdict:'&#9678;',
+  { cat:'letters', task:'Two formal invitation letters to visiting professors', tool:'ChatGPT', verdict:'&#9678;',
     prompt:'#role Project Officer, on behalf of the Centre for Lifelong Learning  #task draft two separate formal invitation letters to each professor to deliver a workshop, 28 September&ndash;2 October 2026  #constraint formal only; acceptance deadline 1 September 2026  #format MS Word, English',
     advice:'Complete five parts, real dates, a deadline that holds. One polish: add [VENUE] and [SESSIONS] slots so next term&#39;s letters take two minutes. Verify both professors&#39; names and titles letter by letter before sending — names first.' },
-  { task:'Email to all staff requesting KPI reports', tool:'Gemini', verdict:'&#9678;',
+  { cat:'emails', task:'Email to all staff requesting KPI reports', tool:'Gemini', verdict:'&#9678;',
     prompt:'#role admin officer  #task prepare an email request to all staff to submit their KPI report  #context deadline end of August 2026  #constraints last-minute request  #format polite, with subject line, in English',
     advice:'Very good — the subject-line instruction is a professional touch. One fix: &quot;last minute request&quot; is context the AI can use — move it into the Task as &quot;acknowledge the short notice and apologise briefly&quot;, and the email writes itself with grace.' },
-  { task:'Reply to Ms G with a debit advice attached', tool:'Gemini', verdict:'&#9678;',
+  { cat:'emails', task:'Reply to Ms G with a debit advice attached', tool:'Gemini', verdict:'&#9678;',
     prompt:'#role Administrator  #task write a draft email to Ms G, attaching the debit advice  #context previous email thread included  #constraints formal and professional; maintain the good relationship  #format simple, short, English',
     advice:'The relationship constraint is exactly what a model cannot guess — well done. One fix: say what you want Ms G to <i>do</i> (confirm receipt? settle by a date?). An email with no ask is a letter, not a lever.' },
-  { task:'Infographic: population of Brunei', tool:'Gemini', verdict:'&#9678;',
+  { cat:'datavis', task:'Infographic: population of Brunei', tool:'Gemini', verdict:'&#9678;',
     prompt:'#role infographic designer  #task create an infographic of the population of Brunei  #context growth over the last 5 years; % per year; by district  #constraint only official data from one named source; only bar charts; shades of blue  #format English, A4 landscape, one page',
     advice:'The best data prompt of the day: a named source, one chart type, one page. One habit to add: models still invent numbers even when told a source &mdash; check every figure against the source itself before it leaves your desk. Two-path verification.' },
-  { task:'PPT for UBD to approach a new industry', tool:'Gemini', verdict:'&#9675;',
+  { cat:'datavis', task:'PPT for UBD to approach a new industry', tool:'Gemini', verdict:'&#9675;',
     prompt:'#role industry partnership officer  #task create a ppt for UBD to approach new industry  #context we never had an official UBD slide  #constraints formal but comprehensive  #format ppt, 3 slides maximum',
     advice:'Good bones and a wise 3-slide cap. One fix: the Context is about you &mdash; give one line about <i>them</i>: which industry, and what UBD offers that they need. A pitch prompt without an audience makes a brochure, not a bridge.' },
-  { task:'Reply with an apology for the late response', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'emails', task:'Reply with an apology for the late response', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'Improve my reply to the email below; apologise for the late reply as we had workshops all week, and for the rest of the month',
     advice:'Honest context, and pasting the thread is the right move. One fix: state the outcome you want (&quot;propose two meeting slots in September&quot;) &mdash; an apology plus a next step reads as professional; an apology alone reads as an ending.' },
-  { task:'Asset tracking for audit', tool:'Gemini', verdict:'&#9675;',
+  { cat:'datavis', task:'Asset tracking for audit', tool:'Gemini', verdict:'&#9675;',
     prompt:'#role Admin Officer  #task asset tracking  #context asset listings and tagging of computers and office furniture for audit  #constraints timeline 2 weeks  #format English/Malay, PDF',
     advice:'One fix: the Task is a noun. Give the model a verb and a deliverable &mdash; &quot;create a tagging checklist and an asset-register template with columns&hellip;&quot; &mdash; and the two-week plan falls out of it.' },
-  { task:'Workshop invitation letter to ministries', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'letters', task:'Workshop invitation letter to ministries', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'#role admin officer  #task draft a letter for workshop invite  #context to ministries  #constraint directors only  #format English, MS Word',
     advice:'Clean structure. One fix: the letter needs one Context line about the workshop itself &mdash; name, dates, venue as [SLOTS]. And when it goes to directors, the form of address is your first check: names and titles, in full.' },
-  { task:'Invitation letter + nomination of 5 staff', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'letters', task:'Invitation letter + nomination of 5 staff', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'Draft an invitation letter to nominate 5 staff members to attend the workshop programme and respond to the email to confirm attendance.',
     advice:'One fix: this is two tasks wearing one coat &mdash; the letter, and the confirmation reply. Send them as two prompts and each comes back sharper. One task per prompt is the quiet rule behind clean outputs.' },
-  { task:'Translate an email into Malay', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'malay', task:'Translate an email into Malay', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'Please translate the email into Malay language',
     advice:'Fine as far as it goes. One fix: after translating, back-translate it to English and compare what matters &mdash; names, dates, the deadline. That check is the Returning Translation, and you can do it in one extra line.' },
-  { task:'Press release for the local paper', tool:'Gemini', verdict:'&#9675;',
+  { cat:'docs', task:'Press release for the local paper', tool:'Gemini', verdict:'&#9675;',
     prompt:'Draft a press release using these details: event name, date, venue, etc.',
     advice:'The labelled-details habit is right. One fix: replace &quot;etc.&quot; with the labels that matter (quote from whom? photo caption? contact line?) and name the audience &mdash; a press release for a local paper has a house style; paste one past release and say &quot;match this&quot;.' },
-  { task:'Simplify IT terms', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'other', task:'Simplify IT terms', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'Please explain these IT terms into something that is easy to understand',
     advice:'Good instinct. One fix: name the reader &mdash; &quot;for a director with five minutes, one everyday analogy per term&quot;. &quot;Easy to understand&quot; is relative; a named audience makes it absolute.' },
-  { task:'Minutes from bullet points', tool:'ChatGPT', verdict:'&#9675;',
+  { cat:'docs', task:'Minutes from bullet points', tool:'ChatGPT', verdict:'&#9675;',
     prompt:'Prepare a minute based on these bullet points',
     advice:'This works &mdash; you saw it in Session 2. One fix: paste one past minute from your office and add &quot;match this format&quot;. The Style Mirror turns a generic minute into <i>your</i> minute.' },
-  { task:'Payment reminder (Finance)', tool:'Gemini Notebook', verdict:'&#9675;',
+  { cat:'emails', task:'Payment reminder (Finance)', tool:'Gemini Notebook', verdict:'&#9675;',
     prompt:'#role Finance admin assistant  #task help me draft a payment reminder  #context the payment is overdue and needs follow-up  #constraints formal but polite, firm and professional  #format one short email',
     advice:'A well-built prompt &mdash; polite-firm-professional is exactly the constraint a model needs. One fix: the room, not the prompt &mdash; the Notebook answers from documents on its shelf; for drafting, take this to regular Gemini and it will fly.' },
-  { task:'Quotation request to a caterer', tool:'Gemini', verdict:'&#9675;',
+  { cat:'emails', task:'Quotation request to a caterer', tool:'Gemini', verdict:'&#9675;',
     prompt:'#role Caterer  #task draft an email requesting a quotation for outside catering  #context Nastaeen Restaurant  #constraints formal but warm  #format short but detailed; 30 pax; venue Sukma Indera Hall',
     advice:'Pax and venue in the Format &mdash; nicely concrete. One fix: the Role is <i>you</i>, not the recipient: you are the admin officer requesting; the caterer receives. Swap that and the letter stops offering to cook.' },
-  { task:'Reminder to heads of units &mdash; FY2027/28 budget', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'emails', task:'Reminder to heads of units &mdash; FY2027/28 budget', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Draft a reminder email to head of units who has not submitted the budget request for FY2027/28',
     advice:'A real task, one line. One fix: add the deadline that holds and the tone &mdash; &quot;due [DATE]; formal but warm; one short email with subject line&quot;. You saw this exact anatomy at 9:40 this morning &mdash; five parts, and this becomes today&#39;s best template.' },
-  { task:'Justification minute for a new server', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'docs', task:'Justification minute for a new server', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Please draft a justification minute to purchase a new server',
     advice:'One fix: give the three facts every approver looks for &mdash; why now (what fails without it), the cost range, and the option you rejected. The model can arrange them beautifully; it cannot know them.' },
-  { task:'Improve my reply to this email', tool:'Gemini', verdict:'&#9651;',
+  { cat:'emails', task:'Improve my reply to this email', tool:'Gemini', verdict:'&#9651;',
     prompt:'Improve my reply to this email',
     advice:'One fix: the model cannot see your desk &mdash; paste the thread and your draft, then say the tone and the outcome you want. Document first, instruction last.' },
-  { task:'Improve a poster for Instagram', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'datavis', task:'Improve a poster for Instagram', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Please improve the poster to be published on Instagram',
     advice:'One fix: &quot;improve&quot; needs a direction &mdash; who is it for and what should they do after seeing it? Add &quot;square format, one message, five words maximum on the image&quot; and the tool has something to aim at.' },
-  { task:'Compare three PC models', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'datavis', task:'Compare three PC models', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Please do comparison between 3 PC models: Dell, ASUS and Acer',
     advice:'One fix: comparison against <i>what need</i>? Give the use case and budget, ask for a table with your criteria as columns &mdash; then verify the specs on the makers&#39; pages. Models happily invent model numbers; the table is a draft, not a catalogue.' },
-  { task:'Find contact details for a dispatch list', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'other', task:'Find contact details for a dispatch list', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Find me the office number, work positions and postal address for the following list of people&hellip;',
     advice:'One caution worth more than a fix: this is where models invent &mdash; confident, wrong phone numbers. Use the official directory or the organisation&#39;s website as your source, and keep lists of real people out of public tools. The AI can format your list; it should not be your phonebook.' },
-  { task:'Generate a Canva design from a template', tool:'ChatGPT', verdict:'&#9651;',
+  { cat:'datavis', task:'Generate a Canva design from a template', tool:'ChatGPT', verdict:'&#9651;',
     prompt:'Based on the template attached, please generate a Canva design',
     advice:'One fix: say what the design must keep (colours, logo position) and what changes (the message, the date). And check whose template it is &mdash; a borrowed design carries someone&#39;s rights along with its beauty.' },
-  { task:'The scaffold, waiting for its content (&times;2 submissions)', tool:'', verdict:'&#9651;',
+  { cat:'other', task:'The scaffold, waiting for its content (&times;2 submissions)', tool:'', verdict:'&#9651;',
     prompt:'#research liaison assistant  #task  #csps / #supervised fieldworkers #house to house survey work #context #constraints #format #words',
     advice:'The frame is right &mdash; now each tag needs one sentence. For example: #role research liaison assistant  #task draft a briefing sheet for fieldworkers doing house-to-house surveys  #context first-time enumerators, one-day training  #constraints plain English and Malay  #format one page. Fill the tags and send it again &mdash; the sparring floor is open all week.' },
 ];
@@ -862,6 +862,43 @@ html += '<div class="card"><div class="badge b-open">&#128220;</div><div style="
 html += '<div id="trainlist"></div>';
 
 
+
+var PCATS = [ ['all','&#127760; All'], ['emails','&#9993;&#65039; Emails &amp; replies'], ['letters','&#128220; Invitations &amp; letters'], ['docs','&#128196; Minutes &amp; documents'], ['datavis','&#128202; Data, slides &amp; visuals'], ['malay','&#127758; Malay &amp; translation'], ['other','&#128161; Explaining &amp; other'] ];
+var PVERD = [ ['&#9678;','&#9678; Excellent'], ['&#9675;','&#9675; Works'], ['&#9651;','&#9651; One fix'] ];
+var pCat = null, pVerd = null;
+function vnorm(s){ return (s||'').replace(/&#9678;/g,'◎').replace(/&#9675;/g,'○').replace(/&#9651;/g,'△'); }
+function pSetCat(c){ pCat = (pCat===c) ? null : c; drawPrompts(); }
+function pSetVerd(v){ pVerd = (pVerd===v) ? null : v; drawPrompts(); }
+function drawPrompts(){
+  var ch=document.getElementById('promptchips'), ls=document.getElementById('promptlist');
+  if(!ch) return;
+  if (PROMPTS.length === 0){
+    ch.innerHTML=''; ls.innerHTML = '<div class="plib"><span class="task">The sparring floor is empty</span>' +
+      '<div class="advice">Send the first prompt &mdash; the Librarian bows to every challenger, and no verdict ever names a ninja.</div></div>';
+    return;
+  }
+  var cc = function(c){ return PROMPTS.filter(function(x){ return c==='all' || (x.cat||'other')===c; }).length; };
+  var vc = function(v){ return PROMPTS.filter(function(x){ return vnorm(x.verdict)===vnorm(v); }).length; };
+  ch.innerHTML = PCATS.map(function(c){ return '<span class="chip'+(pCat===c[0]?' on':'')+'" onclick="pSetCat(\''+c[0]+'\')">'+c[1]+' ('+cc(c[0])+')</span>'; }).join('') +
+    '<div style="margin-top:2px">' + PVERD.map(function(v){ return '<span class="chip'+(pVerd===v[0]?' on':'')+'" onclick="pSetVerd(\''+v[0]+'\')">'+v[1]+' ('+vc(v[0])+')</span>'; }).join('') + '</div>';
+  if (pCat===null && pVerd===null){
+    ls.innerHTML = '<div class="plib"><span class="task">'+PROMPTS.length+' sparring rounds in the archive</span>' +
+      '<div class="advice">Tap a category or a verdict above to open the rounds &mdash; each shows the prompt, the Librarian&#39;s verdict and one fix. Tap again to close.</div></div>';
+    return;
+  }
+  var hits = PROMPTS.filter(function(x){
+    if (pCat && pCat!=='all' && (x.cat||'other')!==pCat) return false;
+    if (pVerd && vnorm(x.verdict)!==vnorm(pVerd)) return false;
+    return true;
+  });
+  ls.innerHTML = hits.map(function(x){
+    return '<div class="plib"><span class="verdict">' + x.verdict + '</span><span class="task">' + x.task + '</span>' +
+           ' <span class="meta">' + (x.tool||'') + '</span>' +
+           '<pre>' + x.prompt + '</pre>' +
+           '<div class="advice">' + x.advice + '</div>' +
+           (x.better ? '<pre class="better">' + x.better + '</pre>' : '') + '</div>';
+  }).join('') || '<div class="plib"><span class="task">No rounds match</span><div class="advice">Widen the filters &mdash; or send your own prompt for sparring.</div></div>';
+}
 var WCATS = [ ['all','&#127760; All'], ['organize','&#128197; Tasks &amp; organising'], ['write','&#9997;&#65039; Writing &amp; documents'], ['data','&#128202; Data, charts &amp; slides'], ['auto','&#9881;&#65039; Automation &amp; agents'], ['creative','&#127912; Creative &amp; side projects'], ['personal','&#127793; Life &amp; personal'], ['research','&#128300; Research'] ];
 var wCat = null;
 function wCount(c){ return c==='all' ? WISHES.length : WISHES.filter(function(x){ return (x.cat||'organize')===c; }).length; }
@@ -947,17 +984,7 @@ html += '<div class="card"><div class="badge b-iga">&#129354;</div><div style="f
   '<p>Send a prompt you actually use &mdash; good or struggling. Each evening the Librarian spars with every submission: a verdict (&#9678; excellent &middot; &#9675; works &middot; &#9651; needs one fix), <b>one thing to fix</b>, and where it helps, an improved version. Anonymous; the best graduate to the Village Template Shelf.</p>' +
   (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit a prompt for sparring &#9654;</a>' : '') +
   '</div></div>';
-html += PROMPTS.map(function(x){
-  return '<div class="plib"><span class="verdict">' + x.verdict + '</span><span class="task">' + x.task + '</span>' +
-         ' <span class="meta">' + (x.tool||'') + '</span>' +
-         '<pre>' + x.prompt + '</pre>' +
-         '<div class="advice">' + x.advice + '</div>' +
-         (x.better ? '<pre class="better">' + x.better + '</pre>' : '') + '</div>';
-}).join('');
-if (PROMPTS.length === 0) {
-  html += '<div class="plib"><span class="task">The sparring floor is empty</span>' +
-          '<div class="advice">Send the first prompt &mdash; the Librarian bows to every challenger, and no verdict ever names a ninja.</div></div>';
-}
+html += '<div id="promptchips"></div><div id="promptlist"></div>';
 
 /* ---------- The Village Template Shelf ---------- */
 html += '<div class="card"><div class="badge b-open">&#128218;</div><div style="flex:1">' +
@@ -1065,6 +1092,7 @@ try {
 } catch(e){}
 tgChips(); drawTrain();
 drawWishes();
+drawPrompts();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
   var nowMs = Date.now();
