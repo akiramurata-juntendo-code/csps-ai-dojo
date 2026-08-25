@@ -811,8 +811,8 @@ html += '<div class="card"><div class="badge b-open">&#128220;</div><div style="
   '</div></div>';
 html += '<div id="trainlist"></div>';
 
-var tgRole = 'all', tgArt = 'all', tgQ = '';
-try { tgRole = localStorage.getItem('dojoRole') || 'all'; } catch(e){}
+var tgRole = null, tgArt = null, tgQ = '';
+try { tgRole = localStorage.getItem('dojoRole'); } catch(e){}
 function tgChips(){
   var rc = document.getElementById('rolechips'), ac = document.getElementById('artchips');
   if (!rc) return;
@@ -829,9 +829,15 @@ function drawTrain(){
   var box = document.getElementById('trainlist');
   if (!box) return;
   var q = tgQ.toLowerCase();
+  if (tgRole === null && tgArt === null && !q) {
+    box.innerHTML = '<div class="plib"><span class="task">Your shelf is waiting</span>'+
+      '<div class="advice">Tap your role above and the drills for your work appear here - or tap an art, or type a word. ('+TRAIN.length+' drills on the shelf.)</div></div>';
+    var c0 = document.getElementById('tgcount'); if (c0) c0.innerHTML = '';
+    return;
+  }
   var hits = TRAIN.filter(function(d){
-    if (tgRole !== 'all' && d.roles.indexOf(tgRole) === -1) return false;
-    if (tgArt !== 'all' && d.arts.indexOf(tgArt) === -1) return false;
+    if (tgRole && tgRole !== 'all' && d.roles.indexOf(tgRole) === -1) return false;
+    if (tgArt && tgArt !== 'all' && d.arts.indexOf(tgArt) === -1) return false;
     if (q && (d.ttl + ' ' + d.desc).toLowerCase().indexOf(q) === -1) return false;
     return true;
   });
