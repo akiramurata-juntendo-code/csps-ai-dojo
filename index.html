@@ -863,6 +863,27 @@ html += '<div id="trainlist"></div>';
 
 
 
+
+var BCATS = [ ['all','&#127760; All'], ['safety','&#128737;&#65039; Safety &amp; confidentiality'], ['trust','&#9989; Trust, ethics &amp; references'], ['how','&#129504; How the AI works'], ['tools','&#128736;&#65039; Tools &amp; how-to'], ['work','&#128188; Everyday work &amp; confidence'] ];
+var bCat = null;
+function bSet(c){ bCat = (bCat===c) ? null : c; drawBoard(); }
+function drawBoard(){
+  var ch=document.getElementById('boardchips'), ls=document.getElementById('boardlist');
+  if(!ch) return;
+  var cc = function(c){ return BOARD.filter(function(x){ return c==='all' || (x.cat||'work')===c; }).length; };
+  ch.innerHTML = BCATS.map(function(c){ return '<span class="chip'+(bCat===c[0]?' on':'')+'" onclick="bSet(\''+c[0]+'\')">'+c[1]+' ('+cc(c[0])+')</span>'; }).join('');
+  if (bCat===null){
+    ls.innerHTML = '<div class="plib"><span class="task">'+BOARD.length+' questions answered on the board</span>' +
+      '<div class="advice">Tap a topic above to read the questions and the Librarian&#39;s answers. Tap again to close. New answers are posted each evening.</div></div>';
+    return;
+  }
+  var hits = BOARD.filter(function(x){ return bCat==='all' || (x.cat||'work')===bCat; });
+  ls.innerHTML = hits.map(function(x){
+    return '<div class="qaitem"><div class="q">' + x.q + '</div>' +
+           '<div class="a">' + x.a + ' <i>&mdash; The Librarian</i></div>' +
+           '<div class="meta">' + x.d + '</div></div>';
+  }).join('');
+}
 var PCATS = [ ['all','&#127760; All'], ['emails','&#9993;&#65039; Emails &amp; replies'], ['letters','&#128220; Invitations &amp; letters'], ['docs','&#128196; Minutes &amp; documents'], ['datavis','&#128202; Data, slides &amp; visuals'], ['malay','&#127758; Malay &amp; translation'], ['other','&#128161; Explaining &amp; other'] ];
 var PVERD = [ ['&#9678;','&#9678; Excellent'], ['&#9675;','&#9675; Works'], ['&#9651;','&#9651; One fix'] ];
 var pCat = null, pVerd = null;
@@ -998,40 +1019,40 @@ html += TEMPLATES.map(function(t){
 
 /* ---------- Library Notice Board ---------- */
 var BOARD = [
-  { q:'Is it safe to paste our internal documents into these AI tools?',
+  { cat:'safety', q:'Is it safe to paste our internal documents into these AI tools?',
     a:'The dojo teaches a three-way sort, and it applies to every tool on the shelf: Public material — paste freely. Internal material — anonymise first (remove names, figures that identify people or unpublished data). Confidential material — never enters a public AI tool at all. When in doubt, treat it as the more careful category. This exact discipline is practised hands-on on Day 1 of each track.',
     d:'From the pre-workshop survey' },
-  { q:'If I use AI in my research or reports, is that cheating?',
+  { cat:'trust', q:'If I use AI in my research or reports, is that cheating?',
     a:'Using a tool is not the sin — hiding behind one is. The dojo standard is the Signing Code: AI drafts, you verify, and accountability stays with the human who signs. A report that says “AI-assisted draft, verified by [name]” is more honest than most unaided work, because the verification is declared. What would be misconduct is submitting unverified AI output as your own judgement.',
     d:'From the pre-workshop survey' },
-  { q:'Which tool should I use to work through a long PDF report?',
+  { cat:'tools', q:'Which tool should I use to work through a long PDF report?',
     a:'For reading and questioning one long document, the strongest choices on our shelf are Claude (long-form reading and careful summaries) and Gemini Notebook (answers only from the documents you upload, with citations). See the AI Tool Landscape sheet above — and remember the fourth rule: pick by task, not by loyalty.',
     d:'From the pre-workshop survey' },
-  { q:'How do I know whether an AI answer is accurate? I worry about reliability.',
+  { cat:'trust', q:'How do I know whether an AI answer is accurate? I worry about reliability.',
     a:'You are in good company — reliability was the single most common concern in the pre-workshop survey. The dojo answer is a habit, not a tool: before accepting any output, find one thing to fix. Then, for anything that matters, reach the key fact by a second independent route — a source document, a calculation, a colleague. Fluent text that looks like a source is not a source. This habit is drilled on both tracks and is the core of the Art of True Sight.',
     d:'From the pre-workshop survey' },
-  { q:'Can AI give me valid academic references?',
+  { cat:'trust', q:'Can AI give me valid academic references?',
     a:'It can suggest them, and it can invent them — confidently, with plausible authors and page numbers. Treat every reference from a general assistant as a lead, never as a citation. Open it, read it, confirm it says what the AI claims. Tools that answer only from documents you upload, with citations to the passage, are the safer way to work — that is exactly what this library does. The Researchers track spends a full segment on reference and citation verification.',
     d:'From the pre-workshop survey' },
-  { q:'Most of my work is repetitive — letters, minutes, organising data. Where does AI actually help?',
+  { cat:'work', q:'Most of my work is repetitive — letters, minutes, organising data. Where does AI actually help?',
     a:'This is the Administrators track in one sentence. The move is to stop giving one-off instructions and build a reusable personal template: Role, Task, Context, Constraints, Format, written once for the letter or minute you produce every week, with your own real example pasted in as the style to match. The time saving comes from the template, not from typing faster. You will build yours on Day 2 and leave with it.',
     d:'From the pre-workshop survey' },
-  { q:'Does the AI remember what I told it earlier in the conversation?',
+  { cat:'how', q:'Does the AI remember what I told it earlier in the conversation?',
     a:'Less than it seems. The AI reads only what is on the desk at the moment it answers: your message, what you pasted, and any tool results. The whole conversation is re-sent every turn, and attention favours the end of that pile, then the beginning, and the middle least of all. Two habits follow. Paste the document first and put your instruction last. And when the task changes, start a new chat rather than stretching an old one — a long thread quietly loses its instructions. (Researchers in 2023 named this the “lost in the middle” effect; newer models suffer less, but the habit costs nothing.)',
     d:'From the Dojo Library' },
-  { q:'Do I really need all five parts — Role, Task, Context, Constraints, Format — every time?',
+  { cat:'how', q:'Do I really need all five parts — Role, Task, Context, Constraints, Format — every time?',
     a:'No. Five parts is a ceiling, not a floor. A simple request needs only the deliverable; add a part when the answer disappoints, one at a time, and compare. Experienced users report a mix of roughly seven quick one-liners for every two prompts with context and one full five-part instruction. What actually wastes time is the other list: “make it nice”, ten orders at once, missing background, only “don’t…”, and using the result unchecked. Keep the prompts that worked in a small library with a ◎ ○ △ mark — that library, not typing speed, is where the hours are saved.',
     d:'From the Dojo Library' },
-  { q:'Why does it fail on a long task when every individual step looked fine?',
+  { cat:'how', q:'Why does it fail on a long task when every individual step looked fine?',
     a:'Arithmetic. If the AI gets each step right 90% of the time, ten steps in a row come out right about one time in three (0.9 × 0.9 × … ≈ 0.35). At 99% per step the same chain reaches 90%. This is why the dojo cuts work into parts and puts a human check where the chain is weakest — “AI drafts, you decide” is not modesty, it is multiplication. A useful exercise: list your own task in ten steps, guess each step’s reliability, multiply, and decide which single step you will always check yourself.',
     d:'From the Dojo Library' },
-  { q:'I am junior and nervous about using these tools in front of senior colleagues. Any advice?',
+  { cat:'work', q:'I am junior and nervous about using these tools in front of senior colleagues. Any advice?',
     a:'Two cards for your pocket. First, a panic phrase that buys ten seconds without losing face: “One moment — let me check my notes.” Keep a five-line sticky note beside you, not a script. Second, the 60-point landing: if the AI’s suggested wording is not something you could actually say, ask it for two shorter, politer versions — the target is what you can deliver, not a perfect answer. And for a vague request from above, reply with a hypothesis the senior can answer yes or no: “I take this to mean X — I will proceed that way unless you say otherwise.” Asking with a hypothesis attached raises your standing; it does not lower it. Both cards are on the Field Cards sheet above.',
     d:'From the Dojo Library' },
-  { q:'How secure is AI when most of our work involves confidential data?',
+  { cat:'safety', q:'How secure is AI when most of our work involves confidential data?',
     a:'The honest answer has two parts. First: what you type into a public AI tool leaves your building — so the dojo rule is sort before you paste (public / internal / confidential), and confidential material never enters a public model at all. One confidential line makes the whole paste confidential. Second: when work genuinely needs AI on sensitive material, you change the material, not the rule — today&#39;s "How to anonymise in 60 seconds": full mask, partial, aggregate, or a pseudonym with a key table that never leaves your PC. In a small country, remember that Division + role can identify a person — mask the role too. "Not used for training" is a vendor setting, not your organisation&#39;s permission; your own data rules always come first.',
     d:'Asked in the room · Day 1' },
-  { q:'How do I edit video with AI?',
+  { cat:'tools', q:'How do I edit video with AI?',
     a:'An honest answer from a librarian who only reads this shelf: video editing is not in this week&#39;s handouts, and the researchers&#39; days will not cover it either — the wish list shows several of you want it, so it is marked on the Path of Mastery. What I can say from the dojo&#39;s own arts: the tools change monthly, but the habits transfer — describe the outcome precisely (length, audience, the one message), give an example of the style you want, and verify before you publish. When the village next trains, that scroll may open.',
     d:'From the question box · Day 1' },
 ];
@@ -1042,11 +1063,7 @@ html += '<div class="card"><div class="badge b-koga">&#128172;</div><div style="
   (URLS.qaform ? '<a class="btn koga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Open the question box</a>'
                : '<span class="pending">Question box opens on Day 1</span>') +
   '</div></div>';
-html += BOARD.map(function(x){
-  return '<div class="qaitem"><div class="q">' + x.q + '</div>' +
-         '<div class="a">' + x.a + ' <i>&mdash; The Librarian</i></div>' +
-         '<div class="meta">' + x.d + '</div></div>';
-}).join('');
+html += '<div id="boardchips"></div><div id="boardlist"></div>';
 
 /* ---------- The Village Book of Failures (red-team scroll) ---------- */
 html += '<div class="card"><div class="badge b-iga">&#128214;</div><div style="flex:1">' +
@@ -1093,6 +1110,7 @@ try {
 tgChips(); drawTrain();
 drawWishes();
 drawPrompts();
+drawBoard();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
   var nowMs = Date.now();
