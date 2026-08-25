@@ -502,7 +502,32 @@ var ART_PAGES = {
   '<div class="why">Malay&ndash;English drafting works well; the risk hides in the details. After translating, ask for a <b>back-translation</b> into the original language and compare only what matters: names and titles, numbers, dates, the deadline. This check takes one extra line — and it is a check you can do better than the Master.</div>' +
   '<div class="eg"><b>THE TWO-LINE PATTERN</b><pre class="after">1) Translate this notice into formal Bahasa Melayu.\n2) Now translate your Malay version back into English. List anything whose meaning moved — names, dates, obligations.</pre></div>' +
   '<div class="eg"><b>WHAT IT CATCHES</b><pre>Day&ndash;month order flipped &middot; &quot;must&quot; softened to &quot;may&quot; &middot; an honorific dropped &middot; the deadline moved a day</pre></div>' +
-  '<div class="tip">Names first, dates second — the two places where a beautiful translation quietly changes the facts.</div>'
+  '<div class="tip">Names first, dates second — the two places where a beautiful translation quietly changes the facts.</div>',
+ 'Two-Path Verification':
+  '<div class="why">Any number that matters gets reached by <b>two independent routes</b>: the AI&#39;s answer, and one route of your own — a manual count, a Ctrl+F in the source, a one-line multiplication. One figure is enough; the habit protects the whole table.</div>' +
+  '<div class="eg"><b>THE TEN-SECOND CHECK</b><pre class="after">AI says: 29 of 60 assets are out of warranty (48%).\nYou: filter the warranty column once and count. Match? Trust rises.\nNo match? You just caught it before the director did.</pre></div>' +
+  '<div class="eg"><b>WORKS ON EVERY TOTAL</b><pre>A cost sheet line: qty 60 x unit 12 = written 810? One multiplication\nsays 720. Totals in a file are claims, not facts.</pre></div>' +
+  '<div class="tip">Never trust a number you have not counted once — and never check all of them: one line, chosen by you, every time.</div>',
+ 'Source-Binding':
+  '<div class="why">A grounded report is one where every line can answer <b>&quot;which document says so?&quot;</b> When sources disagree, the report says so — with both sources. The latest document wins, but the disagreement stays visible.</div>' +
+  '<div class="eg"><b>BEFORE</b><pre>Summarise these minutes into a project update.</pre><b>AFTER</b><pre class="after">Three lists - decisions, open items, who owes what - with the\nSOURCE of each line (which minute? which email?). Then the one-page\nupdate.</pre></div>' +
+  '<div class="eg"><b>WHAT IT CATCHES</b><pre>The budget corrected between meetings (B$18k -&gt; B$16,500) &middot; the\nvenue still awaiting written confirmation &middot; the item that must not\nbe printed yet.</pre></div>' +
+  '<div class="tip">A report that cites its sources can be checked by anyone — that is what turns a draft into a record.</div>',
+ 'The Honest Chart':
+  '<div class="why">Every axis and every window is a <b>claim</b>. Two questions expose most tricks before they reach a decision-maker — including your own charts.</div>' +
+  '<div class="eg"><b>THE TWO QUESTIONS</b><pre class="after">1) Where does the axis start? (a baseline above zero turns a small\n   change into a cliff)\n2) What window was chosen? (Apr-Jun can show a decline the full\n   Jan-Jun series does not support)</pre></div>' +
+  '<div class="eg"><b>THE CAPTION TEST</b><pre>Could a stranger read the chart alone and not be misled?\nTotal &middot; units &middot; source &middot; full axis - all four in the caption.</pre></div>' +
+  '<div class="tip">Ask the AI to draw the misleading version on purpose, then fix it — seeing both is the lesson.</div>',
+ 'The Signing Code':
+  '<div class="why">The signature moves accountability where it belongs: to a human. Disclose, don&#39;t hide — <b>signed work needs no detector</b>, because the reader knows exactly who stands behind it.</div>' +
+  '<div class="eg"><b>THE LINE</b><pre class="after">AI-assisted draft, verified by [your name]</pre></div>' +
+  '<div class="eg"><b>WHEN YOU MAY WRITE IT</b><pre>Only after the verification moment: you read the draft hunting for\none thing to fix, and you fixed it. The signature is the receipt\nfor that check - never a decoration.</pre></div>' +
+  '<div class="tip">Never sign what you have not verified. Never send what you have not signed.</div>',
+ 'End-to-End Mastery':
+  '<div class="why">The capstone proof: <b>blank page to checked draft</b>, alone. One real task becomes a pack — summary table, chart or tracker, short memo, and the reusable prompt that regenerates it next time.</div>' +
+  '<div class="eg"><b>THE ORDER THAT WORKS</b><pre class="after">1) Look first - say aloud what the data means (AI cannot do this).\n2) Summarise. 3) Ask the table questions - check one by hand.\n4) One chart with an honest caption. 5) Short memo, one\nrecommendation. 6) Save the prompt with [SLOTS]. Sign it.</pre></div>' +
+  '<div class="eg"><b>NEXT MONTH</b><pre>Change [MONTH], paste the new table, done. The pack you built in\nthe room is the template for every real one after it.</pre></div>' +
+  '<div class="tip">The Training Grounds below hold the same moves as drills — one per lunch break keeps the art alive.</div>'
 };
 function toggleArt(id, row){
   var el = document.getElementById(id);
