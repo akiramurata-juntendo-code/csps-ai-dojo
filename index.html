@@ -280,7 +280,8 @@ var URLS = {
      per:[ {q:'Q1',label:'Five-part instruction',pct:93}, {q:'Q2',label:'Three-way data sort',pct:89},
            {q:'Q3',label:'Verify before accepting',pct:96}, {q:'Q4',label:'The Style Mirror',pct:74},
            {q:'Q5',label:'What GPT means',pct:48} ] };  */
-var QUIZA_RESULTS = null;
+var QUIZA_RESULTS = { n:19, avg:9.2, hardest:'Q3',
+  per:[ {q:'Q1',label:'Five-part instruction',pct:100}, {q:'Q2',label:'Three-way data sort',pct:95}, {q:'Q3',label:'Verify before accepting',pct:79}, {q:'Q4',label:'The Style Mirror',pct:84}, {q:'Q5',label:'What GPT means',pct:100} ] };
 function quizaChart(){
   var R = QUIZA_RESULTS;
   if (!R) return '';
@@ -713,7 +714,7 @@ html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
   desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial.',
   body : '<div class="qa"><ol>' +
     '<li>What are the three categories of the data-discipline sort — and which never enters a public AI tool?</li>' +
-    '<li>What is the one thing you do before accepting any AI output?</li>' +
+    '<li>What must you do before accepting ANY output from an AI tool? <i>(the village&#39;s hardest, word for word - 79% on Wednesday)</i></li>' +
     '<li>What are the five parts of a good instruction to an AI tool?</li></ol>' +
     '<b>This week&#39;s challenge:</b> use the personal template you built — once, on a real task. ' +
     'If it needed fixing, fix it. That fix is the template becoming yours.</div>'
