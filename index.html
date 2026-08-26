@@ -269,6 +269,7 @@ var URLS = {
   scaffoldA : 'assets/library/scaffold_fill_in.pdf',   // Wednesday training aids; blank version at assets/library/scaffold_blank.pdf
   scaffoldR : '',   // Friday training aids, Researchers
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
+  ,ninja    : ''    // Koga Ninja Registration form (Researchers' ice-breaker)
   ,qaform   : 'https://forms.gle/ZHfFKSSiMKtevFG8A'    // Question submission form for the notice board
 };
 
@@ -600,6 +601,15 @@ if (WISHES.length === 0) {
 }
 
 /* ---------- Kamus Kampung ---------- */
+html += '<h2 class="phase" id="sec-ninjas">The Koga Ninja Roster<span class="k">&#24525;&#32773;&#30331;&#37682;</span></h2>';
+html += guide('koga', 'kagenyan', 'Kagenyan, Keeper of Names',
+  'Two schools, two organisations, and a room where not everyone has met. So the researchers register as ninja &mdash; a name of your own choosing, what you do when you are not working, the national problem you would most like solved, and the data you trust. No real names, no titles, no organisation: in the dojo a Pengiran and a research assistant carry the same belt. Meow.');
+html += '<div class="card"><div class="badge b-koga">&#129399;</div><div style="flex:1">' +
+  '<h3>Register, then find your people</h3>' +
+  '<p style="margin-top:4px">Tap a kind of data to see which ninja work with it &mdash; that is who to sit with at lunch. Tap again to close.</p>' +
+  (URLS.ninja ? '<a class="btn koga" href="' + URLS.ninja + '" target="_blank" rel="noopener">Register as a ninja &#9654;</a>' : '<span class="pending">Registration opens at the start of Day 1</span>') +
+  '<div id="ninjachips" style="margin-top:8px"></div></div></div>';
+html += '<div id="ninjalist"></div>';
 html += '<h2 class="phase" id="sec-kamus">Kamus Kampung — the village&#39;s own words<span class="k">村の言葉</span></h2>';
 html += guide('koga', 'kagenyan', 'Kagenyan, Keeper of Words',
   'The Master speaks English and a little Japanese; the village speaks Bahasa Melayu. So the village writes this dictionary itself: when a table agrees on the Malay for one of the dojo&#39;s arts, it goes on the wall and then here. Back-translating into Malay is a verification skill the Master cannot do — and you can.');
@@ -932,6 +942,41 @@ function drawPrompts(){
            (x.better ? '<pre class="better">' + x.better + '</pre>' : '') + '</div>';
   }).join('') || '<div class="plib"><span class="task">No rounds match</span><div class="advice">Widen the filters &mdash; or send your own prompt for sparring.</div></div>';
 }
+
+/* ---- The Koga Ninja Roster (Researchers' registration; ninja names only, never real names) ----
+   Fill each evening from the registration form. tags: keys of NDATA below. */
+var NINJAS = [
+  // { nick:'Kilat', hobby:'Sea fishing before sunrise', issue:'Youth unemployment that the official rate does not show', tags:['labour','survey','quant'], note:'' },
+];
+var NDATA = [ ['all','&#127760; All'], ['quant','&#128202; Quantitative'], ['qual','&#128172; Qualitative'],
+  ['survey','&#128203; Household surveys'], ['macro','&#127974; Macro'], ['business','&#127970; Business &amp; firms'],
+  ['finance','&#128176; Financial'], ['energy','&#9889; Energy &amp; environment'], ['transport','&#128739;&#65039; Transport &amp; infocomms'],
+  ['labour','&#128188; Labour &amp; employment'], ['education','&#127891; Education &amp; skills'], ['health','&#127973; Health &amp; ageing'],
+  ['gender','&#9792;&#65039; Gender'], ['social','&#129309; Social development'], ['futures','&#128302; Foresight'],
+  ['admin','&#128193; Government records'] ];
+var nTag = null;
+function nSet(t){ nTag = (nTag===t) ? null : t; drawNinjas(); }
+function drawNinjas(){
+  var ch=document.getElementById('ninjachips'), ls=document.getElementById('ninjalist');
+  if(!ch) return;
+  var label={}; NDATA.forEach(function(d){ label[d[0]]=d[1]; });
+  if (NINJAS.length === 0){
+    ch.innerHTML='';
+    ls.innerHTML='<div class="plib"><span class="task">The roster fills this evening</span>' +
+      '<div class="advice">Register during the opening &mdash; ninja name, what you do outside work, the national problem you would most like solved, and the data you care about. Tonight every registration appears here under the ninja name alone.</div></div>';
+    return;
+  }
+  var cnt=function(t){ return t==='all' ? NINJAS.length : NINJAS.filter(function(n){ return n.tags.indexOf(t)>-1; }).length; };
+  ch.innerHTML = NDATA.filter(function(d){ return cnt(d[0])>0; }).map(function(d){
+    return '<span class="chip'+(nTag===d[0]?' on':'')+'" onclick="nSet(&#39;'+d[0]+'&#39;)">'+d[1]+' ('+cnt(d[0])+')</span>'; }).join('');
+  var hits = nTag===null ? NINJAS : NINJAS.filter(function(n){ return nTag==='all' || n.tags.indexOf(nTag)>-1; });
+  ls.innerHTML = hits.map(function(n){
+    return '<div class="plib"><span class="verdict">&#129399;</span><span class="task">' + n.nick + '</span>' +
+      ' <span class="meta">' + n.tags.map(function(t){ return (label[t]||t).replace(/^&#[0-9]+;\s*/,''); }).join(' &middot; ') + '</span>' +
+      '<div class="advice"><b>Outside work:</b> ' + n.hobby + '<br><b>The problem worth solving:</b> ' + n.issue +
+      (n.note ? '<br><b>Also:</b> ' + n.note : '') + '</div></div>';
+  }).join('');
+}
 var WCATS = [ ['all','&#127760; All'], ['organize','&#128197; Tasks &amp; organising'], ['write','&#9997;&#65039; Writing &amp; documents'], ['data','&#128202; Data, charts &amp; slides'], ['auto','&#9881;&#65039; Automation &amp; agents'], ['creative','&#127912; Creative &amp; side projects'], ['personal','&#127793; Life &amp; personal'], ['research','&#128300; Research'] ];
 var wCat = null;
 function wCount(c){ return c==='all' ? WISHES.length : WISHES.filter(function(x){ return (x.cat||'organize')===c; }).length; }
@@ -1136,6 +1181,7 @@ tgChips(); drawTrain();
 drawWishes();
 drawPrompts();
 drawBoard();
+drawNinjas();
 var nsEl = document.getElementById('nextstep');
 if (nsEl) {
   var nowMs = Date.now();
