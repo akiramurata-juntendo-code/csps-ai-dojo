@@ -1,0 +1,401 @@
+id,district,sex,age,field_of_study,degree_level,grad_year,internship,digital_skills,english_self,family_prefers_public,willing_private,months_to_first_job,employed_now,sector,monthly_income_band
+G001,Tutong,M,24,IT,Bachelor,2024,1,59,3,5,1,11.8,1,private,1500-1999
+G002,Brunei-Muara,M,25,Business,Diploma,2025,1,45,1,5,1,7.9,1,private,1500-1999
+G003,Brunei-Muara,F,29,Engineering,Bachelor,2024,,55,,4,2,8.8,1,private,3000+
+G004,Brunei-Muara,F,27,Business,Master,2023,0,37,4,3,3,10.1,1,public,1500-1999
+G005,Belait,M,24,Education,Bachelor,2021,1,13,3,3,1,6.0,1,self-employed,2000-2999
+G006,Brunei-Muara,F,27,Business,Master,2023,1,75,5,5,2,5.9,1,private,3000+
+G007,Brunei-Muara,F,26,IT,Bachelor,2021,0,80,4,3,1,2.6,1,private,2000-2999
+G008,Belait,F,25,Education,Diploma,2022,0,75,2,4,3,4.7,1,private,1000-1499
+G009,Brunei-Muara,M,21,Islamic Studies,Bachelor,2021,0,67,4,5,1,11.6,1,private,2000-2999
+G010,Brunei-Muara,M,28,Business,Bachelor,2025,0,56,3,4,1,6.0,1,public,1000-1499
+G011,Tutong,F,29,IT,Diploma,2024,1,57,4,2,2,1.3,1,public,under 1000
+G012,Brunei-Muara,F,25,IT,Diploma,2024,0,62,4,4,2,4.0,1,self-employed,under 1000
+G013,Brunei-Muara,M,23,Engineering,Master,2022,1,79,3,4,1,9.0,1,private,3000+
+G014,Tutong,F,29,IT,Bachelor,2024,1,60,3,2,4,3.7,1,public,1500-1999
+G015,Temburong,F,24,Business,Diploma,2022,,66,3,2,5,99,0,not employed,
+G016,Belait,F,25,Health,Diploma,2021,0,78,5,5,1,9.9,1,self-employed,under 1000
+G017,Brunei-Muara,F,25,Health,Diploma,2025,1,60,3,5,1,7.9,1,public,1500-1999
+G018,Brunei-Muara,F,23,Education,Diploma,2021,0,64,2,3,3,2.0,1,public,under 1000
+G019,Brunei-Muara,M,25,Health,Diploma,2024,1,65,5,3,2,3.4,1,public,1000-1499
+G020,Brunei-Muara,F,25,Education,Diploma,2025,0,58,3,5,1,10.1,1,public,under 1000
+G021,Brunei-Muara,F,26,Engineering,Diploma,2024,1,51,2,5,1,11.6,1,private,1000-1499
+G022,Brunei-Muara,M,23,Engineering,Bachelor,2023,0,79,3,4,2,8.5,1,private,1000-1499
+G023,Tutong,M,25,Social Sciences,Diploma,2023,1,57,4,4,1,8.7,1,public,1500-1999
+G024,Brunei-Muara,F,24,Health,Diploma,2023,1,69,2,4,1,5.2,1,private,under 1000
+G025,Brunei-Muara,M,21,IT,Diploma,2021,1,71,3,3,2,6.0,1,public,1500-1999
+G026,Belait,M,27,Health,Bachelor,2022,1,41,3,4,1,4.3,1,private,2000-2999
+G027,Belait,M,25,Islamic Studies,Bachelor,2025,0,76,5,5,1,11.8,1,private,3000+
+G028,Belait,F,27,Islamic Studies,Bachelor,2022,0,52,3,2,3,5.4,1,public,3000+
+G029,Brunei-Muara,M,23,Islamic Studies,Bachelor,2023,0,34,2,5,1,12.8,1,self-employed,1000-1499
+G030,Brunei-Muara,F,26,Health,Bachelor,2021,0,53,4,2,3,7.5,1,public,1500-1999
+G031,Tutong,M,30,IT,Master,2025,1,80,4,2,3,8.1,1,public,2000-2999
+G032,Belait,F,27,Business,Master,2022,0,56,5,3,2,12.2,1,private,1000-1499
+G033,Belait,M,27,Engineering,Bachelor,2025,1,62,4,2,5,2.4,1,private,3000+
+G034,Tutong,F,27,Education,Bachelor,2025,0,71,3,3,3,12.5,1,private,2000-2999
+G035,Tutong,M,27,Business,Master,2022,1,33,3,5,1,9.6,1,private,3000+
+G036,Belait,M,27,IT,Bachelor,2023,0,43,5,3,2,8.8,1,private,3000+
+G037,Belait,M,23,Education,Diploma,2023,1,54,5,5,1,99,0,not employed,
+G038,Brunei-Muara,M,21,IT,Bachelor,2021,1,81,4,4,2,5.2,1,private,2000-2999
+G039,Brunei-Muara,F,21,Education,Master,2021,0,45,,3,3,4.7,1,public,1000-1499
+G040,Brunei-Muara,F,25,Engineering,Bachelor,2021,1,72,3,3,3,4.0,1,private,3000+
+G041,Tutong,M,29,Education,Diploma,2024,0,44,4,2,4,9.9,1,private,1500-1999
+G042,Belait,M,23,Education,Bachelor,2023,0,42,2,2,5,7.5,1,public,2000-2999
+G043,Temburong,M,25,Education,Bachelor,2021,0,50,5,4,1,99,0,not employed,
+G044,Belait,M,24,IT,Diploma,2023,0,78,4,4,1,7.5,1,public,1500-1999
+G045,Belait,F,23,Business,Bachelor,2021,0,51,2,5,1,11.7,1,public,1500-1999
+G046,Brunei-Muara,M,22,Education,Diploma,2022,0,41,3,3,2,9.8,1,private,
+G047,Brunei-Muara,F,25,Business,Bachelor,2023,1,65,2,5,1,6.8,1,public,3000+
+G048,Brunei-Muara,M,25,Business,Master,2024,0,64,5,5,1,9.2,1,self-employed,2000-2999
+G049,Tutong,F,25,Social Sciences,Bachelor,2024,0,83,4,4,2,14.2,1,public,1000-1499
+G050,Brunei-Muara,F,27,Business,Bachelor,2023,1,61,2,2,5,99,0,not employed,
+G051,Tutong,F,27,Health,Bachelor,2023,0,74,2,5,1,8.4,1,private,1000-1499
+G052,Brunei-Muara,M,26,Business,Bachelor,2021,1,48,2,3,4,5.3,1,private,1500-1999
+G053,Tutong,M,27,Engineering,Diploma,2024,1,65,5,3,1,99,0,not employed,
+G054,Brunei-Muara,F,28,Education,Diploma,2023,0,52,3,5,1,8.2,1,private,1500-1999
+G055,Brunei-Muara,F,23,Business,Diploma,2023,0,53,1,5,1,13.0,1,public,1500-1999
+G056,Brunei-Muara,F,24,Business,Diploma,2022,0,55,4,5,1,15.6,1,private,1500-1999
+G057,Brunei-Muara,M,26,Business,Bachelor,2021,1,46,4,3,2,1.5,1,self-employed,2000-2999
+G058,Belait,F,27,Social Sciences,Bachelor,2023,0,67,4,4,1,10.9,1,private,3000+
+G059,Tutong,F,28,Engineering,Bachelor,2025,1,76,3,4,2,2.7,1,public,2000-2999
+G060,Brunei-Muara,F,25,Islamic Studies,Diploma,2023,0,56,4,2,2,8.7,1,private,under 1000
+G061,Brunei-Muara,F,27,Business,Bachelor,2024,1,31,1,5,1,4.0,1,public,2000-2999
+G062,Brunei-Muara,M,23,Engineering,Bachelor,2023,1,54,4,4,2,2.9,1,public,1000-1499
+G063,Brunei-Muara,F,26,Education,Bachelor,2025,1,51,5,3,2,3.5,1,private,1000-1499
+G064,Brunei-Muara,F,29,Health,Master,2025,1,62,5,5,1,4.9,1,private,1000-1499
+G065,Tutong,M,24,Social Sciences,Bachelor,2024,0,41,2,5,1,11.5,1,private,1000-1499
+G066,Brunei-Muara,F,28,Business,Bachelor,2025,0,56,2,3,2,5.7,1,public,1500-1999
+G067,Belait,F,25,Business,Diploma,2025,0,60,3,3,1,8.1,1,private,1000-1499
+G068,Tutong,F,28,Health,Diploma,2024,0,12,3,3,2,8.1,1,public,1000-1499
+G069,Brunei-Muara,M,24,Engineering,Bachelor,2021,1,58,3,4,3,8.4,1,private,1000-1499
+G070,Brunei-Muara,F,24,Islamic Studies,Bachelor,2023,0,44,3,5,1,14.9,1,public,3000+
+G071,Brunei-Muara,M,30,IT,Diploma,2025,0,73,3,5,1,9.4,1,private,under 1000
+G072,Brunei-Muara,M,25,Business,Master,2023,1,45,4,5,1,5.3,1,self-employed,2000-2999
+G073,Brunei-Muara,M,24,IT,Diploma,2023,1,69,4,3,2,1.9,1,public,under 1000
+G074,Brunei-Muara,F,27,Islamic Studies,Bachelor,2025,0,42,4,4,1,10.4,1,self-employed,3000+
+G075,Brunei-Muara,F,23,IT,Bachelor,2023,0,83,3,5,1,10.3,1,public,1500-1999
+G076,Tutong,F,26,Engineering,Diploma,2024,0,53,,5,1,8.8,1,public,under 1000
+G077,Brunei-Muara,F,27,IT,Bachelor,2024,1,49,3,3,2,1.3,1,private,1000-1499
+G078,Belait,F,26,Health,Bachelor,2022,1,71,2,4,1,8.4,1,public,2000-2999
+G079,Brunei-Muara,M,28,Business,Diploma,2023,0,52,2,2,3,7.8,1,public,1000-1499
+G080,Brunei-Muara,M,27,Education,Bachelor,2023,0,31,3,5,2,99,0,not employed,
+G081,Belait,F,26,Social Sciences,Bachelor,2021,1,66,4,4,1,9.3,1,public,1000-1499
+G082,Brunei-Muara,M,26,Social Sciences,Bachelor,2023,0,79,4,4,1,13.8,1,self-employed,2000-2999
+G083,Brunei-Muara,M,22,Education,Master,2022,0,42,3,5,2,7.9,1,self-employed,1000-1499
+G084,Brunei-Muara,F,30,Engineering,Diploma,2025,1,77,5,5,1,6.9,1,private,under 1000
+G085,Brunei-Muara,M,25,Engineering,Diploma,2024,1,75,3,3,3,99,0,not employed,
+G086,Brunei-Muara,M,27,Social Sciences,Diploma,2025,1,56,5,5,1,11.8,1,private,under 1000
+G087,Tutong,M,28,Business,Bachelor,2025,0,65,4,5,1,13.6,1,public,3000+
+G088,Brunei-Muara,F,22,Social Sciences,Bachelor,2022,0,60,3,3,1,9.0,1,public,1500-1999
+G089,Brunei-Muara,M,26,Engineering,Master,2021,1,46,4,4,1,10.7,1,public,1000-1499
+G090,Brunei-Muara,F,27,IT,Master,2025,1,59,4,4,1,9.1,1,public,3000+
+G091,Brunei-Muara,M,23,Social Sciences,Bachelor,2022,0,60,4,3,4,11.4,1,private,3000+
+G092,Brunei-Muara,F,26,Business,Diploma,2023,0,69,5,2,3,7.7,1,public,1000-1499
+G093,Brunei-Muara,M,28,Engineering,Bachelor,2025,1,77,3,4,2,4.1,1,self-employed,2000-2999
+G094,Brunei-Muara,F,29,Education,Bachelor,2024,0,70,4,3,4,9.6,1,self-employed,1000-1499
+G095,Belait,F,22,Business,Bachelor,2021,1,38,3,2,4,8.3,1,public,2000-2999
+G096,Brunei-Muara,F,22,Health,Bachelor,2021,1,47,4,3,2,8.3,1,public,3000+
+G097,Belait,F,26,Health,Diploma,2022,1,61,4,4,2,6.2,1,private,under 1000
+G098,Brunei-Muara,F,22,Business,Bachelor,2022,1,72,3,2,2,5.8,1,self-employed,1500-1999
+G099,Brunei-Muara,M,25,Islamic Studies,Diploma,2021,1,49,3,5,1,9.4,1,public,under 1000
+G100,Belait,M,23,Business,Bachelor,2021,0,46,3,3,2,8.9,1,private,3000+
+G101,Tutong,F,26,Islamic Studies,Bachelor,2024,0,49,3,5,1,15.0,1,private,1000-1499
+G102,Belait,M,27,IT,Diploma,2024,1,95,2,3,2,2.2,1,public,1000-1499
+G103,Belait,F,23,Business,Diploma,2021,1,62,3,5,1,10.3,1,public,1500-1999
+G104,Belait,M,25,IT,Diploma,2021,1,79,3,3,2,6.2,1,private,under 1000
+G105,Temburong,M,24,IT,Bachelor,2021,1,100,3,3,3,3.9,1,public,1000-1499
+G106,Tutong,F,27,Engineering,Master,2022,0,60,3,4,1,12.0,1,public,3000+
+G107,Tutong,M,27,Business,Bachelor,2024,1,52,4,4,2,99,0,not employed,
+G108,Brunei-Muara,F,27,Engineering,Bachelor,2022,0,58,3,2,3,7.4,1,private,2000-2999
+G109,Brunei-Muara,F,29,Engineering,Diploma,2024,1,59,4,4,2,7.4,1,private,under 1000
+G110,Temburong,M,21,Social Sciences,Bachelor,2021,0,60,,2,4,11.8,1,private,3000+
+G111,Brunei-Muara,M,22,Education,Bachelor,2022,0,60,4,5,1,9.2,1,private,1000-1499
+G112,Brunei-Muara,F,25,IT,Diploma,2023,1,76,4,2,5,0.8,1,public,1500-1999
+G113,Brunei-Muara,F,23,Education,Diploma,2022,1,35,3,4,3,11.4,1,private,1500-1999
+G114,Tutong,M,26,IT,Bachelor,2024,1,57,4,2,3,4.8,1,public,1000-1499
+G115,Brunei-Muara,M,27,Education,Bachelor,2025,0,53,4,5,1,12.4,1,self-employed,
+G116,Brunei-Muara,M,26,Social Sciences,Diploma,2022,0,89,4,4,2,6.0,1,private,under 1000
+G117,Brunei-Muara,F,28,Engineering,Bachelor,2025,1,67,3,4,2,4.0,1,public,1500-1999
+G118,Temburong,M,24,Business,Bachelor,2021,1,63,5,4,1,7.6,1,self-employed,1500-1999
+G119,Belait,M,27,IT,Diploma,2023,1,76,3,4,2,5.6,1,public,under 1000
+G120,Brunei-Muara,M,22,IT,Diploma,2021,1,63,3,4,1,3.6,1,public,1000-1499
+G121,Brunei-Muara,F,29,Education,Bachelor,2024,1,51,3,3,2,4.9,1,private,3000+
+G122,Brunei-Muara,F,27,Social Sciences,Bachelor,2023,1,55,3,3,2,4.3,1,self-employed,1000-1499
+G123,Brunei-Muara,F,28,Business,Master,2023,1,47,2,3,5,7.8,1,private,1000-1499
+G124,Tutong,F,28,Islamic Studies,Master,2023,0,72,3,4,2,9.9,1,public,2000-2999
+G125,Brunei-Muara,M,24,IT,Bachelor,2023,1,47,2,3,3,6.9,1,private,1500-1999
+G126,Tutong,F,28,IT,Diploma,2024,1,84,3,2,5,0,1,self-employed,under 1000
+G127,Brunei-Muara,M,27,Business,Bachelor,2023,0,37,4,4,1,6.9,1,self-employed,2000-2999
+G128,Tutong,M,28,Engineering,Bachelor,2023,,55,3,2,4,2.9,1,public,3000+
+G129,Brunei-Muara,M,26,Health,Diploma,2021,1,47,,4,1,5.3,1,public,1500-1999
+G130,Tutong,M,27,Social Sciences,Bachelor,2025,0,47,2,4,1,10.8,1,private,2000-2999
+G131,Belait,F,25,Social Sciences,Master,2023,0,71,4,4,1,14.1,1,public,3000+
+G132,Brunei-Muara,F,25,Business,Bachelor,2024,1,42,3,4,3,10.9,1,self-employed,2000-2999
+G133,Brunei-Muara,F,28,Education,Diploma,2025,0,55,4,4,1,3.2,1,public,1500-1999
+G134,Brunei-Muara,M,22,Social Sciences,Bachelor,2021,0,55,3,3,3,7.6,1,public,1500-1999
+G135,Tutong,F,26,Health,Diploma,2024,1,40,1,3,2,6.0,1,public,under 1000
+G136,Tutong,M,21,Islamic Studies,Bachelor,2021,0,57,4,4,1,14.5,1,private,1000-1499
+G137,Brunei-Muara,F,28,Business,Bachelor,2024,1,57,4,2,4,8.3,1,public,1000-1499
+G138,Brunei-Muara,M,25,Social Sciences,Diploma,2021,1,51,4,4,1,9.0,1,public,1000-1499
+G139,Brunei-Muara,M,24,Islamic Studies,Bachelor,2021,0,72,3,3,2,6.0,1,public,
+G140,Temburong,M,25,Health,Bachelor,2024,1,43,3,2,3,4.2,1,public,3000+
+G141,Brunei-Muara,F,26,IT,Diploma,2023,1,74,3,4,1,6.5,1,self-employed,1500-1999
+G142,Belait,F,23,Business,Bachelor,2023,1,68,3,5,1,6.0,1,public,1500-1999
+G143,Brunei-Muara,F,23,Social Sciences,Bachelor,2023,1,43,4,4,1,10.4,1,private,
+G144,Brunei-Muara,F,30,Health,Diploma,2025,1,38,2,3,3,7.7,1,private,1500-1999
+G145,Brunei-Muara,M,29,Business,Bachelor,2024,0,94,3,5,1,10.0,1,public,
+G146,Belait,F,21,Business,Diploma,2021,1,76,3,4,2,5.5,1,self-employed,1500-1999
+G147,Brunei-Muara,F,27,Education,Diploma,2022,1,79,3,5,1,6.5,1,private,1500-1999
+G148,Brunei-Muara,F,27,Engineering,Diploma,2024,1,71,5,3,1,99,0,not employed,
+G149,Brunei-Muara,M,28,Social Sciences,Diploma,2024,1,68,4,4,3,9.8,1,public,1000-1499
+G150,Brunei-Muara,F,25,Education,Bachelor,2024,0,44,3,5,1,6.2,1,private,3000+
+G151,Brunei-Muara,F,26,Education,Bachelor,2024,0,53,3,4,1,9.9,1,public,1000-1499
+G152,Belait,F,25,Business,Master,2023,0,72,2,1,5,1.4,1,public,1000-1499
+G153,Brunei-Muara,M,29,Health,Bachelor,2024,1,80,5,3,2,2.3,1,private,
+G154,Brunei-Muara,F,24,Social Sciences,Bachelor,2022,0,53,3,3,2,9.2,1,public,3000+
+G155,Tutong,M,27,Business,Bachelor,2023,0,43,4,2,2,7.6,1,public,1500-1999
+G156,Temburong,F,27,Engineering,Bachelor,2022,1,56,5,4,1,7.1,1,private,1000-1499
+G157,Belait,F,27,Islamic Studies,Bachelor,2022,0,53,4,3,3,8.4,1,self-employed,1500-1999
+G158,Brunei-Muara,F,26,Business,Bachelor,2025,1,73,2,3,3,9.5,1,private,1500-1999
+G159,Belait,F,21,Education,Bachelor,2021,0,71,3,5,2,5.9,1,self-employed,1000-1499
+G160,Belait,M,27,Business,Bachelor,2025,1,57,,3,2,5.0,1,private,1000-1499
+G161,Brunei-Muara,M,27,Islamic Studies,Master,2025,0,62,4,5,1,9.5,1,public,1500-1999
+G162,Brunei-Muara,M,27,Health,Diploma,2023,1,75,3,4,2,0.4,1,self-employed,1500-1999
+G163,Temburong,M,24,Education,Master,2021,0,76,4,4,2,14.8,1,private,2000-2999
+G164,Brunei-Muara,F,27,Engineering,Diploma,2025,0,87,4,4,1,9.3,1,private,1500-1999
+G165,Brunei-Muara,M,25,Health,Master,2021,1,59,3,5,1,5.9,1,public,1000-1499
+G166,Brunei-Muara,M,23,IT,Bachelor,2023,1,72,3,3,3,5.3,1,private,3000+
+G167,Brunei-Muara,F,25,Business,Bachelor,2025,1,63,3,4,1,6.9,1,public,3000+
+G168,Temburong,M,24,Education,Bachelor,2021,0,56,5,3,2,10.2,1,public,1500-1999
+G169,Belait,M,27,Social Sciences,Diploma,2025,0,45,3,5,1,99,0,not employed,
+G170,Brunei-Muara,F,27,Islamic Studies,Bachelor,2022,0,26,5,5,1,14.8,1,self-employed,2000-2999
+G171,Brunei-Muara,M,25,Education,Master,2021,1,81,3,4,2,7.2,1,self-employed,3000+
+G172,Brunei-Muara,M,26,IT,Diploma,2021,1,75,3,4,1,7.3,1,self-employed,1500-1999
+G173,Brunei-Muara,M,29,Education,Diploma,2024,0,47,2,4,1,7.3,1,public,1000-1499
+G174,Belait,M,27,Business,Bachelor,2025,,40,4,5,1,14.6,1,private,3000+
+G175,Brunei-Muara,M,24,Education,Bachelor,2022,0,62,4,5,1,8.8,1,private,3000+
+G176,Brunei-Muara,F,27,Business,Bachelor,2024,0,90,4,4,2,9.0,1,self-employed,1000-1499
+G177,Belait,F,26,Business,Bachelor,2023,1,24,3,3,3,4.3,1,public,
+G178,Brunei-Muara,M,25,IT,Bachelor,2021,0,66,4,1,5,2.5,1,private,1500-1999
+G179,Brunei-Muara,M,24,Social Sciences,Bachelor,2023,0,70,4,3,2,5.9,1,private,3000+
+G180,Temburong,M,27,Social Sciences,Master,2025,0,72,5,4,2,3.2,1,public,2000-2999
+G181,Brunei-Muara,M,23,Engineering,Bachelor,2023,0,78,2,5,1,7.8,1,public,1500-1999
+G182,Belait,F,24,Business,Diploma,2024,1,70,3,4,2,1.9,1,private,under 1000
+G183,Brunei-Muara,M,23,Education,Bachelor,2022,0,60,,3,2,9.5,1,public,1500-1999
+G184,Tutong,M,25,Business,Bachelor,2021,0,93,3,4,1,8.1,1,public,1500-1999
+G185,Brunei-Muara,M,26,Education,Bachelor,2023,0,52,4,4,1,7.4,1,self-employed,1000-1499
+G186,Brunei-Muara,M,24,Social Sciences,Bachelor,2024,0,69,3,3,2,8.9,1,public,2000-2999
+G187,Brunei-Muara,F,28,Islamic Studies,Master,2023,0,57,5,5,1,14.8,1,private,1000-1499
+G188,Brunei-Muara,F,21,Social Sciences,Bachelor,2021,0,48,3,5,2,99,0,not employed,
+G189,Belait,M,22,Business,Diploma,2021,0,61,3,5,2,7.1,1,public,1000-1499
+G190,Tutong,F,26,Business,Bachelor,2022,1,16,2,5,1,14.7,1,self-employed,1000-1499
+G191,Belait,F,24,Social Sciences,Master,2023,1,73,4,4,1,8.4,1,private,3000+
+G192,Belait,M,28,Social Sciences,Diploma,2024,0,61,3,3,2,8.7,1,private,under 1000
+G193,Belait,F,24,Health,Diploma,2021,1,61,2,5,1,5.6,1,public,under 1000
+G194,Brunei-Muara,F,25,Education,Bachelor,2025,0,69,4,4,1,9.8,1,private,2000-2999
+G195,Brunei-Muara,M,26,Education,Bachelor,2022,0,63,3,3,3,4.8,1,self-employed,2000-2999
+G196,Belait,F,29,Business,Bachelor,2024,0,58,4,3,2,99,0,not employed,
+G197,Belait,F,28,Engineering,Diploma,2025,1,81,4,4,1,0,1,public,under 1000
+G198,Brunei-Muara,F,26,Education,Bachelor,2021,0,53,2,5,1,12.3,1,self-employed,3000+
+G199,Temburong,F,26,IT,Diploma,2025,1,74,3,3,3,4.6,1,public,1000-1499
+G200,Belait,F,26,Education,Diploma,2024,0,71,3,4,1,7.3,1,private,under 1000
+G201,Tutong,F,27,Social Sciences,Master,2022,1,41,2,5,1,10.0,1,public,2000-2999
+G202,Temburong,F,25,Social Sciences,Diploma,2024,1,78,3,3,3,11.9,1,private,1000-1499
+G203,Tutong,M,27,Social Sciences,Bachelor,2022,0,59,4,5,1,17.3,1,private,1500-1999
+G204,Brunei-Muara,F,24,Social Sciences,Bachelor,2022,1,57,3,3,1,6.6,1,self-employed,1500-1999
+G205,Belait,F,27,Business,Diploma,2022,1,45,4,2,2,7.1,1,private,1500-1999
+G206,Brunei-Muara,F,25,IT,Bachelor,2022,0,100,4,4,1,4.2,1,self-employed,1500-1999
+G207,Brunei-Muara,F,25,IT,Bachelor,2024,1,42,3,5,2,10.5,1,public,1000-1499
+G208,Temburong,F,23,Social Sciences,Bachelor,2021,0,45,3,3,1,8.5,1,private,3000+
+G209,Brunei-Muara,F,26,Islamic Studies,Diploma,2021,0,38,4,3,2,11.3,1,public,under 1000
+G210,Temburong,M,21,Health,Bachelor,2021,1,63,3,4,2,5.8,1,private,
+G211,Brunei-Muara,F,22,Engineering,Master,2022,0,73,4,4,2,8.2,1,private,2000-2999
+G212,Tutong,F,26,IT,Bachelor,2024,1,89,,3,4,2.2,1,self-employed,1500-1999
+G213,Brunei-Muara,F,26,Social Sciences,Diploma,2025,0,47,3,5,1,10.9,1,private,1000-1499
+G214,Brunei-Muara,M,23,Business,Diploma,2023,1,74,3,3,2,5.5,1,public,under 1000
+G215,Brunei-Muara,M,29,Health,Diploma,2024,0,27,4,5,1,8.9,1,public,under 1000
+G216,Brunei-Muara,M,24,Business,Bachelor,2024,0,40,4,5,1,11.4,1,public,1500-1999
+G217,Brunei-Muara,M,23,Business,Diploma,2022,0,66,3,2,4,4.0,1,public,under 1000
+G218,Belait,F,29,Social Sciences,Bachelor,2024,1,64,4,2,5,7.1,1,private,2000-2999
+G219,Tutong,F,26,Health,Diploma,2023,0,67,3,4,1,6.0,1,public,under 1000
+G220,Brunei-Muara,F,27,Engineering,Diploma,2024,1,74,1,3,3,1.7,1,self-employed,under 1000
+G221,Belait,F,21,Education,Bachelor,2021,0,42,4,5,1,10.5,1,public,3000+
+G222,Brunei-Muara,M,23,IT,Diploma,2023,1,66,4,4,1,7.0,1,public,1000-1499
+G223,Brunei-Muara,M,27,Education,Bachelor,2025,0,59,4,3,2,99,0,not employed,
+G224,Brunei-Muara,F,28,Engineering,Diploma,2023,1,83,1,4,1,3.5,1,private,1500-1999
+G225,Brunei-Muara,M,25,Social Sciences,Bachelor,2021,0,50,4,5,1,99,0,not employed,
+G226,Brunei-Muara,M,28,IT,Diploma,2023,1,87,,3,2,1.9,1,private,
+G227,Tutong,F,22,Social Sciences,Diploma,2022,0,90,3,5,1,11.4,1,self-employed,1500-1999
+G228,Brunei-Muara,M,26,Education,Bachelor,2024,0,38,3,4,2,6.5,1,private,2000-2999
+G229,Brunei-Muara,M,21,Health,Diploma,2021,0,52,2,5,1,12.5,1,private,1500-1999
+G230,Tutong,F,27,Health,Bachelor,2025,1,55,3,4,1,3.0,1,self-employed,3000+
+G231,Brunei-Muara,M,29,Business,Bachelor,2024,0,46,4,2,4,8.9,1,private,2000-2999
+G232,Brunei-Muara,F,30,Engineering,Bachelor,2025,1,75,4,4,2,4.3,1,private,1500-1999
+G233,Brunei-Muara,M,25,Engineering,Master,2022,1,65,5,4,3,6.9,1,public,3000+
+G234,Brunei-Muara,F,23,IT,Bachelor,2023,1,70,5,3,2,2.6,1,private,3000+
+G235,Tutong,M,24,Engineering,Bachelor,2023,1,48,3,3,2,6.2,1,private,1500-1999
+G236,Brunei-Muara,F,25,Islamic Studies,Bachelor,2021,1,55,4,1,4,3.1,1,public,2000-2999
+G237,Brunei-Muara,F,30,IT,Bachelor,2025,1,73,4,3,4,2.0,1,public,3000+
+G238,Tutong,M,27,Education,Diploma,2023,0,44,4,3,1,9.1,1,public,under 1000
+G239,Brunei-Muara,M,25,Engineering,Diploma,2024,1,96,3,4,1,4.4,1,private,under 1000
+G240,Brunei-Muara,F,28,Business,Diploma,2024,1,62,3,5,1,7.0,1,public,1500-1999
+G241,Tutong,M,25,IT,Bachelor,2023,1,100,5,5,1,99,0,not employed,
+G242,Brunei-Muara,F,26,Engineering,Bachelor,2024,1,65,4,4,1,5.2,1,public,1000-1499
+G243,Brunei-Muara,M,25,Social Sciences,Diploma,2023,,64,3,5,1,10.7,1,public,under 1000
+G244,Tutong,F,24,Social Sciences,Bachelor,2022,1,54,3,3,1,7.1,1,public,1500-1999
+G245,Belait,F,25,Business,Diploma,2021,0,76,3,2,3,5.1,1,public,1500-1999
+G246,Belait,M,28,Social Sciences,Bachelor,2024,,47,3,4,2,11.7,1,public,2000-2999
+G247,Brunei-Muara,F,22,Islamic Studies,Bachelor,2022,1,69,5,4,1,9.6,1,private,1500-1999
+G248,Brunei-Muara,M,29,Education,Bachelor,2024,0,88,4,5,1,5.3,1,public,1500-1999
+G249,Brunei-Muara,F,28,Social Sciences,Diploma,2025,0,90,2,4,2,99,0,not employed,
+G250,Tutong,M,24,IT,Bachelor,2024,1,90,5,3,3,6.3,1,public,
+G251,Temburong,M,27,Engineering,Diploma,2024,0,53,4,3,2,11.4,1,private,1500-1999
+G252,Brunei-Muara,M,25,Engineering,Bachelor,2022,0,67,2,5,1,9.0,1,public,
+G253,Brunei-Muara,M,29,Social Sciences,Bachelor,2024,1,57,3,3,3,4.6,1,private,2000-2999
+G254,Brunei-Muara,M,26,Islamic Studies,Bachelor,2023,0,70,5,5,1,13.3,1,public,3000+
+G255,Brunei-Muara,M,24,Business,Bachelor,2021,0,58,2,2,1,7.0,1,private,2000-2999
+G256,Brunei-Muara,F,27,IT,Bachelor,2023,1,76,5,4,1,4.4,1,public,2000-2999
+G257,Brunei-Muara,F,22,Business,Diploma,2021,1,71,4,3,1,4.7,1,public,under 1000
+G258,Brunei-Muara,M,27,Education,Bachelor,2024,0,47,4,2,2,6.6,1,private,2000-2999
+G259,Belait,M,28,Education,Diploma,2023,0,51,2,3,1,6.8,1,public,1500-1999
+G260,Tutong,M,29,Health,Diploma,2024,,97,3,4,2,2.0,1,private,1000-1499
+G261,Temburong,F,26,Social Sciences,Bachelor,2024,,82,4,4,2,16.1,1,private,1500-1999
+G262,Belait,F,28,Business,Bachelor,2024,1,73,4,4,1,3.1,1,private,1500-1999
+G263,Brunei-Muara,M,26,Education,Bachelor,2025,0,81,2,3,2,7.7,1,public,2000-2999
+G264,Brunei-Muara,M,22,Health,Bachelor,2022,1,60,4,3,2,6.4,1,public,3000+
+G265,Belait,F,24,Business,Bachelor,2022,1,19,3,4,1,10.7,1,private,
+G266,Brunei-Muara,F,25,Engineering,Bachelor,2022,0,60,2,4,3,12.6,1,private,
+G267,Brunei-Muara,M,24,Business,Bachelor,2022,1,56,3,4,1,8.1,1,private,
+G268,Brunei-Muara,M,24,Engineering,Bachelor,2024,1,86,4,3,1,0,1,private,1000-1499
+G269,Belait,M,25,Engineering,Diploma,2023,0,71,2,3,2,5.3,1,private,1000-1499
+G270,Brunei-Muara,M,24,Social Sciences,Master,2022,0,55,5,2,4,9.9,1,public,1000-1499
+G271,Belait,F,28,Education,Diploma,2024,0,62,2,5,1,3.1,1,private,1000-1499
+G272,Brunei-Muara,M,25,IT,Bachelor,2022,0,51,4,5,1,9.5,1,public,1000-1499
+G273,Temburong,M,23,Education,Bachelor,2021,1,69,4,3,3,8.3,1,public,1000-1499
+G274,Tutong,F,26,Education,Bachelor,2023,0,66,,4,1,8.5,1,self-employed,3000+
+G275,Brunei-Muara,M,22,IT,Bachelor,2022,1,60,3,3,2,3.7,1,private,2000-2999
+G276,Brunei-Muara,F,25,Business,Diploma,2022,0,56,4,4,1,9.3,1,public,1500-1999
+G277,Temburong,M,27,Health,Bachelor,2023,0,70,3,4,2,99,0,not employed,
+G278,Temburong,M,24,Business,Diploma,2022,0,54,4,3,3,9.7,1,private,1500-1999
+G279,Belait,F,26,Social Sciences,Bachelor,2021,0,66,3,5,1,10.4,1,public,1000-1499
+G280,Brunei-Muara,F,27,IT,Master,2025,0,76,3,4,1,7.6,1,private,1000-1499
+G281,Brunei-Muara,M,29,Business,Bachelor,2024,1,63,5,5,1,11.1,1,private,3000+
+G282,Brunei-Muara,F,30,Engineering,Diploma,2025,1,88,4,5,1,5.7,1,public,under 1000
+G283,Brunei-Muara,F,25,Social Sciences,Diploma,2022,0,59,3,4,1,11.0,1,private,under 1000
+G284,Brunei-Muara,F,25,Social Sciences,Diploma,2023,1,44,4,3,1,10.2,1,public,under 1000
+G285,Belait,F,25,Health,Bachelor,2022,1,56,1,5,1,7.7,1,self-employed,1000-1499
+G286,Tutong,F,23,Engineering,Bachelor,2023,0,90,3,5,1,8.2,1,private,3000+
+G287,Belait,M,28,Business,Bachelor,2024,0,79,4,4,4,9.9,1,private,3000+
+G288,Brunei-Muara,M,28,Education,Bachelor,2025,0,66,4,1,4,3.5,1,private,1000-1499
+G289,Brunei-Muara,F,30,Health,Master,2025,0,72,4,5,1,7.1,1,public,1500-1999
+G290,Brunei-Muara,M,27,Social Sciences,Diploma,2024,1,56,4,4,3,10.0,1,private,
+G291,Brunei-Muara,M,28,IT,Bachelor,2024,1,75,4,1,5,2.5,1,public,3000+
+G292,Brunei-Muara,F,26,IT,Bachelor,2025,1,94,3,3,2,0.1,1,public,3000+
+G293,Belait,F,27,Health,Diploma,2022,1,72,4,4,2,2.0,1,private,under 1000
+G294,Belait,F,25,Business,Bachelor,2023,0,93,4,3,2,8.6,1,public,3000+
+G295,Brunei-Muara,F,26,Social Sciences,Bachelor,2021,1,60,2,4,2,8.1,1,private,1000-1499
+G296,Brunei-Muara,F,27,Engineering,Bachelor,2025,1,61,2,3,2,1.8,1,public,3000+
+G297,Brunei-Muara,F,24,Social Sciences,Bachelor,2022,1,69,2,5,1,5.4,1,private,1500-1999
+G298,Belait,F,29,Social Sciences,Bachelor,2025,1,47,4,5,1,12.7,1,public,3000+
+G299,Brunei-Muara,M,26,Engineering,Bachelor,2024,0,59,3,3,2,8.5,1,public,1000-1499
+G300,Tutong,M,25,Education,Bachelor,2024,0,72,3,4,1,99,0,not employed,
+G301,Brunei-Muara,F,24,Business,Diploma,2022,0,81,4,5,2,14.2,1,public,under 1000
+G302,Belait,M,24,IT,Diploma,2021,0,76,4,2,3,8.2,1,public,1000-1499
+G303,Brunei-Muara,M,25,Social Sciences,Bachelor,2021,0,48,5,4,1,99,0,not employed,
+G304,Belait,F,29,Islamic Studies,Diploma,2025,0,64,4,4,1,9.7,1,public,1500-1999
+G305,Tutong,F,29,Business,Bachelor,2025,0,47,2,5,1,12.7,1,private,1000-1499
+G306,Brunei-Muara,M,22,Islamic Studies,Bachelor,2021,1,58,4,4,1,99,0,not employed,
+G307,Brunei-Muara,F,24,Business,Bachelor,2021,0,35,4,4,1,12.6,1,private,3000+
+G308,Belait,F,29,Engineering,Diploma,2025,1,62,3,5,1,9.8,1,public,under 1000
+G309,Brunei-Muara,F,23,Education,Master,2022,0,46,4,3,2,6.0,1,public,2000-2999
+G310,Brunei-Muara,M,26,Islamic Studies,Bachelor,2021,0,52,5,3,2,11.2,1,private,1000-1499
+G311,Tutong,M,25,Social Sciences,Bachelor,2023,0,68,2,3,3,12.7,1,public,
+G312,Brunei-Muara,F,25,IT,Master,2025,1,84,,5,1,5.1,1,self-employed,1000-1499
+G313,Brunei-Muara,F,28,Engineering,Master,2024,1,79,5,4,1,10.5,1,public,2000-2999
+G314,Belait,F,28,Business,Diploma,2023,0,68,4,5,1,13.5,1,private,under 1000
+G315,Brunei-Muara,F,26,Business,Bachelor,2023,0,37,4,3,1,99,0,not employed,
+G316,Belait,F,29,Islamic Studies,Diploma,2024,0,71,3,3,2,7.7,1,public,under 1000
+G317,Brunei-Muara,F,27,Business,Bachelor,2024,0,70,3,4,1,99,0,not employed,
+G318,Brunei-Muara,F,24,Business,Diploma,2021,1,42,4,3,4,4.1,1,private,under 1000
+G319,Brunei-Muara,M,29,Education,Diploma,2025,0,47,3,5,1,10.3,1,public,under 1000
+G320,Belait,M,27,Engineering,Master,2023,0,89,4,4,2,99,0,not employed,
+G321,Brunei-Muara,F,22,IT,Diploma,2022,0,67,3,2,2,3.6,1,private,1000-1499
+G322,Brunei-Muara,M,26,Engineering,Bachelor,2024,1,100,3,3,2,0.1,1,public,1500-1999
+G323,Brunei-Muara,M,25,Education,Diploma,2024,1,51,4,4,1,8.3,1,self-employed,
+G324,Brunei-Muara,M,24,Health,Diploma,2021,1,59,4,5,1,5.9,1,private,under 1000
+G325,Brunei-Muara,F,25,Social Sciences,Master,2024,0,62,3,4,1,12.3,1,self-employed,2000-2999
+G326,Brunei-Muara,M,25,Social Sciences,Diploma,2021,0,62,3,3,2,13.0,1,private,1000-1499
+G327,Temburong,M,26,Engineering,Bachelor,2021,1,74,3,3,4,4.6,1,public,3000+
+G328,Brunei-Muara,F,27,IT,Master,2024,1,54,3,3,3,5.8,1,private,1000-1499
+G329,Brunei-Muara,M,24,Business,Master,2022,0,48,3,3,1,10.3,1,private,3000+
+G330,Brunei-Muara,M,25,Business,Diploma,2025,0,38,3,5,2,99,0,not employed,
+G331,Belait,F,26,Business,Bachelor,2025,0,38,3,3,4,6.8,1,private,1000-1499
+G332,Brunei-Muara,F,23,IT,Diploma,2022,1,68,5,4,1,6.9,1,public,1500-1999
+G333,Tutong,F,28,Business,Bachelor,2024,0,39,5,5,1,99,0,not employed,
+G334,Brunei-Muara,F,23,Engineering,Diploma,2022,1,62,5,4,1,10.4,1,private,under 1000
+G335,Brunei-Muara,M,24,Social Sciences,Bachelor,2021,0,44,5,3,3,10.7,1,self-employed,1500-1999
+G336,Tutong,M,24,Education,Diploma,2022,0,49,2,3,3,10.7,1,self-employed,1000-1499
+G337,Brunei-Muara,F,26,Business,Master,2025,1,54,3,3,4,6.3,1,self-employed,2000-2999
+G338,Tutong,F,22,Education,Bachelor,2022,0,47,3,4,1,7.8,1,public,1000-1499
+G339,Temburong,F,24,Social Sciences,Bachelor,2024,0,34,4,5,1,11.9,1,public,
+G340,Belait,F,25,Health,Bachelor,2023,1,69,5,4,1,4.4,1,public,1500-1999
+G341,Belait,F,28,IT,Bachelor,2024,1,98,3,3,2,0.8,1,public,1000-1499
+G342,Brunei-Muara,F,23,Social Sciences,Bachelor,2023,0,79,3,3,2,11.4,1,private,2000-2999
+G343,Tutong,M,28,Social Sciences,Diploma,2023,1,58,3,5,1,10.2,1,private,1000-1499
+G344,Brunei-Muara,F,24,Business,Bachelor,2023,0,76,2,3,2,8.4,1,self-employed,
+G345,Temburong,F,26,Business,Bachelor,2022,1,41,4,3,4,5.3,1,private,3000+
+G346,Brunei-Muara,F,30,Health,Bachelor,2025,0,79,2,3,4,0.1,1,public,1500-1999
+G347,Brunei-Muara,F,26,Business,Bachelor,2022,1,35,4,3,3,6.9,1,private,3000+
+G348,Tutong,F,25,Social Sciences,Bachelor,2025,1,63,4,4,3,10.6,1,public,2000-2999
+G349,Tutong,F,27,IT,Diploma,2023,1,60,4,3,2,0,1,private,
+G350,Tutong,F,28,Business,Bachelor,2024,,19,3,4,1,12.0,1,self-employed,2000-2999
+G351,Brunei-Muara,M,27,Social Sciences,Bachelor,2024,1,73,3,4,2,6.6,1,private,2000-2999
+G352,Temburong,M,22,Engineering,Diploma,2021,1,68,3,3,2,6.6,1,private,under 1000
+G353,Tutong,M,28,Education,Master,2024,1,63,4,5,1,99,0,not employed,
+G354,Brunei-Muara,F,25,IT,Bachelor,2025,1,59,4,5,1,4.5,1,private,
+G355,Brunei-Muara,F,25,Education,Diploma,2021,1,46,3,4,1,8.3,1,public,1500-1999
+G356,Brunei-Muara,F,24,Social Sciences,Bachelor,2023,,60,4,3,2,13.3,1,public,1000-1499
+G357,Tutong,F,23,Social Sciences,Bachelor,2022,0,36,4,5,1,16.6,1,public,1500-1999
+G358,Tutong,M,29,Business,Bachelor,2024,0,61,3,4,1,12.4,1,private,3000+
+G359,Brunei-Muara,F,25,IT,Bachelor,2021,1,68,4,3,2,5.0,1,public,3000+
+G360,Brunei-Muara,F,22,Social Sciences,Master,2021,0,58,4,3,2,6.4,1,public,2000-2999
+G361,Tutong,F,26,IT,Diploma,2021,1,61,4,3,3,5.3,1,self-employed,1000-1499
+G362,Brunei-Muara,M,25,Engineering,Master,2022,1,35,3,4,2,9.1,1,private,2000-2999
+G363,Brunei-Muara,M,27,Business,Diploma,2023,1,29,3,5,1,9.9,1,private,1500-1999
+G364,Tutong,F,28,IT,Bachelor,2025,1,72,4,4,3,5.0,1,public,1000-1499
+G365,Brunei-Muara,M,25,Social Sciences,Bachelor,2023,0,72,4,5,1,13.2,1,private,2000-2999
+G366,Belait,M,23,Social Sciences,Bachelor,2021,0,74,5,3,2,6.9,1,public,1000-1499
+G367,Brunei-Muara,F,26,Islamic Studies,Diploma,2023,0,62,4,4,1,13.9,1,private,under 1000
+G368,Brunei-Muara,F,28,Engineering,Bachelor,2024,1,74,2,3,2,4.1,1,self-employed,3000+
+G369,Belait,M,26,Social Sciences,Bachelor,2024,0,48,3,4,1,11.8,1,public,
+G370,Brunei-Muara,F,25,Business,Bachelor,2023,0,71,3,3,4,8.7,1,private,2000-2999
+G371,Temburong,M,25,IT,Diploma,2022,1,72,4,3,3,2.6,1,private,1500-1999
+G372,Belait,F,25,Business,Bachelor,2024,1,32,3,4,2,8.7,1,public,1000-1499
+G373,Tutong,F,30,Business,Master,2025,0,58,5,3,4,8.3,1,public,1500-1999
+G374,Brunei-Muara,M,24,Education,Master,2024,0,69,3,4,2,6.8,1,public,
+G375,Brunei-Muara,M,25,Engineering,Bachelor,2024,0,93,3,3,2,8.7,1,private,1500-1999
+G376,Brunei-Muara,M,30,Social Sciences,Bachelor,2025,1,62,5,3,3,5.2,1,public,3000+
+G377,Brunei-Muara,F,28,Engineering,Diploma,2024,0,79,3,5,1,8.6,1,private,1500-1999
+G378,Brunei-Muara,F,22,Health,Diploma,2022,0,47,3,4,1,9.6,1,private,under 1000
+G379,Belait,F,28,Business,Diploma,2025,0,66,3,4,2,6.0,1,private,1500-1999
+G380,Temburong,F,25,Education,Master,2025,0,41,4,3,2,7.2,1,public,1000-1499
+G381,Tutong,M,23,Education,Diploma,2023,1,66,3,3,2,6.4,1,public,1500-1999
+G382,Brunei-Muara,F,24,Engineering,Bachelor,2023,1,64,4,2,4,2.4,1,private,2000-2999
+G383,Brunei-Muara,M,25,Education,Bachelor,2022,1,70,,2,3,1.9,1,public,1500-1999
+G384,Belait,M,27,Business,Bachelor,2023,0,53,3,4,4,11.1,1,private,2000-2999
+G385,Brunei-Muara,F,22,Health,Master,2022,1,61,4,5,1,1.4,1,self-employed,3000+
+G386,Brunei-Muara,F,28,Social Sciences,Master,2025,0,48,5,4,1,99,0,not employed,
+G387,Tutong,F,25,Business,Diploma,2025,0,30,3,4,1,11.6,1,public,under 1000
+G388,Belait,M,23,Education,Master,2023,1,67,5,4,1,3.0,1,private,3000+
+G389,Brunei-Muara,F,25,Engineering,Bachelor,2023,0,40,3,5,1,7.3,1,private,2000-2999
+G390,Tutong,M,27,Business,Diploma,2024,0,54,3,5,1,9.7,1,private,under 1000
+G391,Brunei-Muara,M,25,Social Sciences,Bachelor,2025,1,75,3,3,4,8.7,1,self-employed,1000-1499
+G392,Brunei-Muara,M,30,Health,Diploma,2025,1,49,5,4,1,2.8,1,private,1000-1499
+G393,Tutong,F,22,Health,Bachelor,2022,0,57,3,4,3,6.8,1,public,3000+
+G394,Belait,F,24,Engineering,Diploma,2021,1,48,3,4,1,7.7,1,public,
+G395,Brunei-Muara,M,25,Social Sciences,Bachelor,2022,0,63,4,4,2,12.6,1,private,1000-1499
+G396,Tutong,M,24,IT,Master,2024,1,42,4,4,2,11.5,1,public,2000-2999
+G397,Brunei-Muara,M,27,Social Sciences,Bachelor,2024,1,67,5,2,3,8.1,1,private,3000+
+G398,Brunei-Muara,F,24,IT,Diploma,2021,1,42,3,3,3,6.8,1,private,1000-1499
+G399,Belait,M,25,Social Sciences,Bachelor,2021,0,69,4,5,1,9.1,1,public,1500-1999
+G400,Brunei-Muara,F,26,Education,Diploma,2021,1,88,3,3,3,3.3,1,private,under 1000

@@ -1,0 +1,41 @@
+FICTIONAL INTERVIEW EXCERPTS - TRAINING ONLY
+Six graduates, six months after finishing. Companion to
+bn_graduate_tracer_MOCK.csv. Names, places and quotes are invented.
+
+--- R1, Bachelor, Business, Brunei-Muara ---
+"I was not unemployed exactly. I was waiting. Everybody knows the intake
+announcement comes at a certain time of year, so you apply and then there
+is nothing to do but wait. If I take a private job in between, I might not
+be free when the interview finally comes. So you wait, and the months on
+the form say you did nothing."
+
+--- R2, Diploma, Social Sciences, Tutong ---
+"I applied for eleven positions. Nine never replied at all. I did not know
+whether my application was received. My cousin told me to ask an uncle who
+works there - that is how it is done, he said. I did not want to do that."
+
+--- R3, Bachelor, Engineering, Brunei-Muara ---
+"The internship was the whole thing. Not the skills - I learned more in the
+first month of work than in the internship. It was that someone in the
+company knew my name. When the post opened, they remembered me."
+
+--- R4, Bachelor, Education, Belait ---
+"My parents were very clear. A government post is secure, it has the
+pension, and it is respectable. My mother said a private company can close
+tomorrow. I did apply to two private schools, but I did not tell them."
+
+--- R5, Master, IT, Brunei-Muara ---
+"I had three offers within a month. But two were in Brunei-Muara and I am
+from Belait. The salary difference does not cover living away from home, so
+I took the third one. People look at the months and think I was choosing
+freely."
+
+--- R6, Diploma, Islamic Studies, Temburong ---
+"There is no transport problem if you have a car. I did not. Two interviews
+I could not attend. Nobody asks about that on the form."
+
+--- Note for the exercise ---
+Several explanations here appear in NONE of the columns of the dataset -
+the intake announcement cycle, employers who never reply, who knows your
+name, and whether you own a car. Find them before you write any finding,
+because a column that does not exist cannot be controlled for.
