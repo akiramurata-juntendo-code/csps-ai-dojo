@@ -1,0 +1,38 @@
+FICTIONAL SCENARIO - TRAINING ONLY
+Requested through the question box by a Surveys & fieldwork officer.
+
+Target: complete FOUR household interviews between Monday 12 and
+Friday 16 October 2026. Each interview takes about 75 minutes.
+You work alone, and you have one vehicle.
+
+Candidate households (all fictional):
+
+  ID     District        Available                     Notes
+  HH-01  Brunei-Muara    Mon 09:00-11:00               -
+  HH-02  Brunei-Muara    Mon 14:00-16:00               declined once in Aug
+  HH-03  Brunei-Muara    Tue 10:00-12:00               -
+  HH-04  Brunei-Muara    Wed 15:00-17:00               asks for a female
+                                                       interviewer
+  HH-05  Tutong          Tue 09:00-11:00               -
+  HH-06  Tutong          Thu 13:00-15:00               -
+  HH-07  Temburong       Wed 09:00-11:00               -
+  HH-08  Temburong       Wed 13:00-15:00               -
+  HH-09  Brunei-Muara    Fri 12:30-14:00               -
+  HH-10  Belait          Thu 10:00-12:00               -
+  HH-11  Belait          Thu 15:00-17:00               no phone; visit only
+  HH-12  Brunei-Muara    Sat 10:00-12:00               -
+
+Standing facts:
+  - Travel from the office: Brunei-Muara 20 min, Tutong 60 min,
+    Belait 110 min, Temburong 75 min each way.
+  - Friday 12:00-14:00 is prayers. No fieldwork is scheduled in it.
+  - Saturday is outside the fieldwork week in this study.
+  - Protocol: a household that has declined is approached once more at
+    most, and never twice in the same week.
+  - You are male.
+
+Your job: a week schedule that lands four completed interviews, with a
+named fallback for each, and the short script you will use on the phone.
+
+Check yourself: count how many of the twelve you can ACTUALLY use before
+you ask any AI to plan the week.

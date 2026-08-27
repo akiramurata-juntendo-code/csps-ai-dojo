@@ -1,0 +1,63 @@
+FICTIONAL MANUSCRIPT EXTRACT - TRAINING ONLY
+Requested through the question box by a Researcher: a proof-reading pass
+before an article goes back to its author, with the references checked.
+Every author, journal and finding below is invented.
+
+Before you start, one real fact worth more than the whole drill. The
+request said "Harvard style". The reference lists actually printed in the
+CSPS Strategy and Policy Journal, Volume 12 (2025) - all four articles -
+are author-date APA form:
+
+  Ahsan, M., Adomako, S., & Mole, K. F. (2021). Perceived institutional
+     support and small venture performance. International Small Business
+     Journal, 39(1), 18-39.
+
+Ampersand before the last author. Year in brackets, full stop after.
+Sentence case for the article title. Journal title in italics.
+Volume(issue), page range, then the DOI as a plain link. That is the
+target - not what anyone remembers the house style to be, and not what an
+AI tells you Harvard looks like.
+
+--------------------------------------------------------------------
+ABSTRACT
+This study examines how small public organisations adopt generative AI.
+Using a pre-post design with 24 participants in a single training
+programme, we find a moderate improvement in self-reported confidence and
+no change in reported organizational barriers. The findings suggests that
+individual training is necessary but not sufficient.
+
+3. RESULTS
+Of the n = 26 participants who completed both waves, 12 (52%) reported
+using the tools weekly by the second wave, compared with 5 before the
+programme. Confidence rose by 0.58 points on a five-point scale
+(Lim, 2023). Barrier scores were unchanged, which contradicts the
+prediction set out in Section 2.
+
+4. DISCUSSION
+As Rahman and Chua (2022) argue, adoption in small administrations is
+constrained less by skill than by permission. Our data is consistent with
+this reading. Future work should follow participants for a full year.
+
+--------------------------------------------------------------------
+REFERENCES (as submitted by the author)
+
+Abdullah, S., Tan, M. and Hussein, K. et al. (2024) Training transfer in
+   the public sector. Public Administration Review, 84(2), pp. 210-229.
+
+Chua, L. (2021). "Digital readiness in small states". Journal of Asian
+   Public Policy 14, 3, 255-271.
+
+Rahman, N. and Chua, L. (2022) Permission and practice: adopting new
+   tools in small administrations. Cambridge University Press.
+
+Tan, W. (2019) Survey methods for small populations. 2nd edn. Singapore:
+   Eastwind Press.
+
+Yusof, H. (2025) Generative AI in government training. Available at:
+   https://example.org/yusof-2025
+
+--------------------------------------------------------------------
+Your job: the marked-up list you send back to the author, every item
+saying WHERE it is and WHAT to change. Two kinds of problem are hiding
+here - things that are merely formatted wrongly, and things that are
+wrong. Sort them, because only one kind can be fixed by a style guide.

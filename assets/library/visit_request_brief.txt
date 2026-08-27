@@ -1,0 +1,33 @@
+FICTIONAL SCENARIO - TRAINING ONLY
+Requested through the question box by a Clerical & secretariat officer.
+
+You are the secretariat officer of a sixth-form college. Your principal
+wants an educational visit to a government department, and has given you
+these notes. Nothing here has been checked.
+
+  Host wanted    : Department of National Planning (fictional, for training)
+  Group          : 38 students, 3 teachers
+  Preferred date : Thursday 15 October 2026
+  Second choice  : Friday 16 October 2026
+  Today          : Monday 5 October 2026
+  Transport      : one college bus, 40 seats
+  Principal wants: "a full day - leave at 8, back before 4"
+  Also           : the students are doing a project on how national
+                   statistics are produced, so a talk plus a tour
+  Attached to the principal's note: the class list, with each student's
+  full name, IC number and home district.
+
+Standing facts about the host department (from their public website):
+  - Visits must be requested at least THREE WEEKS in advance, because
+    every visitor is security-screened at the gate.
+  - Visitor numbers per session are capped at 25.
+  - Friday hours: closed 12:00-14:00 for prayers.
+  - The department asks for one named contact person and one phone number.
+
+Your job: (1) an enquiry email to the department, and (2) a one-day
+itinerary for the principal.
+
+Check yourself before you trust any draft:
+  - the seats, the cap, the notice period, the Friday block
+  - and one question that is not about logistics at all: which parts of
+    the principal's attachment may leave the college?

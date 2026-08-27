@@ -1,0 +1,13 @@
+task,owner,start,due,status,percent
+Ethics approval,R. Officer A,2026-09-01,2026-09-20,done,100
+Questionnaire draft,R. Officer A,2026-09-08,2026-09-30,in progress,80
+Questionnaire translation,,2026-09-25,2026-10-10,not started,0
+Pilot with 5 households,R. Officer B,2026-10-01,2026-10-14,in progress,40
+Enumerator training,R. Officer B,2026-10-06,2026-10-13,in progress,100
+Fieldwork wave 1,Field team,2026-10-15,2026-11-15,not started,0
+Data entry and cleaning,R. Officer C,2026-11-01,2026-11-30,not started,0
+Interim report,R. Officer A,2026-11-20,2026-12-05,not started,0
+Steering committee briefing,Director,2026-12-08,2026-12-08,not started,0
+Fieldwork wave 2,Field team,2027-01-06,2027-02-10,not started,0
+Final report,R. Officer A,2027-02-15,2027-03-20,not started,0
+Journal submission,R. Officer A,2027-03-25,2027-04-30,not started,0
