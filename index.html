@@ -262,7 +262,7 @@ var URLS = {
   quizR     : 'https://docs.google.com/forms/d/e/1FAIpQLSfH-RSW6fRrA7d6W7dI0JjvjJOth75N04Iz-YT0pxNPejflAA/viewform',   // Morning Scroll Challenge - Researchers
   audioA1   : 'assets/audio/recap-a1.m4a',   // Recap audio (Gemini Notebook), Mon 24 Aug
   audioA2   : 'assets/audio/recap-a2.m4a',   // Recap audio (Gemini Notebook), Wed 26 Aug
-  audioR1   : '',   // Recap audio, Thu 27 Aug
+  audioR1   : 'assets/audio/recap-r1.m4a',   // Recap audio (Gemini Notebook), Thu 27 Aug
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : 'assets/library/claude-setup-guide.pdf',   // Claude free-plan setup guide (phone + PC)
@@ -750,9 +750,14 @@ html += scrollCard('koga','KOGA SCHOOL · FIRST SCROLL','The Hidden Scroll of In
    ['The Missing Column','見えぬ列の掟','A column that does not exist cannot be controlled for.']],
   'Fluency is not evidence.', T.r1eve, 'Thursday evening');
 html += card({ t: T.r1eve, clan:'koga', mark:'&#127911;', whenLabel:'Thursday 27 August, evening',
-  title: 'Recap Audio — Day 1',
-  desc : 'The arts of Thursday, retold by the tools themselves.',
-  body : link_(URLS.audioR1, 'Listen', 'koga') });
+  title: 'Recap Audio — Day 1 (about 8 minutes)',
+  desc : 'The arts of Thursday, retold by the tools themselves — a debate between the Keeper of the Library and a researcher in a hurry. Made in the Librarian notebook, from Thursday&#39;s own handouts.',
+  body : link_(URLS.audioR1, 'Listen', 'koga') +
+    ' <a class="btn" style="cursor:pointer" onclick="toggleArt(&#39;audioprompt-r1&#39;, this)">Prompt &#9662;</a>' +
+    '<div class="artdetail" id="audioprompt-r1">' +
+    '<div class="why">The exact prompt given to Gemini Notebook&#39;s Audio Overview (<b>Debate</b> format), with Thursday&#39;s deck and handouts selected as sources and the administrators&#39; days unticked. Nothing here is beyond you &mdash; swap the arts for your own lecture and you have a recap for your students by tonight.</div>' +
+    '<div class="eg"><b>THE PROMPT</b><pre class="after">Two voices: Minobe, Keeper of the Library (patient, exact) and a\nyoung Koga researcher who is brilliant and in a hurry. They debate\nthe five arts of Thursday, the researchers&#39; first day: the triangle\nsearch (the AI suggests, the index confirms, the researcher reads),\nthe three-role code (assistant and sparring partner, never\nauthority), illusion-breaking (text shaped like a source is not a\nsource - open it), the mark of doubt ([CHECK] where you are not\ncertain), and the missing column (a column that does not exist\ncannot be controlled for). The researcher argues &quot;it answered from\nmy own sources, with citations - what more do you want?&quot; - Minobe\nwins each round with one concrete example, including a number that\nwas a code and not a quantity. End with: &quot;Fluency is not evidence.\nTomorrow we write, and we sign what we write.&quot;</pre></div>' +
+    '<div class="tip">One line does the teaching: the researcher&#39;s objection, <b>&quot;it answered from my own sources, with citations &mdash; what more do you want?&quot;</b> That is the honest temptation of a grounded notebook, and it is why the day ended on <i>grounded means traceable, not true</i>. Write the objection your own audience actually feels; the debate does the rest.</div></div>' });
 html += card({ t: T.quizR, clan:'koga', mark:'&#129513;', whenLabel:'Friday 28 August, 06:00',
   title: 'Training aids for Friday — choose your starting point',
   desc : 'Two sheets, the same for every table: a fill-in template and a blank page. Pick the one that fits you today; the quiz and the capstone are the same for everyone.',
