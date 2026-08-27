@@ -1,0 +1,105 @@
+"# Brunei Darussalam labour force - counts of persons, aged 18 and over"
+# Compiled from published tables of the Department of Economic Planning and
+"# Statistics (DEPS), Ministry of Finance and Economy: deps.mofe.gov.bn/labour-force/"
+# Labour Force Survey (2025 figures are the PRELIMINARY report) and the
+"# Labour Market Indicators 18+ series. This is real official data, not mock data."
+#
+# Counts only. Every rate you need is yours to compute - that is the exercise.
+# Figures are survey estimates and are rounded; sub-group differences of a few
+# hundred persons may sit inside sampling error. The coefficients of variation
+# are in the DEPS report and are NOT in this file.
+#
+# DEPS notes that data may not add up to totals because of rounding. That is
+"# true of this extract too, in two places. They have been left in."
+#
+year,breakdown,category,measure,persons
+2014,age,18-24,employed,19292
+2014,age,18-24,unemployed,6492
+2014,age_sex,18-24 female,employed,7767
+2014,age_sex,18-24 female,unemployed,2908
+2014,age_sex,18-24 male,employed,11525
+2014,age_sex,18-24 male,unemployed,3584
+2014,education_sex,tertiary female,employed,17379
+2014,education_sex,tertiary female,unemployed,1049
+2014,education_sex,tertiary male,employed,18841
+2014,education_sex,tertiary male,unemployed,912
+2014,sector_sex,private female,employed,41510
+2014,sector_sex,private male,employed,58518
+2014,sector_sex,public female,employed,39239
+2014,sector_sex,public male,employed,49422
+2014,sex,female,employed,80750
+2014,sex,female,labour_force,87433
+2014,sex,female,unemployed,6683
+2014,sex,female,working_age_population,140699
+2014,sex,male,employed,107940
+2014,sex,male,labour_force,115001
+2014,sex,male,unemployed,7061
+2014,sex,male,working_age_population,146684
+2014,underutilisation,all,labour_underutilisation,37080
+2014,underutilisation,all,potential_labour_force,11061
+2014,underutilisation,all,time_related_underemployment,12275
+2014,underutilisation_sex,female,potential_labour_force,6518
+2014,underutilisation_sex,male,potential_labour_force,4542
+2017,age,18-24,employed,22586
+2017,age,18-24,unemployed,8067
+2017,age_sex,18-24 female,employed,9731
+2017,age_sex,18-24 female,unemployed,3459
+2017,age_sex,18-24 male,employed,12856
+2017,age_sex,18-24 male,unemployed,4608
+2017,education_sex,tertiary female,employed,22967
+2017,education_sex,tertiary female,unemployed,2162
+2017,education_sex,tertiary male,employed,21016
+2017,education_sex,tertiary male,unemployed,1935
+2017,sector_sex,private female,employed,46490
+2017,sector_sex,private male,employed,76824
+2017,sector_sex,public female,employed,35485
+2017,sector_sex,public male,employed,40912
+2017,sex,female,employed,81975
+2017,sex,female,labour_force,90912
+2017,sex,female,unemployed,8938
+2017,sex,female,working_age_population,149624
+2017,sex,male,employed,117736
+2017,sex,male,labour_force,127852
+2017,sex,male,unemployed,10116
+2017,sex,male,working_age_population,169714
+2017,underutilisation,all,labour_underutilisation,47812
+2017,underutilisation,all,potential_labour_force,10248
+2017,underutilisation,all,time_related_underemployment,18511
+2017,underutilisation_sex,female,potential_labour_force,5304
+2017,underutilisation_sex,male,potential_labour_force,4943
+2018,age,18-24,employed,23227
+2018,age,18-24,unemployed,8704
+2018,total,all,employed,216219
+2018,total,all,labour_force,233957
+2018,total,all,unemployed,17738
+2018,total,all,working_age_population,328117
+2019,residential_status,local,employed,146789
+2019,residential_status,local,unemployed,15624
+2019,residential_status,non-local,employed,74211
+2019,residential_status,non-local,unemployed,156
+2020,residential_status,local,employed,155480
+2020,residential_status,local,unemployed,16858
+2020,residential_status,non-local,employed,60693
+2020,residential_status,non-local,unemployed,131
+2020,sector_residential,private local,employed,86172
+2020,sector_residential,public local,employed,69308
+2024,sex,female,employed,88600
+2024,sex,female,labour_force,93700
+2024,sex,female,outside_labour_force,68400
+2024,sex,female,unemployed,5100
+2024,sex,female,working_age_population,162100
+2024,sex,male,employed,133700
+2024,sex,male,labour_force,139500
+2024,sex,male,outside_labour_force,44500
+2024,sex,male,unemployed,5800
+2024,sex,male,working_age_population,183900
+2025,sex,female,employed,85800
+2025,sex,female,labour_force,91800
+2025,sex,female,outside_labour_force,69000
+2025,sex,female,unemployed,6000
+2025,sex,female,working_age_population,160800
+2025,sex,male,employed,134600
+2025,sex,male,labour_force,140200
+2025,sex,male,outside_labour_force,47700
+2025,sex,male,unemployed,5600
+2025,sex,male,working_age_population,187900
