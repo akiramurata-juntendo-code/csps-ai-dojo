@@ -261,7 +261,7 @@ var URLS = {
   quizA     : 'https://docs.google.com/forms/d/e/1FAIpQLSf5tLiaz9itCFIL217uMrs93B1s0fNn6UnnaIOqQshN0mzl7Q/viewform',   // Morning Scroll Challenge - Administrators
   quizR     : 'https://docs.google.com/forms/d/e/1FAIpQLSfH-RSW6fRrA7d6W7dI0JjvjJOth75N04Iz-YT0pxNPejflAA/viewform',   // Morning Scroll Challenge - Researchers
   audioA1   : 'assets/audio/recap-a1.m4a',   // Recap audio (Gemini Notebook), Mon 24 Aug
-  audioA2   : '',   // Recap audio, Wed 26 Aug
+  audioA2   : 'assets/audio/recap-a2.m4a',   // Recap audio (Gemini Notebook), Wed 26 Aug
   audioR1   : '',   // Recap audio, Thu 27 Aug
   audioR2   : '',   // Recap audio, Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
@@ -723,9 +723,14 @@ html += scrollCard('iga','IGA SCHOOL · SECOND SCROLL','The Hidden Scroll of Num
    ['End-to-End Mastery','一気通貫の術','Blank page to checked draft — proven in the capstone.']],
   'When drafts are cheap, judgement is the premium.', T.scrollA2, 'Wednesday 26 August, 13:00');
 html += card({ t: T.a2eve, clan:'iga', mark:'&#127911;', whenLabel:'Wednesday 26 August, evening',
-  title: 'Recap Audio — Day 2',
-  desc : 'Numbers, reports, and honest charts — the second day retold as a debate.',
-  body : link_(URLS.audioA2, 'Listen', 'iga') });
+  title: 'Recap Audio — Day 2 (about 6 minutes)',
+  desc : 'Numbers, reports, and honest charts — the second day retold as a debate. Made in the Librarian notebook you were shown, from the Wednesday handouts. Car-length on purpose.',
+  body : link_(URLS.audioA2, 'Listen', 'iga') +
+    ' <a class="btn" style="cursor:pointer" onclick="toggleArt(&#39;audioprompt-a2&#39;, this)">Prompt &#9662;</a>' +
+    '<div class="artdetail" id="audioprompt-a2">' +
+    '<div class="why">The exact prompt given to Gemini Notebook&#39;s Audio Overview (<b>Debate</b> format), with the Day-2 handouts selected as sources &mdash; and the Day-1 sources unticked, so the debate stayed on Wednesday.</div>' +
+    '<div class="eg"><b>THE PROMPT</b><pre class="after">Two voices: the Master (wise, calm) and Hattori (energetic,\ntempted by shortcuts). They debate the five arts of Day 2 for\nadministrators: reaching every important number by two\nindependent routes, tying every claim to the document it came\nfrom, treating every axis and window in a chart as a claim,\nsigning the work (&quot;AI-assisted draft, verified by [name]&quot;),\nand going from a blank page to a checked draft in one run.\nHattori argues &quot;the total is already in the summary - why\nwould I count it myself?&quot; - the Master wins each round with\none concrete example from an office. End with: &quot;When drafts\nare cheap, judgement is the premium. The Training Grounds are\nopen, and your first trial returns on the fourth of September.&quot;</pre></div>' +
+    '<div class="tip">Compare it with the Day-1 prompt above: same two characters, same rule for who wins, one thing changed &mdash; <b>Hattori&#39;s temptation</b>. On Monday it was &quot;if it sounds right, send it&quot;. On Wednesday, the day of numbers, it became &quot;the total is already in the summary&quot;. Write the temptation your own audience actually feels, and the debate does the teaching for you.</div></div>' });
 
 /* ---------- Phase 2: Koga days ---------- */
 html += '<h2 class="phase" id="sec-koga">KOGA SCHOOL — Researchers<span class="k">甲賀流</span></h2>';
