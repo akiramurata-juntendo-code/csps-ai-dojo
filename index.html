@@ -269,7 +269,8 @@ var URLS = {
   scaffoldA : 'assets/library/scaffold_fill_in.pdf',   // Wednesday training aids; blank version at assets/library/scaffold_blank.pdf
   scaffoldR : '',   // Friday training aids, Researchers
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
-  ,ninja    : 'https://docs.google.com/forms/d/e/1FAIpQLSfvX7W2pSVyLhpIgo9ke89YZlz-QIo3UEHnAOy5nRVKEH0ktg/viewform'    // Koga Ninja Registration (Researchers' ice-breaker)
+  ,ninja    : 'https://docs.google.com/forms/d/e/1FAIpQLSfvX7W2pSVyLhpIgo9ke89YZlz-QIo3UEHnAOy5nRVKEH0ktg/viewform'
+  ,memo     : 'https://docs.google.com/forms/d/e/1FAIpQLSccj3PYzzxvbIID9Zupyk9QRqbvxSaw4UsZHoSrLwy3zJsgqw/viewform'    // The One-Page Design Memo hand-in (Thu 27 Aug)    // Koga Ninja Registration (Researchers' ice-breaker)
   ,qaform   : 'https://forms.gle/ZHfFKSSiMKtevFG8A'    // Question submission form for the notice board
 };
 
@@ -1135,7 +1136,10 @@ function drawTrain(){
       '<p style="margin-top:4px">' + d.desc + '</p>' +
       '<p style="font-size:11.5px;color:#8a7a55;margin-top:2px">' + d.roles.map(function(r){ return roleName[r]; }).join(' &middot; ') + '</p>' +
       '<div class="artdetail" id="tg-' + d.id + '">' + d.det +
-      (URLS.qaform ? '<p style="font-size:12px;color:#8a7a55;margin-top:8px">In the box, choose <b>&quot;A prompt for sparring (Prompt Dojo)&quot;</b> and send the prompt you used &mdash; verdict and one fix by morning.</p>' +
+      (d.id === 'capstone' && URLS.memo ?
+        '<p style="font-size:12px;color:#8a7a55;margin-top:8px"><b style="color:#a03123">Hand in by 16:00 today &mdash; and if you run out of time, tomorrow morning is fine.</b> Eleven short boxes, straight from the sheet in front of you: the question, the three rivals, the observation that would kill your best one, and what your design could never see. Nothing is graded, and nothing is published with your real name on it.</p>' +
+        '<a class="btn iga" style="margin-top:6px" href="' + URLS.memo + '" target="_blank" rel="noopener">Hand in your design memo &#9654;</a>'
+      : URLS.qaform ? '<p style="font-size:12px;color:#8a7a55;margin-top:8px">In the box, choose <b>&quot;A prompt for sparring (Prompt Dojo)&quot;</b> and send the prompt you used &mdash; verdict and one fix by morning.</p>' +
       '<a class="btn iga" style="margin-top:6px" href="' + URLS.qaform + '" target="_blank" rel="noopener">Submit your result for sparring &#9654;</a>' : '') +
       '</div></div></div>';
   }).join('') || '<div class="plib"><span class="task">No drill matches</span><div class="advice">Widen the filters &mdash; or request a scroll below: the grounds grow one real task at a time.</div></div>';
