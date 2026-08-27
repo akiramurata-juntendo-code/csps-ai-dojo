@@ -282,10 +282,17 @@ var URLS = {
      per:[ {q:'Q1',label:'Five-part instruction',pct:93}, {q:'Q2',label:'Three-way data sort',pct:89},
            {q:'Q3',label:'Verify before accepting',pct:96}, {q:'Q4',label:'The Style Mirror',pct:74},
            {q:'Q5',label:'What GPT means',pct:48} ] };  */
+/* Researchers' quiz (Fri 28 Aug). Filled at lunch by tally_quiz.py - aggregate only.
+   QUIZR_RESULTS = { n:00, avg:0.0, hardest:'Q0',
+     per:[ {q:'Q1',label:'The triangle search',pct:0}, {q:'Q2',label:'The three-role code',pct:0},
+           {q:'Q3',label:'Illusion-breaking',pct:0}, {q:'Q4',label:'The missing column',pct:0},
+           {q:'Q5',label:'The mark of doubt',pct:0} ] };  */
+var QUIZR_RESULTS = null;
 var QUIZA_RESULTS = { n:19, avg:9.2, hardest:'Q3',
   per:[ {q:'Q1',label:'Five-part instruction',pct:100}, {q:'Q2',label:'Three-way data sort',pct:95}, {q:'Q3',label:'Verify before accepting',pct:79}, {q:'Q4',label:'The Style Mirror',pct:84}, {q:'Q5',label:'What GPT means',pct:100} ] };
-function quizaChart(){
-  var R = QUIZA_RESULTS;
+function quizaChart(){ return quizChart(QUIZA_RESULTS); }
+function quizrChart(){ return quizChart(QUIZR_RESULTS); }
+function quizChart(R){
   if (!R) return '';
   var rows = R.per.map(function(p){
     var hard = (p.q === R.hardest);
@@ -739,7 +746,7 @@ html += guide('koga', 'minobe', 'Minobe of the Koga School',
 html += card({ t: T.quizR, clan:'koga', mark:'Q', whenLabel:'Friday 28 August, 06:00',
   title: 'Morning Scroll Challenge (Fri 28 Aug, at the start of Day 2)',
   desc : 'Five questions on the arts of Thursday. Answer from memory — the recalling is the training. The one the village finds hardest returns in the First Trial, word for word: the same enemy, easier the second time.',
-  body : link_(URLS.quizR, 'Take the challenge', 'koga')
+  body : link_(URLS.quizR, 'Take the challenge', 'koga') + quizrChart()
 });
 html += scrollCard('koga','KOGA SCHOOL · FIRST SCROLL','The Hidden Scroll of Inquiry','秘伝 探求の巻',
   'earned Thursday 27 August',
