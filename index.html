@@ -267,7 +267,7 @@ var URLS = {
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : 'assets/library/claude-setup-guide.pdf',   // Claude free-plan setup guide (phone + PC)
   scaffoldA : 'assets/library/scaffold_fill_in.pdf',   // Wednesday training aids; blank version at assets/library/scaffold_blank.pdf
-  scaffoldR : '',   // Friday training aids, Researchers
+  scaffoldR : 'assets/library/scaffold_R_fill_in.pdf',   // Friday training aids, Researchers
   librarian : 'https://notebook.google.com/notebook/6ba40535-d829-4db3-9469-dcb949f5bd02/preview'    // Gemini Notebook chat view - the Librarian
   ,ninja    : 'https://docs.google.com/forms/d/e/1FAIpQLSfvX7W2pSVyLhpIgo9ke89YZlz-QIo3UEHnAOy5nRVKEH0ktg/viewform'    // Koga Ninja Registration (Researchers&#39; ice-breaker)
   ,memo     : 'https://docs.google.com/forms/d/e/1FAIpQLSccj3PYzzxvbIID9Zupyk9QRqbvxSaw4UsZHoSrLwy3zJsgqw/viewform'    // The One-Page Design Memo hand-in (Thu 27 Aug)
@@ -775,8 +775,8 @@ html += card({ t: T.r1eve, clan:'koga', mark:'&#127911;', whenLabel:'Thursday 27
     '<div class="tip">One line does the teaching: the researcher&#39;s objection, <b>&quot;it answered from my own sources, with citations &mdash; what more do you want?&quot;</b> That is the honest temptation of a grounded notebook, and it is why the day ended on <i>grounded means traceable, not true</i>. Write the objection your own audience actually feels; the debate does the rest.</div></div>' });
 html += card({ t: T.quizR, clan:'koga', mark:'&#129513;', whenLabel:'Friday 28 August, 06:00',
   title: 'Training aids for Friday — choose your starting point',
-  desc : 'Two sheets, the same for every table: a fill-in template and a blank page. Pick the one that fits you today; the quiz and the capstone are the same for everyone.',
-  body : link_(URLS.scaffoldR, 'Open the training aids', 'koga') });
+  desc : 'Two sheets, the same for every table: one page from a finding to something published. The guided version carries the structure, the prompts and the disclosure sentence; the blank version carries the same headings and nothing else. <b>Pick the one that fits you today &mdash; nobody is assigned.</b> Circle your destination at the top: a paper argues a contribution, a brief supports a decision, a lecture changes what someone can do.',
+  body : link_(URLS.scaffoldR, 'Guided start', 'koga') + ' ' + link_('assets/library/scaffold_R_blank.pdf', 'Blank start', 'koga') });
 html += card({ t: T.quizR, clan:'koga', mark:'&#9878;', whenLabel:'Friday 28 August, 06:00',
   title: 'The Meeting of the Schools — Friday afternoon',
   desc : 'Iga built reusable templates on Monday; Koga builds indicator cards on Thursday. On Friday each school referees the other, anonymised: researchers judge a template with the preconditions questions, administrators test whether an indicator card can be read by a busy director. Not a contest — a mutual audit. Those who trained in both schools carry the scrolls across.',
