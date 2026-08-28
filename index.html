@@ -289,7 +289,8 @@ var URLS = {
      per:[ {q:'Q1',label:'The triangle search',pct:0}, {q:'Q2',label:'The three-role code',pct:0},
            {q:'Q3',label:'Illusion-breaking',pct:0}, {q:'Q4',label:'The missing column',pct:0},
            {q:'Q5',label:'The mark of doubt',pct:0} ] };  */
-var QUIZR_RESULTS = null;
+var QUIZR_RESULTS = { n:22, avg:7.0, hardest:['Q1','Q4'],
+  per:[ {q:'Q1',label:'The triangle search',pct:55}, {q:'Q2',label:'The three-role code',pct:91}, {q:'Q3',label:'Illusion-breaking',pct:82}, {q:'Q4',label:'The missing column',pct:55}, {q:'Q5',label:'The mark of doubt',pct:68} ] };
 var QUIZA_RESULTS = { n:19, avg:9.2, hardest:'Q3',
   per:[ {q:'Q1',label:'Five-part instruction',pct:100}, {q:'Q2',label:'Three-way data sort',pct:95}, {q:'Q3',label:'Verify before accepting',pct:79}, {q:'Q4',label:'The Style Mirror',pct:84}, {q:'Q5',label:'What GPT means',pct:100} ] };
 function quizaChart(){ return quizChart(QUIZA_RESULTS); }
@@ -297,7 +298,7 @@ function quizrChart(){ return quizChart(QUIZR_RESULTS); }
 function quizChart(R){
   if (!R) return '';
   var rows = R.per.map(function(p){
-    var hard = (p.q === R.hardest);
+    var hard = (R.hardest instanceof Array) ? R.hardest.indexOf(p.q) > -1 : (p.q === R.hardest);
     return '<div style="display:flex;align-items:center;gap:8px;margin-top:7px">' +
       '<span style="flex:0 0 175px;font-size:12.5px;color:#5a4a33">' + p.q + ' &middot; ' + p.label + '</span>' +
       '<span style="flex:1;background:#efe7d6;border-radius:6px;overflow:hidden;height:16px;position:relative">' +
@@ -307,7 +308,7 @@ function quizChart(R){
   }).join('');
   return '<div style="margin-top:12px;padding:12px 14px;background:#fbf6ea;border:1px solid #e6d9bd;border-radius:10px">' +
     '<div style="font-weight:bold;font-size:13.5px;color:#5a4a33">The village&#39;s morning &mdash; ' + R.n +
-    ' ninjas &middot; average ' + R.avg + ' / 10</div>' + rows +
+    ' ninjas &middot; average ' + Number(R.avg).toFixed(1) + ' / 10</div>' + rows +
     '<div style="font-size:12px;color:#a03123;margin-top:8px">The hardest question returns in the First Trial on 4 September &mdash; word for word. The same enemy, easier the second time.</div>' +
     '<div style="font-size:11px;color:#8a7454;margin-top:4px">Aggregate results only &mdash; no individual scores exist on this page.</div></div>';
 }
