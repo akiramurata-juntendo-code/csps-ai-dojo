@@ -827,21 +827,32 @@ html += card({ t: T.touch1, mark:'&#127916;', whenLabel:'Friday 4 September',
 html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
   title: 'First Trial of Memory (+1 week)',
   desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial.',
-  body : '<div class="qa"><ol>' +
-    '<li>What are the three categories of the data-discipline sort — and which never enters a public AI tool?</li>' +
-    '<li>What must you do before accepting ANY output from an AI tool? <i>(the village&#39;s hardest, word for word - 79% on Wednesday)</i></li>' +
+  body : '<div class="qa"><b>Iga &middot; the administrators&#39; three:</b><ol>' +
+    '<li>What are the three categories of the data-discipline sort &mdash; and which never enters a public AI tool?</li>' +
+    '<li>What must you do before accepting ANY output from an AI tool? <i>(your hardest, word for word &mdash; 79% on Wednesday)</i></li>' +
     '<li>What are the five parts of a good instruction to an AI tool?</li></ol>' +
-    '<b>This week&#39;s challenge:</b> use the personal template you built — once, on a real task. ' +
-    'If it needed fixing, fix it. That fix is the template becoming yours.</div>'
+    '<b>Koga &middot; the researchers&#39; three:</b><ol>' +
+    '<li>The discovery triangle for literature work, in the correct order: <i>(your hardest, word for word &mdash; 55% on Friday)</i></li>' +
+    '<li>Six interviews named causes the survey had no column for. The standing conclusion is: <i>(also 55% &mdash; the village split evenly on this one)</i></li>' +
+    '<li>In the annotated bibliography exercise, the [CHECK] convention exists so that the model does what?</li></ol>' +
+    '<b>This week&#39;s challenge:</b> Iga &mdash; use the personal template you built, once, on a real task; ' +
+    'if it needed fixing, fix it, and that fix is the template becoming yours. Koga &mdash; open the ' +
+    'closing note from your last session and start one new conversation with it. Two minutes.</div>'
 });
 html += card({ t: T.touch2, mark:'II', whenLabel:'Friday 25 September',
   title: 'Second Trial of Memory (+1 month)',
   desc : 'Answers to the first trial, three new questions, and a three-minute check-in.',
-  body : '<div class="qa"><b>Answers to the First Trial:</b> (1) Public / Internal — anonymise first / ' +
-    'Confidential — never. (2) Verify — find one thing to fix. (3) Role, Task, Context, Constraints, Format.' +
+  body : '<div class="qa"><b>Answers &middot; Iga:</b> (1) Public / Internal &mdash; anonymise first / ' +
+    'Confidential &mdash; never. (2) Verify &mdash; find one thing to fix. (3) Role, Task, Context, Constraints, Format.' +
+    '<br><b>Answers &middot; Koga:</b> (1) The AI suggests, the index confirms, the researcher reads &mdash; ' +
+    'in that order, and the third step is the one nobody can do for you. (2) A column that does not exist ' +
+    'cannot be controlled for &mdash; the six causes are a finding about the next instrument, not a ' +
+    'limitation to apologise for. (3) So that uncertainty is visible instead of guessed &mdash; ' +
+    '<b>[CHECK]</b> where it is not certain, rather than a confident sentence you cannot check.' +
     '<ol><li>When AI drafts a chart, what do you check before it reaches a decision-maker?</li>' +
     '<li>What does the sources-and-confidence footer contain?</li>' +
-    '<li>Koga: the three corners of the Triangle Search? Iga: your reusable template — used this month?</li></ol></div>' +
+    '<li>Iga: your reusable template &mdash; used this month? Koga: the structure first, then one ' +
+    'section at a time &mdash; did you write anything that way?</li></ol></div>' +
     link_(URLS.t3survey, 'Three-minute check-in survey') +
     '<p style="font-size:12.5px;margin-top:6px;">&#128220; <b>Your personal scroll:</b> individualized ' +
     'next-step advice from the Master, based on your own training record — email the Master with ' +
