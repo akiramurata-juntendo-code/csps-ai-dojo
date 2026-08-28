@@ -263,7 +263,7 @@ var URLS = {
   audioA1   : 'assets/audio/recap-a1.m4a',   // Recap audio (Gemini Notebook), Mon 24 Aug
   audioA2   : 'assets/audio/recap-a2.m4a',   // Recap audio (Gemini Notebook), Wed 26 Aug
   audioR1   : 'assets/audio/recap-r1.m4a',   // Recap audio (Gemini Notebook), Thu 27 Aug
-  audioR2   : '',   // Recap audio, Fri 28 Aug
+  audioR2   : 'assets/audio/recap-r2.m4a',   // Recap audio (Gemini Notebook), Fri 28 Aug
   t3survey  : '',   // 3-minute check-in survey (late September)
   setup     : 'assets/library/claude-setup-guide.pdf',   // Claude free-plan setup guide (phone + PC)
   scaffoldA : 'assets/library/scaffold_fill_in.pdf',   // Wednesday training aids; blank version at assets/library/scaffold_blank.pdf
@@ -786,9 +786,14 @@ html += scrollCard('koga','KOGA SCHOOL · SECOND SCROLL','The Hidden Scroll of P
    ['Pre-Mortem Foresight','先読みの術','Write the rejection letter first. Rehearse the failure.']],
   'Verification is the craft.', T.r2eve, 'Friday evening');
 html += card({ t: T.r2eve, clan:'koga', mark:'&#127911;', whenLabel:'Friday 28 August, evening',
-  title: 'Recap Audio — Day 2',
-  desc : 'Proof, critique, and the delegation code — the final day retold.',
-  body : link_(URLS.audioR2, 'Listen', 'koga') });
+  title: 'Recap Audio &mdash; Day 2 (about 8 minutes)',
+  desc : 'The arts of Friday, argued out by the tools themselves &mdash; the Keeper of the Library against a researcher holding a finished draft. Made in the Librarian notebook from Friday&#39;s own handouts, with every other day unticked.',
+  body : link_(URLS.audioR2, 'Listen', 'koga') +
+    ' <a class="btn" style="cursor:pointer" onclick="toggleArt(&#39;audioprompt-r2&#39;, this)">Prompt &#9662;</a>' +
+    '<div class="artdetail" id="audioprompt-r2">' +
+    '<div class="why">The exact prompt given to Gemini Notebook&#39;s Audio Overview (<b>Debate</b> format), with Friday&#39;s deck and handouts selected and every other day unticked. The same two voices as Thursday, one day further on: yesterday they argued about reading, today about signing.</div>' +
+    '<div class="eg"><b>THE PROMPT</b><pre class="after">Two voices: Minobe, Keeper of the Library (patient, exact) and the same\nyoung Koga researcher from yesterday - brilliant, in a hurry, and now\nholding a finished draft. They debate the five arts of Friday: the\npolishing cycle (reverse-outline, rewrite, critique, and always your own\nfinal pass), the declared hand (a detection is not proof, so you sign\nfirst), the three referees (summon sceptics against your own design\nbefore anyone else does), the delegation code (delegate production,\nnever verification or judgement), and pre-mortem foresight (write the\nrejection letter before you submit).\n\nThe researcher opens with &quot;the draft is finished and it is good -\nwhy must I confess how it was made?&quot; Minobe answers with the two\ncases from Friday morning: a university that dropped its detector after\na third of its cases collapsed, and a court that overturned a finding\nwhen a second detector said zero. Neither shows the tools are useless;\nboth show that the account of your own process must come from you.\n\nThey also argue about the order of work. The researcher wants the whole\npaper in one request. Minobe insists on the structure first, then one\nsection at a time, each read and saved before the next - and wins with\nthe labour table: a number that was a share and not a rate, corrected in\nan hour, and how three people then over-corrected onto a denominator\nthat hid the finding instead of revealing it.\n\nEnd with: &quot;The machine works perfectly inside a boundary it cannot\nsee. Only you know where the boundary is. So sign what you write.&quot;</pre></div>' +
+    '<div class="tip">One line does the teaching: <b>&quot;the draft is finished and it is good &mdash; why must I confess how it was made?&quot;</b> That is the honest objection, and the answer is not etiquette but self-defence: a detector&#39;s verdict is not evidence, which is exactly why the account of your own process should be yours, and should come first.</div></div>' });
 
 /* ---------- Post-survey ---------- */
 html += '<h2 class="phase">The Measure of Training</h2>';
