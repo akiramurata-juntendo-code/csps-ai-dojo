@@ -203,6 +203,8 @@
   .wish .tag.koga { background:var(--koga); color:#fff; border-color:var(--koga); }
   .fail { background:#fff; border:1px solid #d8c9a8; border-left:4px solid #a03123; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:12.8px; }
   .fail b { color:#7a1f1f; }
+  .fail .fmove { display:block; margin-top:5px; font-size:11.5px; color:#3a6b35; }
+  .fail .ftag { float:right; font-size:10.5px; color:#8a7454; }
   /* Kamus Kampung (village glossary) & template shelf */
   .gloss { display:grid; grid-template-columns: 1fr 1fr; gap:4px 14px; font-size:13px; margin-top:6px; }
   .gloss div { padding:4px 0; border-bottom:1px dotted #d8c9a8; }
@@ -465,6 +467,41 @@ var WISHES = [
    Each entry: task / expected / actual / why. Five entries open the Red Team scroll. */
 var FAILS = [
   // { task:'Draft a reminder to a Pengiran', expected:'Honorifics kept in full', actual:'Dropped the title', why:'Titles look optional to a model - name them in Constraints' },
+];
+
+/* ---- The Master's own failure pages: real traps met while preparing and running
+   this very dojo. Labelled as the Master's — the village's book stays its own. ---- */
+var MASTERFAILS = [
+ { task:'Draft the launch invitation &mdash; guest list pasted with full titles',
+   expected:'Every honorific kept exactly as given',
+   actual:'Shortened a full honorific to &quot;Mr&quot; by the second paragraph',
+   why:'To a model, titles are decoration it may compress. Anything that can offend must travel as a locked [SLOT], never as text it is free to rewrite.',
+   counter:'The launch pack, protocol-proof' },
+ { task:'Convert the schedule for a Malay circular',
+   expected:'09/12 to mean 9 December in both languages',
+   actual:'The BM version quietly read 12 September',
+   why:'Day-month order is a convention, not a fact the model can check. Spell the month in words, in both languages, every time.',
+   counter:'Both languages, same meaning' },
+ { task:'Asked which clause of an employment regulation covers a case &mdash; &quot;give me the section number&quot;',
+   expected:'The real clause',
+   actual:'A confident section number that does not exist',
+   why:'It completes the SHAPE of a legal citation from patterns, not from the gazette. Rules are copied from the regulator&#39;s own page, never composed.',
+   counter:'Advertise first, then apply &mdash; step one' },
+ { task:'Five local studies on youth employment, with citations',
+   expected:'Five real papers',
+   actual:'Three real, two unfindable &mdash; real authors, almost-real titles',
+   why:'Source-shaped text is an illusion. A citation is not a source until you have opened it.',
+   counter:'Cite the house first' },
+ { task:'Total a per-diem table',
+   expected:'Arithmetic',
+   actual:'A tidy grand total, wrong by forty dollars',
+   why:'It writes numbers that LOOK like totals; it does not run a calculator unless you make it. One line re-added by hand certifies the column.',
+   counter:'The per-diem sheet, read back' },
+ { task:'Shorten a two-page minute to half a page',
+   expected:'Same decisions, fewer words',
+   actual:'One deadline and one owner vanished with the padding',
+   why:'Compression keeps themes and sheds particulars &mdash; and dates and duties are particulars. Count the commitments before and after.',
+   counter:'The proof-reading pass' }
 ];
 
 /* ---- Kamus Kampung: the village's Malay glossary (participants supply the words; verified in the room) ---- */
@@ -1448,6 +1485,14 @@ html += '<div class="card"><div class="badge b-iga">&#128214;</div><div style="f
   '<i>what you asked · what you expected · what it did · why you think it happened</i>. Anonymous; no names of people or divisions. Five entries open the <b>Red Team Scroll</b>; the book itself becomes the village&#39;s own field guide.</p>' +
   (URLS.qaform ? '<a class="btn iga" href="' + URLS.qaform + '" target="_blank" rel="noopener">Record a failure &mdash; four short lines</a>' : '') +
   '</div></div>';
+html += '<details class="fold"><summary><b>Open the Master&#39;s pages</b> &mdash; six traps met while building this very dojo<span class="fhint">tap to open &#9660;</span></summary><div class="finner">';
+html += '<p style="font-size:12.5px;color:#8a7454;margin:6px 2px 2px">Recorded by the Master so no ninja walks first into an empty book. These are the same five traps the sealed scroll teaches &mdash; met in the wild, one extra for luck. The village&#39;s own pages below stay the village&#39;s.</p>';
+html += MASTERFAILS.map(function(f){
+  return '<div class="fail"><span class="ftag">the Master&#39;s book</span><b>Task:</b> ' + f.task + ' &nbsp;<b>Expected:</b> ' + f.expected +
+         '<br><b>It did:</b> ' + f.actual + ' &nbsp;<b>Why:</b> ' + f.why +
+         '<span class="fmove">&#128737;&#65039; Counter-move on the Training Grounds: <b>' + f.counter + '</b></span></div>';
+}).join('');
+html += '</div></details>';
 html += FAILS.map(function(f){
   return '<div class="fail"><b>Task:</b> ' + f.task + ' &nbsp;<b>Expected:</b> ' + f.expected +
          '<br><b>It did:</b> ' + f.actual + ' &nbsp;<b>Why:</b> ' + f.why + '</div>';
@@ -1463,7 +1508,7 @@ if (FAILS.length >= 5 || PREVIEW) {
     'The village that records its failures stops repeating them.', 0, 'now');
 } else {
   html += '<div class="scroll sealed"><svg class="closedscroll"><use href="#sym-closed"/></svg>' +
-          '<div>&#128274; <b>Sealed — The Scroll of Honest Failure</b> &middot; opens when the village has recorded five failures (' + FAILS.length + '/5 so far)' +
+          '<div>&#128274; <b>Sealed — The Scroll of Honest Failure</b> &middot; the Master&#39;s pages are already open above &mdash; the scroll unseals when the village records five failures of its own (' + FAILS.length + '/5 so far)' +
           '<br><span class="k">秘伝 失敗帳の巻</span></div></div>';
 }
 
