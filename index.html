@@ -66,6 +66,15 @@
   .fold > summary b { color:#2b1d0e; }
   .fold > summary .fhint { margin-left:auto; font-size:11px; color:#8a7a55; white-space:nowrap; }
   .fold > .finner { padding:2px 12px 12px; }
+  .howto { background:#f4efe0; border:1px solid #d8c9a8; border-radius:8px; padding:10px 14px;
+           font-size:12.5px; margin:8px 0 12px; }
+  .howto b { color:#7a4a12; }
+  .nudge { margin:2px 0 10px; }
+  .nudge > summary { cursor:pointer; list-style:none; font-size:11.5px; color:#8a7454; user-select:none; }
+  .nudge > summary::-webkit-details-marker { display:none; }
+  .nudge > summary::before { content:'💡 '; }
+  .nudge div { font-size:12px; color:#5a4a20; background:#fff8ec; border:1px dashed #cfae1e;
+               border-radius:8px; padding:8px 12px; margin-top:4px; }
   .clanchip .k { font-family:"Yu Mincho",serif; color:#b99f6c; margin-left:6px; font-size:11.5px; }
   .banner { display:block; width:min(100%, 860px); margin:16px auto 0;
             border-radius:12px 12px 0 0; box-shadow:0 -2px 12px rgba(0,0,0,.35); }
@@ -884,17 +893,25 @@ html += card({ t: T.touch1, mark:'&#127916;', whenLabel:'Friday 4 September',
 html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
   title: 'First Trial of Memory (+1 week)',
   desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial.',
-  body : '<div class="qa"><b>Iga &middot; the administrators&#39; three:</b><ol>' +
-    '<li>What are the three categories of the data-discipline sort &mdash; and which never enters a public AI tool?</li>' +
-    '<li>What must you do before accepting ANY output from an AI tool? <i>(your hardest, word for word &mdash; 79% on Wednesday)</i></li>' +
-    '<li>What are the five parts of a good instruction to an AI tool?</li></ol>' +
+  body : '<div class="qa">' +
+    '<div class="howto"><b>How to take this trial (two minutes, notes closed):</b> &#9312; get paper or your phone&#39;s notes app &mdash; &#9313; write an answer for each question, <i>even a half-remembered guess</i> &mdash; &#9314; keep what you wrote. When the Second Trial opens, you mark your own three.<br><b>Why are the answers sealed?</b> Because the struggle to recall IS the training &mdash; a guess made now makes the real answer stick twice as hard when it arrives. That is the whole art of this scroll.<br><b>The shape of a good answer</b> (a practice swing, not from the trial) &mdash; <i>Q: the house rule that ends every exercise?</i> &rarr; <i>A: Find one thing to fix &mdash; Cari satu perkara untuk diperbaiki.</i> One line, your own words, something you could actually DO.</div>' +
+    '<b>Iga &middot; the administrators&#39; three:</b><ol>' +
+    '<li>What are the three categories of the data-discipline sort &mdash; and which never enters a public AI tool?<details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>Three piles on your desk on Day 1 &mdash; the icons were green, amber and red. What was each pile allowed to touch?</div></details></li>' +
+    '<li>What must you do before accepting ANY output from an AI tool? <i>(your hardest, word for word &mdash; 79% on Wednesday)</i><details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>It is the habit printed at the end of every drill on the Training Grounds &mdash; and it is now in the village dictionary, in both languages.</div></details></li>' +
+    '<li>What are the five parts of a good instruction to an AI tool?<details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>Open any prompt you saved from the room and count the # symbols. Five words, each starting a line.</div></details></li></ol>' +
     '<b>Koga &middot; the researchers&#39; three:</b><ol>' +
-    '<li>The discovery triangle for literature work, in the correct order: <i>(your hardest, word for word &mdash; 55% on Friday)</i></li>' +
-    '<li>Six interviews named causes the survey had no column for. The standing conclusion is: <i>(also 55% &mdash; the village split evenly on this one)</i></li>' +
-    '<li>In the annotated bibliography exercise, the [CHECK] convention exists so that the model does what?</li></ol>' +
-    '<b>This week&#39;s challenge:</b> Iga &mdash; use the personal template you built, once, on a real task; ' +
-    'if it needed fixing, fix it, and that fix is the template becoming yours. Koga &mdash; open the ' +
-    'closing note from your last session and start one new conversation with it. Two minutes.</div>'
+    '<li>The discovery triangle for literature work, in the correct order: <i>(your hardest, word for word &mdash; 55% on Friday)</i><details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>Three actors: the machine, the index, and you. Which one is allowed to SUGGEST, which one CONFIRMS a source is real, and which one must READ it?</div></details></li>' +
+    '<li>Six interviews named causes the survey had no column for. The standing conclusion is: <i>(also 55% &mdash; the village split evenly on this one)</i><details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>The causes were real; the spreadsheet simply had no place to write them. Is that something to apologise for in the limitations &mdash; or something you just discovered about the NEXT survey?</div></details></li>' +
+    '<li>In the annotated bibliography exercise, the [CHECK] convention exists so that the model does what?<details class="nudge"><summary>Stuck? A nudge &mdash; never the answer</summary><div>When the model is not sure, what should appear on the page &mdash; a confident sentence, or something else?</div></details></li></ol>' +
+    '<b>This week&#39;s challenge, step by step:</b><br>' +
+    '<b>Iga (five minutes):</b> &#9312; open the template you saved in the room &mdash; email, minute or register, any one. ' +
+    '&#9313; pick the SMALLEST real task on your desk today. &#9314; fill the [SLOTS], use the result for real. ' +
+    '&#9315; write one line at the bottom of the template: what you fixed. <i>That line is the template becoming yours.</i><br>' +
+    '<b>Koga (two minutes):</b> &#9312; find the closing note from your last AI session. &#9313; start a NEW conversation and paste it. ' +
+    '&#9314; ask: &quot;Continue from here &mdash; what were we about to do next?&quot; ' +
+    '&#9315; note one thing that carried over and one that did not &mdash; <i>the gap is what your next closing note should capture.</i><br>' +
+    '<span style="font-size:12px;color:#8a7454">Rusty? Ten minutes on the Training Grounds first is fair training, not cheating &mdash; ' +
+    'Iga: <b>Your template, upgraded</b> &middot; <b>Spot the trick</b>. Koga: <b>Cite the house first</b> &middot; <b>The proof-reading pass</b>.</span></div>'
 });
 html += card({ t: T.touch2, mark:'II', whenLabel:'Thursday 24 September',
   title: 'Second Trial of Memory (+1 month)',
