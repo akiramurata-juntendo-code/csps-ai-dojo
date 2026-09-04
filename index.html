@@ -21,8 +21,29 @@
   header .meta { font-size: 13.5px; margin-top:10px; color:#d9c79e; }
   header .kanji-accent { font-family:"Yu Mincho","MS Mincho",serif; font-size: 15px;
            letter-spacing:.4em; color:#b99f6c; margin-top:12px; opacity:.85; }
-  .clans { display:flex; justify-content:center; gap:14px; margin-top:14px; flex-wrap:wrap; }
-  .clanchip { border:1px solid #d9c79e; border-radius:20px; padding:4px 14px; font-size:12.5px; }
+  .gatefork { display:block; margin:2px auto -4px; width:min(560px,80%); height:44px; }
+  .gatefork path { stroke:#8d7d5e; stroke-width:2; fill:none; opacity:.85; }
+  .gates { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:16px;
+           margin:6px auto 0; max-width:720px; text-align:left; }
+  .gate { position:relative; background:rgba(251,247,236,.06); border:1px solid #6f5f45;
+          border-top:5px solid; border-radius:12px; padding:14px 16px 14px; overflow:hidden; }
+  .gate.g-iga { border-top-color:var(--iga); } .gate.g-koga { border-top-color:var(--koga); }
+  .gate .gk { position:absolute; right:8px; top:2px; font-size:52px; opacity:.10; color:#f1e5c8;
+              font-weight:bold; pointer-events:none; }
+  .gate h3 { margin:0; font-size:16px; color:#f1e5c8; letter-spacing:.5px; }
+  .gate .gsub { font-size:12px; color:#d9c79e; margin-top:2px; }
+  .gate .ginfo { font-size:11.5px; color:#b9ab8c; margin-top:8px; line-height:1.5; }
+  .gate .gbtn { display:inline-block; margin-top:10px; padding:6px 14px; border-radius:8px;
+                font-size:12.5px; color:#fff; cursor:pointer; user-select:none; border:none; }
+  .g-iga .gbtn { background:var(--iga); } .g-koga .gbtn { background:var(--koga); }
+  .gate .gbtn:hover { filter:brightness(1.25); }
+  .gate.mine { box-shadow:0 0 0 2px rgba(232,195,31,.55); }
+  .gate.mine .gtag { display:inline-block; }
+  .gate .gtag { display:none; font-size:8.5px; letter-spacing:.8px; color:#e8c31f;
+                margin-left:8px; vertical-align:2px; }
+  @media (max-width:640px){ .gatefork { display:none; } }
+  #sec-iga { border-left:6px solid var(--iga); padding-left:12px; }
+  #sec-koga { border-left:6px solid var(--koga); padding-left:12px; }
   .clanchip .k { font-family:"Yu Mincho",serif; color:#b99f6c; margin-left:6px; font-size:11.5px; }
   .banner { display:block; width:min(100%, 860px); margin:16px auto 0;
             border-radius:12px 12px 0 0; box-shadow:0 -2px 12px rgba(0,0,0,.35); }
@@ -221,11 +242,29 @@
   <div class="welcome">Welcome — Selamat datang!</div>
   <div class="meta">AI Training Workshop · Centre for Strategic and Policy Studies · 24–28 August 2026<br>
      Facilitator: Dr. Akira Murata, Juntendo University / Co-Founder, Awesome AI Asia</div>
-  <div class="clans">
-    <span class="clanchip">IGA SCHOOL — Administrators (24 &amp; 26 Aug)<span class="k">伊賀</span></span>
-    <span class="clanchip">KOGA SCHOOL — Researchers (27 &amp; 28 Aug)<span class="k">甲賀</span></span>
-  </div>
   <div class="kanji-accent">忍びの道場 — Two Schools, One Village</div>
+  <svg class="gatefork" viewBox="0 0 560 44" aria-hidden="true">
+    <path d="M280,0 V10 C280,22 180,20 150,34 M280,10 C280,22 380,20 410,34"/>
+    <path d="M144,30 L150,36 L157,31"/><path d="M403,31 L410,36 L416,30"/>
+  </svg>
+  <div class="gates">
+    <div class="gate g-iga" id="gate-iga">
+      <span class="gk">伊賀</span>
+      <h3>IGA SCHOOL<span class="gtag">YOUR SCHOOL</span></h3>
+      <div class="gsub">Administrators &middot; 24 &amp; 26 August</div>
+      <div class="ginfo">Your guide: <b>Hana</b> &middot; two hidden scrolls, the morning challenge,
+        recap audio &mdash; the administrator&#39;s road through the village.</div>
+      <span class="gbtn" onclick="enterGate('iga')">Enter the Iga gate &#9660;</span>
+    </div>
+    <div class="gate g-koga" id="gate-koga">
+      <span class="gk">甲賀</span>
+      <h3>KOGA SCHOOL<span class="gtag">YOUR SCHOOL</span></h3>
+      <div class="gsub">Researchers &middot; 27 &amp; 28 August</div>
+      <div class="ginfo">Your guide: <b>Minobe</b> &middot; proof-first scrolls, the morning challenge,
+        the Trials &mdash; the researcher&#39;s road, where every claim earns its place.</div>
+      <span class="gbtn" onclick="enterGate('koga')">Enter the Koga gate &#9660;</span>
+    </div>
+  </div>
   <div class="belts" id="belts">
     <span class="belt" data-b="white"><i class="bw"></i><b>WHITE</b><small>entered the dojo</small></span>
     <span class="belt" data-b="yellow"><i class="by"></i><b>YELLOW</b><small>scrolls + morning challenge</small></span>
@@ -1496,6 +1535,20 @@ if (nsEl) {
     '<a class="btn" style="padding:4px 12px;font-size:12.5px;margin-top:0" href="#" ' +
     'onclick="document.getElementById(&#39;' + step[1] + '&#39;).scrollIntoView({behavior:&#39;smooth&#39;});return false;">Take me there &#9660;</a>';
 }
+/* ---- Two gates: remember the school, mark it, and walk its road ---- */
+function paintGates(){
+  var sch = null; try { sch = localStorage.getItem('dojoSchool'); } catch(e){}
+  var gi = document.getElementById('gate-iga'), gk = document.getElementById('gate-koga');
+  if (!gi || !gk) return;
+  gi.classList.toggle('mine', sch==='iga'); gk.classList.toggle('mine', sch==='koga');
+}
+function enterGate(sch){
+  try { localStorage.setItem('dojoSchool', sch); } catch(e){}
+  paintGates();
+  var t = document.getElementById('sec-' + sch);
+  if (t) t.scrollIntoView({behavior:'smooth'});
+}
+paintGates();
 /* ---- Belts: White is earned by entering the dojo (first-five-minutes rule). Stored only on this device. ---- */
 (function(){
   var KEY='dojo_white_belt', first=false, since=null;
