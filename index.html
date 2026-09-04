@@ -885,14 +885,26 @@ html += card({ t: T.now, clan:'open', mark:'&#127891;',
          '<p style="font-size:12.5px;margin-top:4px">Anthropic says the Academy is not a manual for its own buttons: it is built on a <b>4D AI Fluency Framework</b>. Read the left column, then the right &mdash; you spent this week practising all four before anyone told you what they were called.</p>'+
          '<div style="display:flex;gap:8px;margin-top:5px;font-size:12.5px"><span style="flex:0 0 92px;color:#7a1f1f;font-weight:bold">Delegation</span><span style="flex:1;color:#5a4a33">what you hand over, and what you keep<br><span style="color:#8a7454">Delegate production. Keep verification and judgement.</span></span></div><div style="display:flex;gap:8px;margin-top:5px;font-size:12.5px"><span style="flex:0 0 92px;color:#7a1f1f;font-weight:bold">Description</span><span style="flex:1;color:#5a4a33">saying the task well enough to be done<br><span style="color:#8a7454">Role &middot; Task &middot; Context &middot; Constraints &middot; Format &mdash; a ceiling, not a floor.</span></span></div><div style="display:flex;gap:8px;margin-top:5px;font-size:12.5px"><span style="flex:0 0 92px;color:#7a1f1f;font-weight:bold">Discernment</span><span style="flex:1;color:#5a4a33">judging what came back<br><span style="color:#8a7454">Find one thing to fix. Reach the number by a second route.</span></span></div><div style="display:flex;gap:8px;margin-top:5px;font-size:12.5px"><span style="flex:0 0 92px;color:#7a1f1f;font-weight:bold">Diligence</span><span style="flex:1;color:#5a4a33">owning what you send out<br><span style="color:#8a7454">AI-assisted draft, verified by [name]. A detection is not proof &mdash; declare it first.</span></span></div>'+
          '<p style="font-size:12px;margin-top:8px;color:#8a7454">That correspondence is ours, not theirs &mdash; but it is why the Academy will feel like the next room rather than a different building.</p></div>' });
-html += card({ t: T.touch1, mark:'&#127916;', whenLabel:'Friday 4 September',
+html += '<div class="card"><div class="badge b-open">&#128506;&#65039;</div><div style="flex:1">' +
+  '<h3>The shape of the Trials &mdash; two series, two waves</h3>' +
+  '<p style="margin-top:4px">Two counts run side by side, and the names make sense once you see them: ' +
+  'the <b>practical trials</b> (your first was in the room, on the final day &mdash; so this week&#39;s is the <i>Second</i>) ' +
+  'and the <b>trials of memory</b> (these began after the room &mdash; so this week&#39;s is the <i>First</i>).</p>' +
+  '<p style="margin-top:6px"><b>&#9873; Wave I &middot; open now (from 4 September) &rarr; the Brown belt:</b><br>' +
+  '&nbsp;&#9312; <b>The Second Trial</b> &mdash; the practical half: five minutes, two decks, paste only the titles.<br>' +
+  '&nbsp;&#9313; <b>First Trial of Memory</b> &mdash; the written half: two minutes, notes closed, keep your answers.<br>' +
+  '<span style="color:#8a7a55;font-size:12.5px">Do both, either order. Nothing long &mdash; seven minutes covers the wave.</span></p>' +
+  '<p style="margin-top:6px"><b>&#9872; Wave II &middot; 24 September &rarr; the Black belt:</b><br>' +
+  '&nbsp;<b>Second Trial of Memory</b> &mdash; the sealed answers open, you mark your own Wave-I sheet, ' +
+  'three new questions, and a three-minute check-in.</p></div></div>';
+html += card({ t: T.touch1, mark:'&#127916;', whenLabel:'Friday 4 September &middot; Trial Wave I &mdash; the practical half',
   title: 'The Second Trial &mdash; one finding, two decks',
-  desc : 'The labour-table drill ends in a finding. This trial asks you to say it twice: once by letting Gemini Notebook&#39;s Studio build the deck, once by asking Claude for the outline and building it yourself. Then compare &mdash; not the slides, the <b>titles</b>. A title that states the takeaway teaches; a title that states the topic leaves the room to conclude something of its own. Five minutes to submit, and nothing is uploaded: you keep your files and paste only the titles. <b>Partial counts</b> &mdash; one deck, or even only the comparison.',
+  desc : 'The labour-table drill ends in a finding. This trial asks you to say it twice: once by letting Gemini Notebook&#39;s Studio build the deck, once by asking Claude for the outline and building it yourself. Then compare &mdash; not the slides, the <b>titles</b>. A title that states the takeaway teaches; a title that states the topic leaves the room to conclude something of its own. Five minutes to submit, and nothing is uploaded: you keep your files and paste only the titles. <b>Partial counts</b> &mdash; one deck, or even only the comparison. <b>Partner card:</b> the First Trial of Memory, just below &mdash; the written half of the same wave. Either order.',
   body : (URLS.trial2 ? link_(URLS.trial2, 'Enter the Second Trial', 'koga') : '<span class="pending">Opens with the First Trial on 4 September</span>') +
     '<p style="font-size:12.5px;margin-top:6px;color:#8a7a55">The drill itself is on the Training Grounds: <b>The number that was not a rate</b> &mdash; steps 11 to 13 are this trial. Build your own notebook for it; never put your working into the shared Librarian.</p>' });
-html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
+html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September &middot; Trial Wave I &mdash; the written half',
   title: 'First Trial of Memory (+1 week)',
-  desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial.',
+  desc : 'Three questions, from memory — one of them is the question the village found hardest in the morning challenge, word for word. Answers unlock with the second trial. <b>Partner card:</b> The Second Trial just above is the practical half of this week&#39;s wave &mdash; together they are Wave I, the Brown belt.',
   body : '<div class="qa">' +
     '<div class="howto"><b>How to take this trial (two minutes, notes closed):</b> &#9312; get paper or your phone&#39;s notes app &mdash; &#9313; write an answer for each question, <i>even a half-remembered guess</i> &mdash; &#9314; keep what you wrote. When the Second Trial opens, you mark your own three.<br><b>Why are the answers sealed?</b> Because the struggle to recall IS the training &mdash; a guess made now makes the real answer stick twice as hard when it arrives. That is the whole art of this scroll.<br><b>The shape of a good answer</b> (a practice swing, not from the trial) &mdash; <i>Q: the house rule that ends every exercise?</i> &rarr; <i>A: Find one thing to fix &mdash; Cari satu perkara untuk diperbaiki.</i> One line, your own words, something you could actually DO.</div>' +
     '<b>Iga &middot; the administrators&#39; three:</b><ol>' +
@@ -913,9 +925,9 @@ html += card({ t: T.touch1, mark:'I', whenLabel:'Friday 4 September',
     '<span style="font-size:12px;color:#8a7454">Rusty? Ten minutes on the Training Grounds first is fair training, not cheating &mdash; ' +
     'Iga: <b>Your template, upgraded</b> &middot; <b>Spot the trick</b>. Koga: <b>Cite the house first</b> &middot; <b>The proof-reading pass</b>.</span></div>'
 });
-html += card({ t: T.touch2, mark:'II', whenLabel:'Thursday 24 September',
+html += card({ t: T.touch2, mark:'II', whenLabel:'Thursday 24 September &middot; Trial Wave II',
   title: 'Second Trial of Memory (+1 month)',
-  desc : 'Answers to the first trial, three new questions, and a three-minute check-in.',
+  desc : 'Wave II, the Black belt: the sealed answers open &mdash; mark your own Wave-I sheet first &mdash; then three new questions and a three-minute check-in.',
   body : '<div class="qa"><b>Answers &middot; Iga:</b> (1) Public / Internal &mdash; anonymise first / ' +
     'Confidential &mdash; never. (2) Verify &mdash; find one thing to fix. (3) Role, Task, Context, Constraints, Format.' +
     '<br><b>Answers &middot; Koga:</b> (1) The AI suggests, the index confirms, the researcher reads &mdash; ' +
