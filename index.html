@@ -195,7 +195,10 @@
   .qa li { margin:6px 0 6px 18px; }
   /* Belt ladder (header) */
   .belts { display:flex; justify-content:center; align-items:flex-start; margin:14px auto 0; flex-wrap:wrap; max-width:780px; row-gap:10px; }
-  .belt { display:flex; flex-direction:column; align-items:center; gap:2px; padding:0 12px; position:relative; min-width:104px; cursor:default; }
+  .belt { display:flex; flex-direction:column; align-items:center; gap:2px; padding:0 12px; position:relative; min-width:104px; cursor:pointer; }
+  .belt.done i { opacity:1; }
+  .belt.done b { color:#d9c79e; }
+  .belthint { text-align:center; font-size:10.5px; color:#8d7d5e; margin-top:6px; }
   .belt i { display:block; width:36px; height:9px; border-radius:2px; margin-bottom:2px; opacity:.55; }
   .belt b { font-size:12px; letter-spacing:.4px; color:#a8987a; font-weight:600; }
   .belt small { font-size:10.5px; line-height:1.3; text-align:center; max-width:118px; color:#8d7d5e; }
@@ -312,6 +315,7 @@
     <span class="belt" data-b="brown"><i class="bbr"></i><b>BROWN</b><small>Trial I (+1 week)</small></span>
     <span class="belt" data-b="black"><i class="bk"></i><b>BLACK</b><small>Trial II (+1 month)</small></span>
   </div>
+  <div class="belthint">Earned the next belt? Tap it &mdash; the dojo takes your word.</div>
   <div class="beltnote">Your path through the village &mdash; belts are earned by what you do after the room, not by the calendar.</div>
   <img class="banner" src="assets/group.webp"
        alt="The five dojo characters — the Master, Hattori, Hana, Minobe, and the ninja cat Kagenyan — under a full moon">
@@ -1847,6 +1851,8 @@ if (nsEl) {
 /* ---- The Village Notice Board: what changed, for returning visitors.
    To announce a future update: add ONE entry at the TOP of NEWSLOG. ---- */
 var NEWSLOG = [
+ { d:'2026-09-05', t:'YOU ARE HERE now moves',
+   x:'The belt path is no longer a picture. Earned the next belt? Tap it \u2014 the dojo states the requirement and takes your word. White is automatic; Black waits for Trial II on 24 September.' },
  { d:'2026-09-05', t:'Every belt now has twenty or more drills',
    x:'Fifty-seven new drills join the grounds: Green (combine two arts on your own file), Brown (build something a colleague can use), and new Black capstones. 135 drills, five belts, admin and researcher tracks both served.' },
  { d:'2026-09-05', t:'The village got a map &mdash; and four districts',
@@ -1910,12 +1916,48 @@ paintGates();
 (function(){
   var KEY='dojo_white_belt', first=false, since=null;
   try { since = localStorage.getItem(KEY); if (!since) { since = new Date().toISOString().slice(0,10); localStorage.setItem(KEY, since); first=true; } } catch(e){}
+  var BELTSEQ = ['white','yellow','green','brown','black'];
+  var BELTREQ = {
+    yellow: 'Yellow is earned by opening BOTH hidden scrolls of your school and taking the morning challenge.\n\nHave you done both?',
+    green:  'Green is earned by the capstone: your one-page design memo, written and signed.\n\nIs it written?',
+    brown:  'Brown is earned by Trial Wave I: the two decks submitted, and your First Trial of Memory answers written and kept.\n\nBoth done?',
+    black:  'Black is earned by Trial II: your Wave-I answers marked, the new questions met, the check-in sent.\n\nDone?' };
+  function beltRank(){ var r='white'; try { r = localStorage.getItem('dojo_belt') || 'white'; } catch(e){} return BELTSEQ.indexOf(r) === -1 ? 'white' : r; }
+  function paintBelts(){
+    var cur = beltRank(), ci = BELTSEQ.indexOf(cur);
+    var els = document.querySelectorAll('#belts .belt');
+    for (var i=0;i<els.length;i++){
+      var b = els[i].getAttribute('data-b'), bi = BELTSEQ.indexOf(b);
+      els[i].classList.toggle('on', bi === ci);
+      els[i].classList.toggle('done', bi < ci);
+    }
+  }
+  function claimBelt(b){
+    var cur = beltRank(), ci = BELTSEQ.indexOf(cur), bi = BELTSEQ.indexOf(b);
+    if (bi <= ci) return;
+    if (bi !== ci + 1) { alert('One belt at a time, ninja \u2014 ' + BELTSEQ[ci+1] + ' comes first.'); return; }
+    if (b === 'black' && !PREVIEW && Date.now() < bn(2026,9,24,9)) {
+      alert('The Black belt waits for Trial II \u2014 it opens on Thursday 24 September.'); return;
+    }
+    if (window.confirm(BELTREQ[b] + '\n\nThe dojo takes your word \u2014 the belt is earned by the work, not the tap.')) {
+      try { localStorage.setItem('dojo_belt', b); } catch(e){}
+      paintBelts();
+    }
+  }
   var belts = document.querySelectorAll('#belts .belt');
-  for (var i=0;i<belts.length;i++){ if (belts[i].getAttribute('data-b')==='white') belts[i].classList.add('on'); }
+  for (var i=0;i<belts.length;i++){ (function(el){
+    el.addEventListener('click', function(){ claimBelt(el.getAttribute('data-b')); });
+  })(belts[i]); }
+  paintBelts();
   var app = document.getElementById('app');
   if (app) {
     var b = document.createElement('div'); b.className='beltbanner';
-    b.innerHTML = first
+    var rank = beltRank();
+    var rankLine = { yellow:'&#128993; <b>Yellow Belt</b> — the scrolls and the morning challenge are behind you. Green waits for the capstone.',
+      green:'&#128994; <b>Green Belt</b> — capstone signed. Brown waits for Trial Wave I on the Path of Mastery.',
+      brown:'&#128996; <b>Brown Belt</b> — Trial I done. Black waits for Trial II on 24 September.',
+      black:'&#9899; <b>BLACK BELT</b> — the path is walked. The grounds stay open; so does the village.' }[rank];
+    b.innerHTML = rankLine ? rankLine : first
       ? '&#9898; <b>WHITE BELT ACQUIRED</b> — you entered the dojo. Every ninja begins here. Your next belt, Yellow, is earned by opening both scrolls and taking the morning challenge.'
       : '&#9898; <b>White Belt</b> since ' + since + '. Yellow waits for the scrolls and the morning challenge; Brown and Black are decided in the weeks after the room.';
     app.insertBefore(b, app.firstChild);
