@@ -66,6 +66,13 @@
   .fold > summary b { color:#2b1d0e; }
   .fold > summary .fhint { margin-left:auto; font-size:11px; color:#8a7a55; white-space:nowrap; }
   .fold > .finner { padding:2px 12px 12px; }
+  .news { border-bottom:1px dashed #d8c9a8; padding:8px 2px; font-size:13px; }
+  .news:last-child { border-bottom:none; }
+  .news .nd { color:#8a7a55; font-size:11.5px; margin-right:8px; white-space:nowrap; }
+  .news b { color:#5a4a20; }
+  .news .nx { display:block; color:#6b5b3e; font-size:12.5px; margin-top:2px; line-height:1.45; }
+  .newtag { display:inline-block; background:#a03123; color:#fff; font-size:9px; letter-spacing:.8px;
+            border-radius:3px; padding:1px 6px; margin-left:7px; vertical-align:2px; }
   .howto { background:#f4efe0; border:1px solid #d8c9a8; border-radius:8px; padding:10px 14px;
            font-size:12.5px; margin:8px 0 12px; }
   .howto b { color:#7a4a12; }
@@ -762,6 +769,7 @@ html += '<div class="vmap"><span class="vlab">VILLAGE MAP &middot; 村の地図<
  '<a href="#sec-grounds">&#129355; Training Grounds &middot; 135 drills</a>' +
  '<a href="#sec-library">&#128218; Library &amp; Librarian</a>' +
  '<a href="#sec-square">&#127982; Village Square</a></div>';
+html += '<div id="newsboard"></div>';
 
 
 /* ---------- Phase 0: begin ---------- */
@@ -1836,6 +1844,54 @@ if (nsEl) {
     '<a class="btn" style="padding:4px 12px;font-size:12.5px;margin-top:0" href="#" ' +
     'onclick="document.getElementById(&#39;' + step[1] + '&#39;).scrollIntoView({behavior:&#39;smooth&#39;});return false;">Take me there &#9660;</a>';
 }
+/* ---- The Village Notice Board: what changed, for returning visitors.
+   To announce a future update: add ONE entry at the TOP of NEWSLOG. ---- */
+var NEWSLOG = [
+ { d:'2026-09-05', t:'Every belt now has twenty or more drills',
+   x:'Fifty-seven new drills join the grounds: Green (combine two arts on your own file), Brown (build something a colleague can use), and new Black capstones. 135 drills, five belts, admin and researcher tracks both served.' },
+ { d:'2026-09-05', t:'The village got a map &mdash; and four districts',
+   x:'One long page, four clear parts: The Two Roads, the Training Grounds, the Library, and the Village Square. Long lists (the roster, the dictionary, the maps) now fold &mdash; tap to open them.' },
+ { d:'2026-09-05', t:'Two gates at the entrance',
+   x:'Choose your school at the top &mdash; Iga for administrators, Koga for researchers &mdash; and the page remembers your road on this device.' },
+ { d:'2026-09-05', t:'Twenty Brunei drills, and belt colours on every card',
+   x:'New drills built on the DEPS labour tables, JobCentre rules, halal catering sheets, protocol slots and bilingual circulars. Every drill card now wears its difficulty as a coloured belt, with a How-hard filter.' },
+ { d:'2026-09-05', t:'The Master opened the Book of Failures',
+   x:'Six real traps met while building this dojo, each with its counter-move on the grounds. The sealed scroll still waits for the village&#39;s own five entries.' },
+ { d:'2026-09-05', t:'Table 6 completed the dictionary',
+   x:'All three wanted phrases now speak Bahasa Melayu &mdash; kamus kampung grows. A scroll request also became drill 78: the educational visit, asked properly.' },
+ { d:'2026-09-05', t:'The Second Trial submission scroll is hung',
+   x:'The Enter button works. Five minutes, two decks, paste only the titles &mdash; partial counts.' },
+ { d:'2026-09-04', t:'Trial Wave I opened',
+   x:'Two small tasks, about seven minutes together: the practical trial (two decks) and the First Trial of Memory (write your answers, keep the page). Wave II opens on 24 September and unseals the answers.' },
+ { d:'2026-09-03', t:'Ten new drills, grown from your wishes',
+   x:'Automation maps, next year&#39;s IT budget, the GitHub one-file site trick, the inbox hour &mdash; built from the wish wall and the question box.' },
+ { d:'2026-08-28', t:'The training week closed &mdash; the dojo stays open',
+   x:'Four days, two schools, 75 wishes on the wall, 24 ninja on the roster. Everything above happened after the room &mdash; keep returning.' }
+];
+function drawNews(){
+  var slot = document.getElementById('newsboard');
+  if (!slot || !NEWSLOG.length) return;
+  var seen = null;
+  try { seen = localStorage.getItem('dojoNewsSeen'); } catch(e){}
+  var fresh = seen ? NEWSLOG.filter(function(n){ return n.d > seen; }).length : 0;
+  var latest = NEWSLOG[0];
+  var rows = NEWSLOG.map(function(n){
+    var isNew = seen && n.d > seen;
+    return '<div class="news"><span class="nd">' + n.d + '</span><b>' + n.t + '</b>' +
+           (isNew ? '<span class="newtag">NEW</span>' : '') +
+           '<span class="nx">' + n.x + '</span></div>';
+  }).join('');
+  slot.innerHTML = '<details class="fold"' + (fresh > 0 ? ' open' : '') + '><summary>' +
+    '<b>The Village Notice Board</b> <span class="k" style="font-size:11px">&#39640;&#26413;&#22580;</span>' +
+    ' &mdash; ' + (fresh > 0
+      ? '<span style="color:#a03123;font-weight:bold">' + fresh + ' update' + (fresh>1?'s':'') + ' since your last visit</span>'
+      : 'latest: ' + latest.t.replace(/<[^>]*>/g,'').toLowerCase()) +
+    '<span class="fhint">tap to open &#9660;</span></summary><div class="finner">' + rows +
+    '<p style="font-size:11.5px;color:#8a7a55;margin-top:8px">The board marks NEW anything posted after your previous visit &mdash; remembered on this device only.</p>' +
+    '</div></details>';
+  try { localStorage.setItem('dojoNewsSeen', NEWSLOG[0].d); } catch(e){}
+}
+drawNews();
 /* ---- Two gates: remember the school, mark it, and walk its road ---- */
 function paintGates(){
   var sch = null; try { sch = localStorage.getItem('dojoSchool'); } catch(e){}
